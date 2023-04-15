@@ -13,19 +13,19 @@
     <body class="bg-primary">
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
-                <main>
-                    <?php if(isset($data)){
-                        echo '<pre>';
-                        print_r($data);
-                        echo '</pre>'; 
-                    }?>
+                <main>  
+
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">
                                 <div class="card shadow-lg border-0 rounded-lg mt-5">
                                     <div class="card-header"><h3 class="text-center font-weight-light my-4">Login</h3></div>
+                                   
                                     <div class="card-body">
-                                        <form method="post" action="<?= base_url('Welcome/check_login') ?>">
+                                    <?php if(isset($error)){ ?>
+                                        <span class="text-danger text-center"><?php echo $error; ?></span>
+                                     <?php  } ?>
+                                        <form method="post" action="<?= base_url('admin') ?>">
                                             <div class="form-floating mb-3">
                                                 <input class="form-control" id="inputEmail" name="email" type="email" placeholder="name@example.com" />
                                                 <label for="inputEmail">Email address</label>
