@@ -24,7 +24,7 @@ class Welcome extends CI_Controller {
 	}
 
 	public function admin()
-	{ 
+	{ 	
 		if(empty($this->input->post)){
 			
 			$email = $this->input->post('email');
@@ -33,13 +33,14 @@ class Welcome extends CI_Controller {
 			// Load the database library and model
 			$this->load->database();
 			$this->load->model('user_model');
-	
+			$this->load->library('session');
 			// Check if the email and password match in the database
 			$user = $this->user_model->get_user_by_email_password($email, $password);
 			
 			if ($user) {
+
 				// Set session data
-				$this->session->set_userdata('user_id', $user['id']);
+				$this->session->set_userdata('name', $user['name']);
 				$this->session->set_userdata('email', $user['email']);
 	
 				// Redirect to the dashboard
@@ -55,13 +56,14 @@ class Welcome extends CI_Controller {
 	}
 
 
-
-	public function dashboardy() {
+	public function dashboard() {
         // Check if the user is logged in
-        if (!$this->session->userdata('user_id')) {
-            redirect('login');
+        if (!$this->session->userdata('name')) {
+            redirect('admin');
+			exit;
         }
 
-        $this->load->view('dashboard');
+        $this->load->view('admin/dashboard');
     }
+	
 }
