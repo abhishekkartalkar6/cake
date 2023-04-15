@@ -18,8 +18,6 @@ class Welcome extends CI_Controller {
 			
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
-	
-			// Load the database library and model
 			$this->load->database();
 			$this->load->model('user_model');
 	
