@@ -65,5 +65,11 @@ class Welcome extends CI_Controller {
 
         $this->load->view('admin/dashboard');
     }
+
+	public function logout() {
+		$this->load->library('session');
+		$this->session->unset_userdata('name');
+		redirect('admin');
+	}
 	
 }
