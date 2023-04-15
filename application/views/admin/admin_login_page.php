@@ -14,6 +14,11 @@
         <div id="layoutAuthentication">
             <div id="layoutAuthentication_content">
                 <main>
+                    <?php if(isset($data)){
+                        echo '<pre>';
+                        print_r($data);
+                        echo '</pre>'; 
+                    }?>
                     <div class="container">
                         <div class="row justify-content-center">
                             <div class="col-lg-5">

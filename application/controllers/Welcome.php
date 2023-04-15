@@ -25,8 +25,6 @@ class Welcome extends CI_Controller {
 
 	public function admin()
 	{
-		echo "hi";
-		die;	
 		$this->load->view('admin/admin_login_page');
 	}
 
@@ -50,7 +48,7 @@ class Welcome extends CI_Controller {
         } else {
             // Email and password do not match
             $data['error'] = 'Invalid email or password';
-            $this->load->view('login', $data);
+            $this->load->view('admin/admin_login_page', $data);
         }
     }
 
