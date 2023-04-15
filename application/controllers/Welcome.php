@@ -42,8 +42,10 @@ class Welcome extends CI_Controller {
 				$data['error'] = 'Invalid email or password';
 				$this->load->view('admin/admin_login_page', $data);
 			}
+		}else{
+
+			$this->load->view('admin/admin_login_page');
 		}
-		$this->load->view('admin/admin_login_page');
 	}
 
 
