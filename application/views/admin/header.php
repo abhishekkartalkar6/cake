@@ -55,9 +55,8 @@
                             </a>
                             <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
                                 <nav class="sb-sidenav-menu-nested nav">
-                                    <a class="nav-link" href="layout-static.html">Categories</a>
-                                    <a class="nav-link" href="<?php echo base_url('products') ?>">Products</a>
-                                    <a class="nav-link" href="<?php echo base_url('products'); ?>">Categories</a>
+                                    <a class="nav-link" href="<?php echo base_url('product') ?>">Products</a>
+                                    <a class="nav-link" href="<?php echo base_url('add_cat'); ?>">Categories</a>
                                 </nav>
                             </div>
                             <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
