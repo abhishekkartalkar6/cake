@@ -17,9 +17,9 @@ class Welcome extends CI_Controller {
 	}
 
 	public function admin()
-	{ 	
-		if(empty($this->input->post)){
-			
+	{ 
+		if(!empty($this->input->post())){
+					
 			$email = $this->input->post('email');
 			$password = $this->input->post('password');
 	
@@ -43,7 +43,6 @@ class Welcome extends CI_Controller {
 				$this->load->view('admin/admin_login_page', $data);
 			}
 		}else{
-
 			$this->load->view('admin/admin_login_page');
 		}
 	}
