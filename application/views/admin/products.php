@@ -1,72 +1,78 @@
 <?php require_once('header.php') ?>
                 <main>
+                    <?php echo validation_errors(); ?>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Dashboard</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">All orders</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">New Orders</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Pending orders</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-danger text-white mb-4">
-                                    <div class="card-body">Pending orders</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <a class="small text-white stretched-link" href="#">View Details</a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-area me-1"></i>
-                                        Area Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                            <div class="col-xl-6">
-                                <div class="card mb-4">
-                                    <div class="card-header">
-                                        <i class="fas fa-chart-bar me-1"></i>
-                                        Bar Chart Example
-                                    </div>
-                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
-                                </div>
-                            </div>
-                        </div>
+                        <h3 class="mt-4">Products</h3>
+<form class="border p-3" method="post" action="<?php echo base_url('products'); ?>" enctype="multipart/form-data">
+        <div class="form-row row">
+                <div class="form-group col-md-6">
+                <label class="text-danger" for="productName">Product Name</label>
+                <input type="text" class="form-control" name ="product_name" id="productName" placeholder="Enter product name">
+                </div>
+                <div class="form-group col-md-6">
+                <label class="text-danger" for="productCategory">Product Category</label>
+                <select class="form-control" id="productCategory" name ="product_category">
+                    <option>Category 1</option>
+                    <option>Category 2</option>
+                    <option>Category 3</option>
+                    <option>Category 4</option>
+                </select>
+                </div>
+        </div>
+ 
+  <div class="form-row row">
+            <div class="form-group col-md-6">
+                <label class="text-danger" for="productDescription">Product Description</label>
+                <textarea class="form-control" id="productDescription" rows="1" name ="product_description"></textarea>
+            </div>
+            <div class="form-group col-md-6">
+                <label class="text-danger" for="productStatus">Product Status</label>
+                <select class="form-control" id="productStatus" name ="product_status">
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+                </div>
+
+</div>
+  <div class="form-row row">
+        <div class="form-group col-md-6">
+            <label class="text-danger" for="productSize">Product Size</label>
+            <select multiple class="form-control" id="productSize" name ="product_size[]">
+                <option>Small</option>
+                <option>Medium</option>
+                <option>Large</option>
+                <option>Large</option>
+                <option>Large</option>
+                <option>Large</option>
+                <option>Large</option>
+                <option>Large</option>
+                <option>Large</option>
+            </select>
+            </div>
+
+        <div class="form-group col-md-6">
+            <label class="text-danger" for="productImage">Product Image</label>
+            <br>
+            <input type="file" class="form-control-file" id="productImage" name="image">
+        </div>
+  </div>
+  <div class="form-row row">
+    <div class="form-group col-md-11">
+        </div>
+
+        <div class="text-right col-md-1">
+            <input type="submit" value="Submit" class="btn btn-primary">
+</div>
+</div>
+  
+
+</form>
+<br>
+
                         <div class="card mb-4">
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
-                                DataTable Example
+                                Products table
                             </div>
                             <div class="card-body">
                                 <table id="datatablesSimple">
