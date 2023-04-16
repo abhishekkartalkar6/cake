@@ -2,27 +2,40 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Products</h1>
-                        <ol class="breadcrumb mb-4">
+                        <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Categories</li>
-                        </ol>
+                        </ol> -->
                         
+                        <form action="<?php echo site_url('add_cat') ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
-                        <div class="col-xl-6">
+                        <div class="col-md-4">
                             
                         <!-- The form -->
-                            <form action="<?php echo site_url('add_cat') ?>" method="post" enctype="multipart/form-data">
                             <div class="form-group">
-                                <label for="category">Category:</label>
+                                <label for="category">Category Name:</label>
                                 <input class="form-control" id="category" name="category">
                             </div>
-                            <div class="form-group">
-                                <label for="image">Image:</label>
+                            
+                        </div>
+                        <div class="col-md-4">
+                        
+                            <div class="form-group" id="image_btn" style="padding-top: 4px;">
+                                <label for="image">Category Image:</label>
                                 <input type="file" class="form-control-file" id="image" name="image">
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Submit" />
-                            </form>
+                            
                         </div>
+                        <div class="col-md-4" id="add_btn" style="padding-top: 19px;">
+                            
+                            <div class="form-group">
+                                <input type="submit" class="btn btn-primary" value="Add Category" />
+                            </div>
+                            
                         </div>
+                    </form>
+                        
+                        </div>
+                        <br>
                         <?php
                         // print_r($data);die;
                         if(isset($data)){
