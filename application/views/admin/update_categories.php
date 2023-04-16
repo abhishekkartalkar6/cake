@@ -1,10 +1,10 @@
 <?php require_once('header.php');?>
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Products</h1>
-                        <ol class="breadcrumb mb-4">
+                        <h1 class="mt-4">Categories</h1>
+                        <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Categories</li>
-                        </ol>
+                        </ol> -->
                         
                         <div class="row">
                         <div class="col-xl-6">
@@ -21,7 +21,7 @@
                                 <input type="file" class="form-control-file" id="image" name="image">
                                 <img src="<?php echo $category[0]->category_image;?>" alt="images" width="100" height="80">
                             </div>
-                            <input type="submit" class="btn btn-primary" value="Submit" />
+                            <input type="submit" class="btn btn-primary" value="Upadate Category" />
                             </form>
                         </div>
                         </div>
