@@ -57,6 +57,7 @@ class Products extends CI_Controller {
     public function update_cat() {
         // print_r($this->input->post('id'));die;
         if(!empty($this->input->post())){
+
             // Load the form validation and upload libraries
             $this->load->library('form_validation');
             $this->load->library('upload');

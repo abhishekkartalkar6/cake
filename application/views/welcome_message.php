@@ -33,6 +33,7 @@
   margin-bottom: 10px;
   box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
   border-radius: 12%;
+  
 }
 
 .image-container img {
@@ -44,9 +45,13 @@
   padding-left: 5px;
   
 }
+
+@media screen and (max-width: 767px) {
 .cat_title{
-	margin-bottom:-1px;
+	font-size:14px;
 }
+}
+
 
 @media screen and (max-width: 767px) {
   .image-container {
@@ -93,38 +98,19 @@ In this updated code, the @media query applies to screens with a maximum width o
 </div>
 <br>
 <div class="containered">
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 1">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 2">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 3">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 4">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 5">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 6">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 7">
-	<p class="text-center cat_title">cake</p>
-  </div>
-  <div class="image-container">
-    <img src="https://picsum.photos/seed/picsum/200/200" alt="Image 8">
-	<p class="text-center cat_title">cake</p>
-  </div>
+<?php foreach($categories as $category){
+	// echo '<pre>';
+	// print_r($category);
+	// echo '</pre>';
+	// die;
+	 ?>
+	 <div class="image-container">
+	 <img src="<?php echo $category->category_image?>" alt="Image 1">
+	 <p class="text-center cat_title" ><?php echo $category->category_name ?></p>
+   </div>
+<?php } ?>
+ 
+  
 </div>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

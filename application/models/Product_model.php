@@ -56,7 +56,10 @@ class Product_model extends CI_Model {
         // Get the form data
         $category = $this->input->post('category');
         $id = $this->input->post('id');
-        
+
+        if($image_url ==''){
+            $image_url =$this->input->post('override_name_img');
+        }
         // Prepare the data for insertion
         $data = array(
             'category_name' => $category,

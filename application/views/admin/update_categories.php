@@ -15,6 +15,7 @@
                             <input type="hidden" name="id" value="<?php echo $category[0]->id;?>">
                                 <label for="category">Category:</label>
                                 <input class="form-control" id="category" name="category" value="<?php echo $category[0]->category_name;?>">
+                                <input type="hidden" class="form-control" id="category" name="override_name_img" value="<?php echo $category[0]->category_image;?>">
                             </div><br>
                             <div class="form-group">
                                 <label for="image">Image:</label>
