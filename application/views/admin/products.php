@@ -3,56 +3,64 @@
                     
                     <div class="container-fluid px-4">
                         <h3 class="mt-4">Products</h3>
+                        <?php echo $this->session->flashdata('response'); ?>
 <form class="border p-3" method="post" action="<?php echo base_url('product'); ?>" enctype="multipart/form-data">
         <div class="form-row row">
                 <div class="form-group col-md-6">
-                <label class="text-danger" for="productName">Product Name</label>
+                <label class="text-primary bold" for="productName">Product Name</label>
                 <input type="text" class="form-control" name ="product_name" id="productName" placeholder="Enter product name">
-                <?php echo form_error('product_name'); ?>
+                <span class="text-danger"><?php echo form_error('product_name'); ?></span>
+                
                 </div>
                 <div class="form-group col-md-6">
-                <label class="text-danger" for="productCategory">Product Category</label>
+                <label class="text-primary bold" for="productCategory">Product Category</label>
                 <select class="form-control" id="productCategory" name ="product_category">
-                    <option>Category 1</option>
-                    <option>Category 2</option>
-                    <option>Category 3</option>
-                    <option>Category 4</option>
+                    <option value="">Select Category</option>
+                    <option value="1">Category 1</option>
+                    <option value="2">Category 2</option>
+                    <option value="3">Category 3</option>
+                    <option value="4">Category 4</option>
                 </select>
+                <span class="text-danger"><?php echo form_error('product_category'); ?></span>
                 </div>
         </div>
  
   <div class="form-row row">
             <div class="form-group col-md-6">
-                <label class="text-danger" for="productDescription">Product Description</label>
+                <label class="text-primary bold" for="productDescription">Product Description</label>
                 <textarea class="form-control" id="productDescription" rows="1" name ="product_description"></textarea>
+                <span class="text-danger"><?php echo form_error('product_description'); ?></span>
             </div>
             <div class="form-group col-md-6">
-                <label class="text-danger" for="productStatus">Product Status</label>
+                <label class="text-primary bold" for="productStatus">Product Status</label>
                 <select class="form-control" id="productStatus" name ="product_status">
-                    <option>Active</option>
-                    <option>Inactive</option>
+                    <option value="">Select Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Inactive">Inactive</option>
                 </select>
+                <span class="text-danger"><?php echo form_error('product_status'); ?></span>
                 </div>
 
 </div>
   <div class="form-row row">
         <div class="form-group col-md-6">
-            <label class="text-danger" for="productSize">Product Size</label>
+            <label class="text-primary bold" for="productSize">Product Size</label>
             <select multiple class="form-control" id="productSize" name ="product_size[]">
-                <option>Small</option>
-                <option>Medium</option>
-                <option>Large</option>
-                <option>Large</option>
-                <option>Large</option>
-                <option>Large</option>
-                <option>Large</option>
-                <option>Large</option>
-                <option>Large</option>
+                <option value="Small">Small</option>
+                <option value="Medium">Medium</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
+                <option value="Large">Large</option>
             </select>
+            <span class="text-danger"><?php echo form_error('product_size[]'); ?></span>
             </div>
 
         <div class="form-group col-md-6">
-            <label class="text-danger" for="productImage">Product Image</label>
+            <label class="text-primary bold" for="productImage">Product Image</label>
             <br>
             <input type="file" class="form-control-file" id="productImage" name="image">
         </div>

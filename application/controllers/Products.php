@@ -91,8 +91,8 @@ class Products extends CI_Controller {
 				$this->load->model('Product_model');
 				$this->Product_model->insert_product($image_url);
 		
-
-				redirect('products');
+                $this->session->set_flashdata('response',"Data Inserted Successfully");
+				redirect('product');
 			}
 		
 			// Load the form view
