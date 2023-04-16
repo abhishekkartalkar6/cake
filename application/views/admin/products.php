@@ -1,13 +1,14 @@
 <?php require_once('header.php') ?>
                 <main>
-                    <?php echo validation_errors(); ?>
+                    
                     <div class="container-fluid px-4">
                         <h3 class="mt-4">Products</h3>
-<form class="border p-3" method="post" action="<?php echo base_url('products'); ?>" enctype="multipart/form-data">
+<form class="border p-3" method="post" action="<?php echo base_url('product'); ?>" enctype="multipart/form-data">
         <div class="form-row row">
                 <div class="form-group col-md-6">
                 <label class="text-danger" for="productName">Product Name</label>
                 <input type="text" class="form-control" name ="product_name" id="productName" placeholder="Enter product name">
+                <?php echo form_error('product_name'); ?>
                 </div>
                 <div class="form-group col-md-6">
                 <label class="text-danger" for="productCategory">Product Category</label>
