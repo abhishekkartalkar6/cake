@@ -59,12 +59,57 @@
             font-size:14px;
           }
         }
-
         @media screen and (max-width: 767px) {
           .image-container {
             width: calc(25% - 10px);
           }
         }
+        
+        /* Product Images */
+
+        .product-containered {
+          display: flex;
+          flex-wrap: wrap;
+          /* justify-content: space-between; */
+        }
+
+        .product-image-container {
+          width: calc(20% - 10px);
+          margin-bottom: 10px;
+          box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+          /* border-radius: 12%; */
+          
+        }
+        
+        .product-image-container img {
+          /* border-radius: 12%; */
+          width: 100%;
+          height: auto;
+          padding-top: 5px;
+          padding-right: 5px;
+          padding-left: 5px;
+          
+        }
+        
+        .product-image-container p {
+          /* white-space: nowrap;  */
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          
+        }
+
+        @media screen and (max-width: 767px) {
+          .product-cat_title{
+            font-size:14px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .product-image-container {
+            width: calc(50% - 10px);
+          }
+        }
+       
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
       </style>
   </head>
@@ -114,6 +159,33 @@
     <?php } ?>
     </div>
     <?php } ?>
+
+    <div class="product-containered">
+    <?php 
+    $categories = array_slice($categories,0,4);
+    foreach($categories as $category){ ?>
+      <div class="product-image-container">
+      <a href="<?php //echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1"></a>
+      <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($category->category_name) ?></p>
+      </div>
+      <?php } ?>
+    </div>
+    <!-- <div class="product-container">
+      <div class="row">
+        <div class="col-md-3 col-sm-12">
+          <img src="http://localhost/cake/assets/uploads/category_images/category-11.jpg" class="img-thumbnail img-fluid" alt="Your Image">
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <img src="http://localhost/cake/assets/uploads/category_images/category-11.jpg" class="img-thumbnail img-fluid" alt="Your Image">
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <img src="http://localhost/cake/assets/uploads/category_images/category-11.jpg" class="img-thumbnail img-fluid" alt="Your Image">
+        </div>
+        <div class="col-md-3 col-sm-12">
+          <img src="http://localhost/cake/assets/uploads/category_images/category-11.jpg" class="img-thumbnail img-fluid" alt="Your Image">
+        </div>
+      </div>
+    </div> -->
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
