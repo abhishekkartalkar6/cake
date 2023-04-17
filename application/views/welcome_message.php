@@ -66,11 +66,20 @@
         }
         
         /* Product Images */
-
+        .product-main {
+          margin-top:10px;
+          /* border:1px solid; */
+        }
+        .product-main h3 {
+          margin-left:10px;
+        }
         .product-containered {
+          margin-top:20px;
+          margin-left: auto;
+          margin-right: auto;
           display: flex;
           flex-wrap: wrap;
-          /* justify-content: space-between; */
+          justify-content: space-between;
         }
 
         .product-image-container {
@@ -92,12 +101,13 @@
         }
         
         .product-image-container p {
-          /* white-space: nowrap;  */
+          white-space: nowrap; 
           text-align: center;
           overflow: hidden;
           text-overflow: ellipsis; 
           
         }
+        
 
         @media screen and (max-width: 767px) {
           .product-cat_title{
@@ -159,16 +169,23 @@
     <?php } ?>
     </div>
     <?php } ?>
-
+    <div class="product-main">
+    <hr/>
+    <h3 class="title home-page-product-row-titile">Cakes</h3>
+    <hr/>
     <div class="product-containered">
     <?php 
+    // if($products_categoy == $category->category_name){
     $categories = array_slice($categories,0,4);
     foreach($categories as $category){ ?>
       <div class="product-image-container">
       <a href="<?php //echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1"></a>
       <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($category->category_name) ?></p>
+      <p>₹749.00</p>
       </div>
-      <?php } ?>
+      <?php } 
+    // }?>
+    </div>
     </div>
     <!-- <div class="product-container">
       <div class="row">
