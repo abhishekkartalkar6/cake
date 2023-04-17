@@ -41,6 +41,7 @@ class Products extends CI_Controller {
         
                 // Redirect to the product list page
                 redirect('add_cat');
+                exit();
             }
         
             // Load the form view
@@ -85,6 +86,7 @@ class Products extends CI_Controller {
         
                 // Redirect to the product list page
                 redirect('add_cat');
+                exit();
             }
         
             // Load the form view
@@ -107,6 +109,7 @@ class Products extends CI_Controller {
         $this->Product_model->delete_single_cat($id);
         // $data['data'] = $this->Product_model->get_categories();
         redirect('add_cat');
+        exit();
         
     }
 
