@@ -80,33 +80,29 @@
                                 <table id="datatablesSimple">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
+                                        <th>Name</th>
+                                            <th>Category</th>
+                                            <th>Desc</th>
+                                            <th>Size</th>
+                                            <th>Price</th>
+                                            <th>Image</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </tfoot>
+                               
                                     <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$320,800</td>
-                                        </tr>
+                                      
+                                            <?php foreach ($products as $product){ ?>
+                                            <tr>
+                                            <td><?php echo $product->product_name; ?></td>
+                                            <td><?php echo $product->category_name; ?></td>
+                                            <td><?php echo $product->product_description; ?></td>
+                                            <td><?php echo $product->sizes; ?></td>
+                                            <td><?php echo $product->prices; ?></td>
+                                            <td> <img src="<?php echo $product->image_url;?>" alt="images" width="70" height="50"></td>
+                                            </tr>
+                                          <?php  }  ?>
+                                           
+                                        
                                      
                                        
                                     </tbody>

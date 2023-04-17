@@ -115,10 +115,7 @@ class Products extends CI_Controller {
 
     public function product() {
 		if(!empty($this->input->post())){
-            echo '<pre>';
-            print_r($this->input->post());
-            echo '</pre>';
-            die;
+ 
 			// Load the form validation and upload libraries
 			$this->load->library('form_validation');
 			$this->load->library('upload');
@@ -127,7 +124,6 @@ class Products extends CI_Controller {
 			$this->form_validation->set_rules('product_name', 'Product Name', 'required');
 			$this->form_validation->set_rules('product_category', 'Product Category', 'required');
 			$this->form_validation->set_rules('product_description', 'Product Description', 'required');
-			$this->form_validation->set_rules('product_size[]', 'Product Size', 'required');
 			$this->form_validation->set_rules('product_status', 'Product Status', 'required');
 	
 
@@ -157,7 +153,7 @@ class Products extends CI_Controller {
 			$this->load->view('admin/products');
 
 		}else{
-
+            $data['products'] = $this->Product_model->get_products();
             $data['categories'] = $this->Product_model->get_categories();
             $this->load->view('admin/products',$data);
         }
