@@ -75,8 +75,8 @@
         }
         .product-containered {
           margin-top:20px;
-          margin-left: auto;
-          margin-right: auto;
+          margin-left: 15px;
+          margin-right: 15px;
           display: flex;
           flex-wrap: wrap;
           justify-content: space-between;
