@@ -115,6 +115,10 @@ class Products extends CI_Controller {
 
     public function product() {
 		if(!empty($this->input->post())){
+            echo '<pre>';
+            print_r($this->input->post());
+            echo '</pre>';
+            die;
 			// Load the form validation and upload libraries
 			$this->load->library('form_validation');
 			$this->load->library('upload');
@@ -152,8 +156,11 @@ class Products extends CI_Controller {
 			// Load the form view
 			$this->load->view('admin/products');
 
-		}
-		$this->load->view('admin/products');
+		}else{
+
+            $data['categories'] = $this->Product_model->get_categories();
+            $this->load->view('admin/products',$data);
+        }
 	}
 }
 	

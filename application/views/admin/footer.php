@@ -20,5 +20,22 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/assets/adminjs/datatables-simple-demo.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+                    const addInputBtn = document.getElementById('addInputBtn');
+let fieldCount = 0;
+
+addInputBtn.addEventListener('click', () => {
+    event.preventDefault();
+    fieldCount++;
+  var content = '<div class="form-row row border p-2"><span><button onclick="removeItem(this.parentNode.parentNode); return false;"><i class="fa fa-close"></i></button></span><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Size</label><input type="text" class="form-control" name="size[]" id="" required> </div><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Price</label><input type="text" class="form-control" name="price[]" id="" required></div></div>';
+  $('#price').append(content);
+});
+
+function removeItem(div){
+    div.remove();
+}
+
+                </script>
     </body>
 </html>
