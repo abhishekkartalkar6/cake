@@ -93,7 +93,7 @@
         .product-image-container img {
           /* border-radius: 12%; */
           width: 100%;
-          height: auto;
+          height: 150px;
           padding-top: 5px;
           padding-right: 5px;
           padding-left: 5px;
