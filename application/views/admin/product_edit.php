@@ -53,6 +53,7 @@
   
                      <div id="price">
                         <?php
+                        if($single_product[0]->sizes){
                         $size_prices = explode(",",$single_product[0]->sizes);
                         foreach($size_prices as  $size_price){ 
                             $arr = explode("-",$size_price);
@@ -64,6 +65,7 @@
                                 <input type="hidden" value = "<?php echo $arr[2]; ?>"class="form-control" name="id[]" id="" required></div>
                         </div>
                        <?php }
+                        }
                         ?>
                      
                     </div>
