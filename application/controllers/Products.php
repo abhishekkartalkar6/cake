@@ -56,7 +56,14 @@ class Products extends CI_Controller {
     }
 
     public function update_cat() {
-        // print_r($this->input->post('id'));die;
+        if(isset($_FILES['image']['name']) ){
+            $existing_img = $this->Product_model->get_single_cat($this->input->post('id'));
+            $existing_img = $existing_img[0]->category_image;
+            $existing_img = explode("/",$existing_img);
+            $existing_img = end($existing_img);
+            unlink('./assets/uploads/category_images/'.$existing_img);
+            // print_r($this->input->post('override_name_img'));echo "done";die;
+        }
         if(!empty($this->input->post())){
 
             // Load the form validation and upload libraries
@@ -65,7 +72,6 @@ class Products extends CI_Controller {
             
             // Set the validation rules for the form fields
             $this->form_validation->set_rules('category', 'Category Name', 'required');
-    
             // Check if the form was submitted and validated
             if ($this->form_validation->run() == TRUE) {
 
