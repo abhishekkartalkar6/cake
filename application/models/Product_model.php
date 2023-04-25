@@ -69,9 +69,9 @@ class Product_model extends CI_Model {
         $sp_arr= $array = json_decode(json_encode($sp_arr), true);
 
         $present_arr =array();
-foreach($sp_arr as $sp_ar){
-    $present_arr [] = $sp_ar['size_price_id'];
-}
+        foreach($sp_arr as $sp_ar){
+            $present_arr [] = $sp_ar['size_price_id'];
+        }
 
 
             // Define two arrays
