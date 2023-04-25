@@ -210,6 +210,7 @@ class Products extends CI_Controller {
 
     public function edit_product($id) {
         $data['single_product'] = $this->Product_model->get_product_by_id($id);
+        $data['categories'] = $this->Product_model->get_categories();
         $this->load->view('admin/product_edit',$data);
     }
 
