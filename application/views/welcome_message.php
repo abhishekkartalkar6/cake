@@ -25,7 +25,7 @@
         .containered {
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-between;
+          justify-content: space-evenly;
         }
 
         .image-container {
@@ -75,11 +75,11 @@
         }
         .product-containered {
           margin-top:20px;
-          margin-left: 15px;
-          margin-right: 15px;
+          margin-left: 5px;
+          margin-right: 5px;
           display: flex;
           flex-wrap: wrap;
-          justify-content: space-between;
+          justify-content: space-evenly;
         }
 
         .product-image-container {
@@ -144,13 +144,13 @@
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_1.JPG' ?>" alt="First slide">
+          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_1.jpg' ?>" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_2.JPG' ?>" alt="Second slide">
+          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_2.jpg' ?>" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_3.JPG' ?>" alt="Third slide">
+          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_3.jpg' ?>" alt="Third slide">
         </div>
       </div>
     </div>
@@ -172,28 +172,26 @@
     </div>
     <?php } ?>
     <div class="product-main">
-    <?php 
-    // if($products_categoy == $category->category_name){
-    $topFourCat = array_slice($allCategories,0,4);
-    foreach($topFourCat as $category){ ?>
+    <?php
+      foreach($fourProducts as $name => $products){?>
     <hr/>
-    <h3 class="title home-page-product-row-titile"><?php echo ucwords($category->category_name) ?></h3>
+    <h3 class="title home-page-product-row-titile"><?php echo ucwords($name) ?></h3>
     <hr/>
     <div class="product-containered">
       <?php 
-      // if($products_categoy == $category->category_name){
-      $topFourProducts = array_slice($allProducts,0,4);
-      foreach($topFourProducts as $product){
+        foreach($products as $product){
+          
         /* echo "<pre>";
         print_r($product);die; */
-        $prices = explode(',',$product->prices);
+        $prices = explode(',',$product->price);
         ?>
       <div class="product-image-container">
-      <a href="<?php //echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $product->image_url?>" alt="Image 1"></a>
+      <a href="<?php //echo base_url().'products/'.$name.'/' ?>"><img class="img-thumbnail" src="<?php echo $product->image_url?>" alt="Image 1"></a>
       <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
-      <p><strong>₹<?php echo min($prices)?></strong></p>
+      <p><strong>₹ <?php echo min($prices)?></strong></p>
       </div>
-      <?php } // }?>
+      <?php }
+    //}?>
     </div>
       <?php } // }?>
     </div>
@@ -213,9 +211,47 @@
         </div>
       </div>
     </div> -->
-
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <footer class="bg-dark text-light py-4" style="margin-top:10px;">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4">
+        <h5>About Us</h5>
+        <p>We are a small online bakery that sells delicious and high-quality baked goods, made with love and care.</p>
+      </div>
+      <div class="col-md-4">
+        <h5>Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+      <div class="col-md-4">
+        <h5>Contact Us</h5>
+        <ul class="list-unstyled">
+          <li><i class="fas fa-map-marker-alt"></i> 123 Main St, Nagpur</li>
+          <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+          <li><i class="fas fa-envelope"></i> <a href="mailto:info@bakery.com">info@MyGiftsy.com</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="row">
+      <div class="col-md-6">
+        <p>&copy; 2023 MyGiftsy. All rights reserved.</p>
+      </div>
+      <div class="col-md-6 text-right">
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
+          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</footer>
   </body>
 </html>

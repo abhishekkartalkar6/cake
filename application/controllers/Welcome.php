@@ -14,8 +14,15 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Product_model');
+		$data['four_Categories'] = $this->Product_model->get_four_categories();
 		$data['allCategories'] = $this->Product_model->get_categories();
-		$data['allProducts'] = $this->Product_model->get_products();
+		foreach($data['four_Categories'] as $cat){
+		$d[$cat->category_name] = $this->Product_model->get_four_products_by_id($cat->id);
+		}
+		$data['fourProducts']=$d;
+		// echo  "<pre>";
+        // print_r($d);
+        // die;
 		$this->load->view('welcome_message',$data);
 	}
 
