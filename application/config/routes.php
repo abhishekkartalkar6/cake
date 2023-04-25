@@ -59,3 +59,4 @@ $route['add_cat'] = 'products/add_category';
 $route['edit_cat/(:any)'] = 'products/edit_cat/$1';
 $route['update_cat'] = 'products/update_cat';
 $route['delete_cat/(:any)'] = 'products/delete_cat/$1';
+$route['edit_product/(:any)'] = 'products/edit_product/$1';
