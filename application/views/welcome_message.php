@@ -156,7 +156,9 @@
     </div>
     <br>
     <?php 
-    $categories = array_slice($categories,0,8);
+    // echo "<pre>";
+    // print_r($allProducts);die;
+    $categories = array_slice($allCategories,0,8);
     if(isset($categories)){ ?>
     <div class="containered">
     <?php
@@ -170,22 +172,30 @@
     </div>
     <?php } ?>
     <div class="product-main">
-    <hr/>
-    <h3 class="title home-page-product-row-titile">Cakes</h3>
-    <hr/>
-    <div class="product-containered">
     <?php 
     // if($products_categoy == $category->category_name){
-    $categories = array_slice($categories,0,4);
-    foreach($categories as $category){ ?>
+    $topFourCat = array_slice($allCategories,0,4);
+    foreach($topFourCat as $category){ ?>
+    <hr/>
+    <h3 class="title home-page-product-row-titile"><?php echo ucwords($category->category_name) ?></h3>
+    <hr/>
+    <div class="product-containered">
+      <?php 
+      // if($products_categoy == $category->category_name){
+      $topFourProducts = array_slice($allProducts,0,4);
+      foreach($topFourProducts as $product){
+        /* echo "<pre>";
+        print_r($product);die; */
+        $prices = explode(',',$product->prices);
+        ?>
       <div class="product-image-container">
-      <a href="<?php //echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1"></a>
-      <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($category->category_name) ?></p>
-      <p>₹749.00</p>
+      <a href="<?php //echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $product->image_url?>" alt="Image 1"></a>
+      <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
+      <p><strong>₹<?php echo min($prices)?></strong></p>
       </div>
-      <?php } 
-    // }?>
+      <?php } // }?>
     </div>
+      <?php } // }?>
     </div>
     <!-- <div class="product-container">
       <div class="row">

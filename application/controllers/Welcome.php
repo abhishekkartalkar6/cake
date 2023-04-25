@@ -14,7 +14,8 @@ class Welcome extends CI_Controller {
 	public function index()
 	{
 		$this->load->model('Product_model');
-		$data['categories'] = $this->Product_model->get_categories();
+		$data['allCategories'] = $this->Product_model->get_categories();
+		$data['allProducts'] = $this->Product_model->get_products();
 		$this->load->view('welcome_message',$data);
 	}
 
