@@ -37,6 +37,84 @@ class Product_model extends CI_Model {
         }
     }
 
+    public function update_product($image_url) {
+        // Get the form data into variable
+        $product_name = $this->input->post('product_name');
+        $product_category = $this->input->post('product_category');
+        $product_description = $this->input->post('product_description');
+        $product_status = $this->input->post('product_status');
+        $sizes = $this->input->post('size');
+        $price = $this->input->post('price');
+        $size_price_ids = $this->input->post('id');
+
+        // make array data to be upadated
+        $data = array(
+            'product_name' => $product_name,
+            'product_category' => $product_category,
+            'product_description' => $product_description,
+            'product_status' => $product_status,
+            'image_url' => $image_url
+        );
+
+        // Insert the data into the database
+        $this->db->where('product_id', $this->input->post('product_id'));
+        $this->db->update('products', $data);
+
+        echo '<pre>';
+        print_r($this->input->post('id'));
+        echo '</pre>';
+        
+
+        $sp_arr = $this->get_size_price_by_product_is($this->input->post('product_id'));
+        $sp_arr= $array = json_decode(json_encode($sp_arr), true);
+
+        $present_arr =array();
+foreach($sp_arr as $sp_ar){
+    $present_arr [] = $sp_ar['size_price_id'];
+}
+
+
+            // Define two arrays
+            $array1 = $this->input->post('id');
+            $array2 = $present_arr;
+
+            // Check if the two arrays are equal
+            if ($array1 === $array2) {
+                echo "The two arrays are perfectly matching";
+            } else {
+                // Check if there are any missing elements in $array2
+                $missing_elements = array_diff($array1, $array2);
+                if (!empty($missing_elements)) {
+                    foreach ($missing_elements as $missing_element) {
+                        $index = array_search($missing_element, $array1);
+                        echo "The element $missing_element is missing at index $index in array2 <br>";
+                    }
+                }
+                
+                // Check if there are any extra elements in $array2
+                $extra_elements = array_diff($array2, $array1);
+                if (!empty($extra_elements)) {
+                    echo "The following elements are extra in array2: " . implode(",", $extra_elements) . "<br>";
+                }
+            }
+die;
+        $count = 0;
+        foreach ($size_price_ids as $size_price_id){
+            // $data = array(
+            //     'product_key' => $this->input->post('product_id'),
+            //     'size' => $size,
+            //     'price' => $price[$count],
+            // );
+            // echo '<pre>';
+            // print_r($size);
+            // echo '</pre>';
+            // $this->db->insert('size_price', $data);
+            $count++;
+        }
+        
+        die;
+    }
+
     public function add_category($image_url) {
         // Get the form data
         $category = $this->input->post('category');
@@ -116,6 +194,18 @@ class Product_model extends CI_Model {
     public function get_products() {
        
         $results = $this->db->query("SELECT p.*,c.id,c.category_name, GROUP_CONCAT(sp.size SEPARATOR ',') AS sizes,GROUP_CONCAT(sp.price SEPARATOR ',') AS prices FROM products p LEFT JOIN size_price sp ON p.product_id = sp.product_key LEFT JOIN categories c ON p.product_category = c.id GROUP BY p.product_id");
+
+        return $results->result();
+    }
+
+    public function get_product_by_id($id) {
+    $results = $this->db->query("SELECT p.*,c.category_name, GROUP_CONCAT(s.size,-s.price,-s.size_price_id) AS sizes FROM products p LEFT JOIN size_price s ON p.product_id = s.product_key LEFT JOIN categories c ON p.product_category = c.id WHERE p.product_id = '$id'  GROUP BY p.product_id ");
+        return $results->result();
+    }
+
+    public function get_size_price_by_product_is($id) {
+       
+        $results = $this->db->query("SELECT size_price_id FROM size_price WHERE product_key='$id'");
 
         return $results->result();
     }

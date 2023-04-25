@@ -114,8 +114,8 @@ class Products extends CI_Controller {
     }
 
     public function product() {
+
 		if(!empty($this->input->post())){
- 
 			// Load the form validation and upload libraries
 			$this->load->library('form_validation');
 			$this->load->library('upload');
@@ -158,5 +158,61 @@ class Products extends CI_Controller {
             $this->load->view('admin/products',$data);
         }
 	}
+
+    public function product_edit() {
+
+		if(!empty($this->input->post())){
+			// Load the form validation and upload libraries
+			$this->load->library('form_validation');
+			$this->load->library('upload');
+			
+
+			$this->form_validation->set_rules('product_name', 'Product Name', 'required');
+			$this->form_validation->set_rules('product_category', 'Product Category', 'required');
+			$this->form_validation->set_rules('product_description', 'Product Description', 'required');
+			$this->form_validation->set_rules('product_status', 'Product Status', 'required');
+	
+            
+			if ($this->form_validation->run() == TRUE) {
+
+				$config['upload_path'] = './assets/uploads/product_images'; // Set the upload path
+				$config['allowed_types'] = 'gif|jpg|png|jpeg|JPG'; // Set the allowed file types
+				
+				$this->load->library('upload', $config);
+				$this->upload->initialize($config);
+				if ($this->upload->do_upload('image')) {
+		
+					$image_url = base_url() . 'assets/uploads/product_images/' . $this->upload->data('file_name');
+                    if (file_exists($image_path)) {
+                        unlink($image_path);
+                    }
+				} else {
+					$image_url = '';
+				}
+
+
+				$this->load->model('Product_model');
+				$this->Product_model->update_product($image_url);
+		
+                $this->session->set_flashdata('response',"Data Updated Successfully");
+				redirect('product');
+			}
+		
+			// Load the form view
+			$this->load->view('admin/products');
+
+		}else{
+            $data['products'] = $this->Product_model->get_products();
+            $data['categories'] = $this->Product_model->get_categories();
+            $this->load->view('admin/products',$data);
+        }
+	}
+
+    public function edit_product($id) {
+        $data['single_product'] = $this->Product_model->get_product_by_id($id);
+        $this->load->view('admin/product_edit',$data);
+    }
+
+    
 }
 	

@@ -1,4 +1,5 @@
 
+
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
@@ -28,7 +29,7 @@ let fieldCount = 0;
 addInputBtn.addEventListener('click', () => {
     event.preventDefault();
     fieldCount++;
-  var content = '<div class="form-row row border p-2"><span><button onclick="removeItem(this.parentNode.parentNode); return false;"><i class="fa fa-close"></i></button></span><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Size</label><input type="text" class="form-control" name="size[]" id="" required> </div><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Price</label><input type="text" class="form-control" name="price[]" id="" required></div></div>';
+  var content = '<div class="form-row row border p-2"><span><button onclick="removeItem(this.parentNode.parentNode); return false;"><i class="fa fa-close"></i></button></span><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Size</label><input type="text" class="form-control" name="size[]" id="" required> </div><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Price</label><input type="text" class="form-control" name="price[]" id="" required><input type="hidden" value = "77"class="form-control" name="id[]" id="" required></div></div>';
   $('#price').append(content);
 });
 

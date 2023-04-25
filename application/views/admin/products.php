@@ -86,6 +86,7 @@
                                             <th>Size</th>
                                             <th>Price</th>
                                             <th>Image</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
                                
@@ -99,6 +100,7 @@
                                             <td><?php echo $product->sizes; ?></td>
                                             <td><?php echo $product->prices; ?></td>
                                             <td> <img src="<?php echo $product->image_url;?>" alt="images" width="70" height="50"></td>
+                                            <td><a href="<?php echo 'edit_product/'.$product->product_id;?>"><button class="btn btn-warning">Edit</button></a>&nbsp;<a href=""><button class="btn btn-danger">Delete</button></a></td>
                                             </tr>
                                           <?php  }  ?>
                                            
