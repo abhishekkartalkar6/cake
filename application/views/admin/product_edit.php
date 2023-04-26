@@ -14,7 +14,7 @@
                 <div class="form-group col-md-6">
                 <label class="text-primary bold" for="productName">Product Name</label>
                 <input type="hidden" name="product_id" id="" value="<?php echo $single_product[0]->product_id; ?> ">
-                <input type="hidden" name="product_id" id="" value="<?php echo $single_product[0]->product_id; ?> ">
+                <input type="hidden" name="image_url" id="" value="<?php echo $single_product[0]->image_url; ?> ">
                 <input type="text" class="form-control" name ="product_name" id="productName" value="<?php echo $single_product[0]->product_name; ?> " placeholder="Enter product name">
                 <span class="text-danger"><?php echo form_error('product_name'); ?></span>
                 
