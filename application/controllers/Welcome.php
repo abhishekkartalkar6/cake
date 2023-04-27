@@ -26,6 +26,12 @@ class Welcome extends CI_Controller {
 		$this->load->view('welcome_message',$data);
 	}
 
+	public function all_cats(){
+		$this->load->model('Product_model');
+		$data['allCategories'] = $this->Product_model->get_categories();
+		$this->load->view('category_page',$data);
+	}
+
 	public function admin()
 	{ 
 		if(!empty($this->input->post())){
