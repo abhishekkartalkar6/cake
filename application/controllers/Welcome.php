@@ -31,6 +31,11 @@ class Welcome extends CI_Controller {
 		$data['allCategories'] = $this->Product_model->get_categories();
 		$this->load->view('category_page',$data);
 	}
+	public function all_products(){
+		$this->load->model('Product_model');
+		$data['allProducts'] = $this->Product_model->get_products();
+		$this->load->view('products_page',$data);
+	}
 
 	public function admin()
 	{ 
