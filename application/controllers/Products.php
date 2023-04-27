@@ -167,6 +167,15 @@ class Products extends CI_Controller {
 
     public function product_edit() {
 
+        if($_FILES['image']['name'] != '' ){
+            $existing_img = $this->Product_model->get_product_by_id($this->input->post('product_id'));
+            $existing_img = $existing_img[0]->image_url;
+            $existing_img = explode("/",$existing_img);
+            $existing_img = end($existing_img);
+            unlink('./assets/uploads/product_images/'.$existing_img);
+            // print_r($this->input->post('override_name_img'));echo "done";die;
+        }
+
 		if(!empty($this->input->post())){
 			// Load the form validation and upload libraries
 			$this->load->library('form_validation');
@@ -189,11 +198,9 @@ class Products extends CI_Controller {
 				if ($this->upload->do_upload('image')) {
 		
 					$image_url = base_url() . 'assets/uploads/product_images/' . $this->upload->data('file_name');
-                    if (file_exists($image_path)) {
-                        unlink($image_path);
-                    }
+                 
 				} else {
-					$image_url = '';
+					$image_url = $this->input->post('image_url');
 				}
 
 
