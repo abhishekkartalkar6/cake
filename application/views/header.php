@@ -3,7 +3,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
 ?>
 
-<!doctype html>
+<!Doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
