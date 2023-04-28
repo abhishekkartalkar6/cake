@@ -76,9 +76,9 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'u215687276_giftsydatabase',
-	'password' => 'Giftsy1@database',
-	'database' => 'u215687276_mygiftsy',
+	'username' => 'root',
+	'password' => '',
+	'database' => 'mygiftsy',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
@@ -93,5 +93,9 @@ $db['default'] = array(
 	'stricton' => FALSE,
 	'failover' => array(),
 	'save_queries' => TRUE
+
+
+
+	
 );
 
