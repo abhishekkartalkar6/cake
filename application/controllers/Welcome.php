@@ -29,7 +29,7 @@ class Welcome extends CI_Controller {
 	public function all_cats(){
 		$this->load->model('Product_model');
 		$data['allCategories'] = $this->Product_model->get_categories();
-		$this->load->view('products_page',$data);
+		$this->load->view('category_page',$data);
 	}
 	public function all_products(){
 		$this->load->model('Product_model');
