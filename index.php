@@ -1,5 +1,5 @@
 <?php
-echo "Hello Giftsy Users";die;
+// echo "Hello Giftsy Users";die;
 /**
  * CodeIgniter
  *
