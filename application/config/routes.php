@@ -61,3 +61,4 @@ $route['update_cat'] = 'products/update_cat';
 $route['delete_cat/(:any)'] = 'products/delete_cat/$1';
 $route['edit_product/(:any)'] = 'products/edit_product/$1';
 $route['categories'] = 'welcome/all_cats';
+$route['suggetion'] = 'products/suggestion';

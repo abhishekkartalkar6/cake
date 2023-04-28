@@ -27,9 +27,11 @@
   <div class="form-row row">
             <div class="form-group col-md-6">
                 <label class="text-primary bold" for="productDescription">Product Description</label>
+
                 <textarea class="form-control" id="productDescription" rows="1" name ="product_description"></textarea>
                 <span class="text-danger"><?php echo form_error('product_description'); ?></span>
             </div>
+            <br>    
             <div class="form-group col-md-6">
                 <label class="text-primary bold" for="productStatus">Product Status</label>
                 <select class="form-control" id="productStatus" name ="product_status">

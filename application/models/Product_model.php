@@ -203,5 +203,18 @@ foreach($sp_arr as $sp_ar){
         return $results->result();
     }
 
+    public function get_suggestions($search){
+        $this->db->like('product_name', $search);
+        $query = $this->db->get('products');
+        $result = $query->result_array();
+        $output = '<ul class="list-unstyled">';
+        foreach($result as $row){
+           $output .= '<li>'.$row['product_name'].'</li>';
+        }
+        $output .= '</ul>';
+        return $output;
+     }
+     
+
 
 }

@@ -21,7 +21,9 @@
         <script src="assets/demo/chart-bar-demo.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
         <script src="<?php echo base_url();?>/assets/adminjs/datatables-simple-demo.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script><script src="https://pagecdn.io/lib/ckeditor/4.13.0/ckeditor.js" integrity="sha256-yoULaG5POtLMfQWKvJ1pCbUSX4eM29SBpDbjkZAK6qs=" crossorigin="anonymous"></script>
+
+
         <script>
                     const addInputBtn = document.getElementById('addInputBtn');
 let fieldCount = 0;
@@ -36,6 +38,16 @@ addInputBtn.addEventListener('click', () => {
 function removeItem(div){
     div.remove();
 }
+
+
+CKEDITOR.plugins.addExternal( 'abbr', '/myplugins/abbr/', 'plugin.js' );
+
+// extraPlugins needs to be set too.
+CKEDITOR.replace( 'editor1', {
+        extraPlugins: 'abbr'
+} );
+
+
 
                 </script>
     </body>

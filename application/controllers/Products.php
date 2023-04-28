@@ -227,6 +227,14 @@ class Products extends CI_Controller {
         $this->load->view('admin/product_edit',$data);
     }
 
+    public function suggestion(){
+        $search = $this->input->post('search');
+        $suggestions = $this->Product_model->get_suggestions($search);
+        echo $suggestions;
+     }
+     
+     
+
     
 }
 	
