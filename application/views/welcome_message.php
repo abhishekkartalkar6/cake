@@ -45,7 +45,7 @@
         $prices = explode(',',$product->price);
         ?>
       <div class="product-image-container">
-      <a href="<?php //echo base_url().'products/'.$name.'/' ?>"><img class="img-thumbnail" src="<?php echo $product->image_url?>" alt="Image 1"></a>
+      <a href="<?php echo base_url().'products' ?>"><img class="img-thumbnail" src="<?php echo $product->image_url?>" alt="Image 1"></a>
       <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
       <p><strong>₹ <?php echo min($prices)?></strong></p>
       </div>
