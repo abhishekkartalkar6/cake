@@ -1,4 +1,5 @@
 <?php
+echo "Hello Giftsy Users";die;
 /**
  * CodeIgniter
  *
