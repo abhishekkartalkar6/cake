@@ -64,4 +64,3 @@ $route['suggetion'] = 'products/suggestion';
 $route['categories'] = 'welcome/all_cats';
 $route['products'] = 'welcome/all_products';
 $route['products/(:any)'] = 'welcome/all_products';
-$route['suggetion'] = 'products/suggestion';
