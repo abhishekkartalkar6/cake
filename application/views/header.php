@@ -160,8 +160,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li style="padding-left: 8px;"><a href="/cake/categories">All Categories</a></li>
-          <li style="padding-left: 8px;"><a href="/cake/products">All Products</a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>cake/categories">All Categories</a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>cake/products">All Products</a></li>
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search">
