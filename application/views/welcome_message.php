@@ -1,18 +1,19 @@
 <?php require_once('header.php') ?>
-
+ 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <?php foreach($banners as $banner){ ?>
+      <?php $cnt = 1 ;foreach($banners as $banner){
+          if($cnt == 1){ ?>
           <div class="carousel-item active">
           <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="First slide">
         </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="Second slide">
+<?php }else{ ?>
+  <div class="carousel-item ">
+          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="First slide">
         </div>
-        <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="Third slide">
-        </div>
-       <?php } ?>
+<?php } ?>
+          
+        <?php $cnt++; }  ?>
       </div>
     </div>
     <br>
