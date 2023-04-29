@@ -234,7 +234,8 @@ class Products extends CI_Controller {
      }
 
      public function banner(){
-        $this->load->view('admin/banner_setting');
+        $data['banners'] = $this->Product_model->get_banner();
+        $this->load->view('admin/banner_setting', $data);
      }
 
     public function add_banner() {
