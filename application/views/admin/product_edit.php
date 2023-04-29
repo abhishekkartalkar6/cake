@@ -6,6 +6,7 @@
                             <li class="breadcrumb-item active">Categories</li>
                         </ol> -->
 
+                        
                             
                         <!-- The form -->
                             <form action="<?php echo site_url('product_update') ?>" method="post" enctype="multipart/form-data">
