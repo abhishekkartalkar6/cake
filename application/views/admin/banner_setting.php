@@ -50,8 +50,8 @@ Note : please try to add banner image with minimum size as possible and max reso
                                     </thead>
                                
                                     <tbody>
-                                      
-                                            <?php $cnt = 1; foreach ($banners as $banner){ ?>
+                                            
+                                            <?php if(isset($banners)){ $cnt = 1; foreach ($banners as $banner){ ?>
                                             <tr>
                                             <td><?php echo $cnt; ?></td>
                                             <td><?php echo $banner->banner_img; ?></td>
@@ -61,7 +61,7 @@ Note : please try to add banner image with minimum size as possible and max reso
                                                     $last = end($parts);
                                             echo 'delete_banner/'.$banner->banner_id."~".$last;?>"><button class="btn btn-danger">Delete</button></td>
                                             </tr>
-                                          <?php $cnt ++; }  ?>
+                                          <?php $cnt ++; }}  ?>
                                            
                                         
                                      
