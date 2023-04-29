@@ -34,6 +34,7 @@
     <?php } ?>
     <div class="product-main">
     <?php
+    if(isset($fourProducts)){
       foreach($fourProducts as $name => $products){?>
     <hr/>
     <h3 class="title home-page-product-row-titile"><?php echo ucwords($name) ?></h3>
@@ -54,6 +55,6 @@
       <?php }
     //}?>
     </div>
-      <?php } // }?>
+      <?php } } // }?>
     </div>
     <?php require_once('footer.php') ?>

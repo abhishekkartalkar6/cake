@@ -16,6 +16,7 @@ class Welcome extends CI_Controller {
 		$this->load->model('Product_model');
 		$data['four_Categories'] = $this->Product_model->get_four_categories();
 		$data['allCategories'] = $this->Product_model->get_categories();
+		$d= array();
 		foreach($data['four_Categories'] as $cat){
 		$d[$cat->category_name] = $this->Product_model->get_four_products_by_id($cat->id);
 		}
