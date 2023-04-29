@@ -42,7 +42,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function(){
-  $('#search').keyup(function(){
+  $('#search-input').keyup(function(){
     var search = $(this).val();
     if(search != ''){
       $.ajax({
@@ -51,16 +51,17 @@
         data: {search:search},
         success:function(response){
           console.log(response);
-          $('#search_suggestion').html(response);
+          $('#suggestions').html(response);
 
         }
       });
     }
     else {
-      $('#search_suggestion').empty();
+      $('#suggestions').empty();
     }
   });
 });
+
 
     </script>
 </footer>

@@ -64,3 +64,6 @@ $route['suggetion'] = 'products/suggestion';
 $route['categories'] = 'welcome/all_cats';
 $route['products'] = 'welcome/all_products';
 $route['products/(:any)'] = 'welcome/all_products';
+$route['banner'] = 'products/banner';
+$route['add_banner'] = 'products/add_banner';
+$route['delete_banner/(:any)'] = 'products/delete_banner/$1';

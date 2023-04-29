@@ -214,6 +214,31 @@ foreach($sp_arr as $sp_ar){
         $output .= '</ul>';
         return $output;
      }
+
+     public function add_banner($image_url) {
+        // Get the form data
+        
+        // Prepare the data for insertion
+        $data = array(
+            'banner_img' => $image_url
+        );
+
+        // Insert the data into the database
+        $this->db->insert('banner', $data);
+    }
+
+    public function get_banner() {
+        // Get the form data
+        $results = $this->db->get('banner');
+        return $results->result();
+    }
+
+    public function delete_single_banner($id) {
+
+        // Insert the data into the database
+        $this->db->where('banner_id', $id);
+        $this->db->delete('banner');
+    }
      
 
 
