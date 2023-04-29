@@ -17,14 +17,14 @@
         <div class="card">
           <div class="d-flex justify-content-between p-3">
             <p class="lead mb-0"><?php echo ucwords($product->product_name) ?></p>
-            <div
+            <!-- <div
               class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
               style="width: 35px; height: 35px;">
               <p class="text-white mb-0 small">x4</p>
-            </div>
+            </div> -->
           </div>
-          <img src="<?php echo $product->image_url?>"
-            class="card-img-top" alt="Laptop" />
+          <img class="lazy card-img-top" data-src="<?php echo $product->image_url?>"
+             alt="Image" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/>
           <div class="card-body">
             <!-- <div class="d-flex justify-content-between">
               <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
@@ -52,5 +52,36 @@
       <?php } } ?>
     </div>
   </div>
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
+        var lazyloadImages = document.querySelectorAll("img.lazy");    
+        var lazyloadThrottleTimeout;
+        
+        function lazyload () {
+          if(lazyloadThrottleTimeout) {
+            clearTimeout(lazyloadThrottleTimeout);
+          }    
+          
+          lazyloadThrottleTimeout = setTimeout(function() {
+              var scrollTop = window.pageYOffset;
+              lazyloadImages.forEach(function(img) {
+                  if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                  }
+              });
+              if(lazyloadImages.length == 0) { 
+                document.removeEventListener("scroll", lazyload);
+                window.removeEventListener("resize", lazyload);
+                window.removeEventListener("orientationChange", lazyload);
+              }
+          }, 20);
+        }
+        
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+      });
+    </script>
 </section>
     <?php require_once('footer.php') ?>
