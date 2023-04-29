@@ -20,6 +20,7 @@ class Welcome extends CI_Controller {
 		$d[$cat->category_name] = $this->Product_model->get_four_products_by_id($cat->id);
 		}
 		$data['fourProducts']=$d;
+		$data['banners'] = $this->Product_model->get_banner();
 		// echo  "<pre>";
         // print_r($d);
         // die;

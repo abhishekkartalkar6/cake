@@ -3,7 +3,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
 ?>
 
-<!Doctype html>
+<!doctype html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
@@ -125,28 +125,36 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
           }
         }
 
-        #search_suggestion{
-   position: absolute;
-   top: 40px;
-   left: 0;
-   right: 0;
-   background-color: #fff;
-   border: 1px solid #ccc;
-   border-top: none;
-   z-index: 99;
+        .search-box {
+  position: relative;
+  display: inline-block;
 }
-#search_suggestion ul{
-   list-style: none;
-   margin: 0;
-   padding: 0;
+
+#suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-top: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  z-index: 1;
 }
-#search_suggestion li{
-   padding: 10px;
-   cursor: pointer;
+
+#suggestions li {
+  padding: 10px;
+  cursor: pointer;
 }
-#search_suggestion li:hover{
-   background-color: #f4f4f4;
+
+#suggestions li:hover {
+  background-color: #f4f4f4;
 }
+
        
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
       </style>
@@ -160,13 +168,12 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
-          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories">All Categories</a></li>
-          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products">All Products</a></li>
+        <div class="search-box">
+  <input type="text" placeholder="Search" id="search-input">
+  <ul id="suggestions"></ul>
+</div>
+          <li style="padding-left: 8px;"><a href="/cake/categories">All Categories</a></li>
+          <li style="padding-left: 8px;"><a href="/cake/products">All Products</a></li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" id="search" placeholder="Search" aria-label="Search">
-          <div id="search_suggestion"></div>
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
       </div>
     </nav>

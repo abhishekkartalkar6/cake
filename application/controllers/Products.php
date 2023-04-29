@@ -232,6 +232,62 @@ class Products extends CI_Controller {
         $suggestions = $this->Product_model->get_suggestions($search);
         echo $suggestions;
      }
+
+     public function banner(){
+        $this->load->view('admin/banner_setting');
+     }
+
+    public function add_banner() {
+        if(!empty($this->input->post())){
+            // Load the form validation and upload libraries
+            $this->load->library('form_validation');
+            $this->load->library('upload');
+            
+            $this->form_validation->set_rules('image', 'Banner Image', 'required');
+            // Check if the form was submitted and validated
+            if ($this->form_validation->run() == TRUE) {
+
+                $config['upload_path'] = './assets/uploads/banner_images'; // Set the upload path
+                $config['allowed_types'] = 'gif|jpg|png|jpeg|JPG'; // Set the allowed file types
+                
+                $this->load->library('upload', $config);
+                $this->upload->initialize($config);
+                if ($this->upload->do_upload('image')) {
+                    
+                    $image_url = base_url() . 'assets/uploads/banner_images/' . $this->upload->data('file_name');
+                } else {
+                    $image_url = '';
+                }
+                // Insert the product data into the database
+                
+                $this->Product_model->add_banner($image_url);
+        
+                // Redirect to the product list page
+                redirect('add_banner');
+                exit();
+            }
+        
+            // Load the form view
+            // $this->load->view('admin/categories');
+
+        }
+        $data['banners'] = $this->Product_model->get_banner();
+        
+            // print_r($data);die;
+            $this->load->view('admin/banner_setting',$data);
+        
+    }
+
+    public function delete_banner($id) {
+        $banner = explode("~",$id);
+        $this->Product_model->delete_single_banner($banner[0]);
+        unlink('./assets/uploads/banner_images/'.$banner[1]);
+        // $data['data'] = $this->Product_model->get_categories();
+        redirect('add_banner');
+        exit();
+        
+    }
+    
      
      
 

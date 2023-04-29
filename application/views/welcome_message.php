@@ -2,15 +2,17 @@
 
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_1.jpg' ?>" alt="First slide">
+        <?php foreach($banners as $banner){ ?>
+          <div class="carousel-item active">
+          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="First slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_2.jpg' ?>" alt="Second slide">
+          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="Second slide">
         </div>
         <div class="carousel-item">
-          <img class="d-block w-100 courosel" src="<?php echo base_url().'assets/images/home_3.jpg' ?>" alt="Third slide">
+          <img class="d-block w-100 courosel" src="<?php echo $banner->banner_img;?>" alt="Third slide">
         </div>
+       <?php } ?>
       </div>
     </div>
     <br>
