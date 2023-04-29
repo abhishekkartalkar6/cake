@@ -51,7 +51,11 @@ Note : please try to add banner image with minimum size as possible and max reso
                                
                                     <tbody>
                                             
-                                            <?php if(isset($banners)){ $cnt = 1; foreach ($banners as $banner){ ?>
+                                            <?php if($_GET['a']=="a"){
+                                                echo '<pre>';
+                                                print_r($banners);
+                                                echo '</pre>';
+                                            } if(isset($banners)){ $cnt = 1; foreach ($banners as $banner){ ?>
                                             <tr>
                                             <td><?php echo $cnt; ?></td>
                                             <td><?php echo $banner->banner_img; ?></td>
