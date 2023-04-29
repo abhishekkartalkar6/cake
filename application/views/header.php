@@ -172,8 +172,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
   <input type="text" placeholder="Search" id="search-input">
   <ul id="suggestions"></ul>
 </div>
-          <li style="padding-left: 8px;"><a href="/cake/categories">All Categories</a></li>
-          <li style="padding-left: 8px;"><a href="/cake/products">All Products</a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories">All Categories</a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products">All Products</a></li>
         </ul>
       </div>
     </nav>
