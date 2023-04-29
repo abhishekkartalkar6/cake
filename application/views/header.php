@@ -126,27 +126,27 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         }
 
         #search_suggestion{
-   position: absolute;
-   top: 40px;
-   left: 0;
-   right: 0;
-   background-color: #fff;
-   border: 1px solid #ccc;
-   border-top: none;
-   z-index: 99;
-}
-#search_suggestion ul{
-   list-style: none;
-   margin: 0;
-   padding: 0;
-}
-#search_suggestion li{
-   padding: 10px;
-   cursor: pointer;
-}
-#search_suggestion li:hover{
-   background-color: #f4f4f4;
-}
+          position: absolute;
+          top: 40px;
+          left: 0;
+          right: 0;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-top: none;
+          z-index: 99;
+        }
+        #search_suggestion ul{
+          list-style: none;
+          margin: 0;
+          padding: 0;
+        }
+        #search_suggestion li{
+          padding: 10px;
+          cursor: pointer;
+        }
+        #search_suggestion li:hover{
+          background-color: #f4f4f4;
+        }
        
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
       </style>
