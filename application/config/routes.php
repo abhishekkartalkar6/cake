@@ -67,3 +67,4 @@ $route['products/(:any)'] = 'welcome/all_products';
 $route['banner'] = 'products/banner';
 $route['add_banner'] = 'products/add_banner';
 $route['delete_banner/(:any)'] = 'products/delete_banner/$1';
+$route['product_update'] = 'products/product_edit';

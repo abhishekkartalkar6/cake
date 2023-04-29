@@ -8,7 +8,7 @@
 
                             
                         <!-- The form -->
-                            <form action="<?php echo site_url('products/product_edit') ?>" method="post" enctype="multipart/form-data">
+                            <form action="<?php echo site_url('product_update') ?>" method="post" enctype="multipart/form-data">
                             <div class="form-row row">
                 <div class="form-group col-md-6">
                 <label class="text-primary bold" for="productName">Product Name</label>
