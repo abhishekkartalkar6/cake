@@ -10,9 +10,12 @@
   }
   .card {
     margin : 10px;
-    background-color: #e9eb6d !important;
+    background-color: #e4ff015c !important;
     border: 0 !important;
     border-radius: 0 !important;
+}
+.card-body {
+  padding: 10px !important;
 }
 </style>
 
@@ -48,9 +51,8 @@
               <h5 class="mb-0"><?php echo ucwords($product->product_name) ?></h5>
               <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
             </div>
-            <div class="d-flex justify-content-between mb-3">
-              <h5 class="mb-0"></h5>
-              <h5 class="text-dark mb-0">Place Order</h5>
+            <div>
+            <button type="button" class="btn btn-primary"> Order Now</button>
             </div>
 
             <div class="d-flex justify-content-between mb-2">
