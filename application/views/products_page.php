@@ -5,12 +5,18 @@
 <style>
   img{
     /* display: none; */
-    width: 348px;
+    width: 330px;
     height: 232px;
   }
+  .card {
+    margin : 10px;
+    background-color: #e9eb6d !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+}
 </style>
 
-    <section style="background-color: #eee;">
+    <section style="background-color: ;">
   <div class="container py-5">
     <div class="row">
     <?php 
@@ -41,6 +47,10 @@
             <div class="d-flex justify-content-between mb-3">
               <h5 class="mb-0"><?php echo ucwords($product->product_name) ?></h5>
               <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
+            </div>
+            <div class="d-flex justify-content-between mb-3">
+              <h5 class="mb-0"></h5>
+              <h5 class="text-dark mb-0">Place Order</h5>
             </div>
 
             <div class="d-flex justify-content-between mb-2">
