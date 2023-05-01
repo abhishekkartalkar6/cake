@@ -13,10 +13,10 @@
     background-color: #e4ff015c !important;
     border: 0 !important;
     border-radius: 0 !important;
-}
-.card-body {
-  padding: 10px !important;
-}
+  }
+  .card-body {
+    padding: 10px !important;
+  }
 </style>
 
     <section style="background-color: ;">

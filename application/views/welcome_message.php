@@ -1,4 +1,8 @@
-<?php require_once('header.php') ?>
+
+<?php 
+
+
+require_once('header.php') ?>
  
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
