@@ -17,7 +17,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <style>
         @media (min-width: 992px) {
           .courosel{
-            height: 400px;
+            height: 300px;
           }
         }
 
