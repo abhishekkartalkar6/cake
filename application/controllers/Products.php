@@ -290,7 +290,141 @@ class Products extends CI_Controller {
     }
     
      
-     
+    public function product_csv(){
+        // $data['banners'] = $this->Product_model->get_banner();
+        $this->load->view('admin/product_csv');
+     }
+
+     public function do_upload()
+     {
+         $config['upload_path']          = './uploads/';
+         $config['allowed_types']        = 'csv';
+         $config['max_size']             = 1000;
+         $config['max_width']            = 1024;
+         $config['max_height']           = 768;
+ 
+         $this->load->library('upload', $config);
+        $all_cat = $this->Product_model->get_categories();
+        $cat_assoc = [];
+        foreach ($all_cat as $single_cat){
+            $cat_assoc[$single_cat->id] = trim($single_cat->category_name);
+        }
+
+         if ( ! $this->upload->do_upload('userfile'))
+         {
+             $error = array('error' => $this->upload->display_errors());
+ 
+             $this->load->view('upload_form', $error);
+         }
+         else
+         {
+             $data = array('upload_data' => $this->upload->data());
+ 
+             // import the CSV data into the database
+             $file_path = $data['upload_data']['full_path'];
+             $cnt = 0;
+             if (($handle = fopen($file_path, "r")) !== FALSE) {
+                 $data = array();
+                 $cont = 0;
+                 while (($row = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                    if($cnt != 0){
+                    $key = array_search($row[2], $cat_assoc);
+                    if($key){
+
+                    }else{
+                        $key='';
+                    }
+                    $image_url = base_url()."assets/uploads/product_images/".$row[12];
+                     $data = array(
+                         'product_name' => $row[1],
+                         'product_category' => $key,
+                         'product_description' => $row[3],
+                         'product_status' => "Active",
+                         'image_url' => $image_url,
+                         'sub_cat' => $row[13],
+                         // add more fields as necessary
+                     );
+
+                     $last_id = $this->Product_model->csv_product_insert($data);
+                     $data_p=[];
+                     
+                     if($row[4] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "0.5 KG",
+                            'price' => $row[4],
+                        );
+
+                     }
+                     if($row[5] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "1 KG",
+                            'price' =>$row[5],
+                        );
+                        
+                     }
+                     if($row[6] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "1.5 KG",
+                            'price' => $row[6],
+                        );
+                        
+                     }
+                     if($row[7] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "2 KG",
+                            'price' => $row[7],
+                        );
+                        
+                     }
+                     if($row[8] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "3 KG",
+                            'price' => $row[8],
+                        );
+                        
+                     }
+                     if($row[9] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "4 KG",
+                            'price' => $row[9],
+                        );
+                        
+                     }
+                     if($row[10] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "5 KG",
+                            'price' => $row[10],
+                        );
+                        
+                     }
+                     if($row[11] != ''){
+                        $data_p[] = array(
+                            'product_key' => $last_id,
+                            'size' => "6 KG",
+                            'price' => $row[11],
+                        );
+                        
+                     }
+                     $this->Product_model->csv_price_insert($data_p);
+                 }else{
+                    $cnt ++;
+                 } }
+                
+                 fclose($handle);
+ 
+                 
+             }
+ 
+             $this->load->view('upload_success', $data);
+         }
+     }
 
     
 }

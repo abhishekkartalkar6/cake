@@ -239,6 +239,18 @@ foreach($sp_arr as $sp_ar){
         $this->db->where('banner_id', $id);
         $this->db->delete('banner');
     }
+
+    public function csv_product_insert($data) {
+        $this->db->insert('products', $data);
+        $insert_id = $this->db->insert_id();
+        return $insert_id;
+    }
+
+    public function csv_price_insert($data) {
+        foreach($data as $datas){
+            $this->db->insert('size_price', $datas);
+        }
+    }
      
 
 
