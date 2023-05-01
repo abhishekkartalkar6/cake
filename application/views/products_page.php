@@ -15,7 +15,7 @@
     border-radius: 0 !important;
   }
   .card-body {
-    padding: 10px !important;
+    padding: 10 px !important;
   }
 </style>
 

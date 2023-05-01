@@ -126,34 +126,34 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         }
 
         .search-box {
-  position: relative;
-  display: inline-block;
-}
+          position: relative;
+          display: inline-block;
+        }
 
-#suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-}
+        #suggestions {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          max-height: 200px;
+          overflow-y: auto;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-top: none;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          z-index: 1;
+        }
 
-#suggestions li {
-  padding: 10px;
-  cursor: pointer;
-}
+        #suggestions li {
+          padding: 10px;
+          cursor: pointer;
+        }
 
-#suggestions li:hover {
-  background-color: #f4f4f4;
-}
+        #suggestions li:hover {
+          background-color: #f4f4f4;
+        }
 
        
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
