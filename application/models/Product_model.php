@@ -252,12 +252,12 @@ foreach($sp_arr as $sp_ar){
     }
     public function get_navbar_arr() {
         
-        $results = $this->db->query("SELECT categories.category_name AS product_category, GROUP_CONCAT(DISTINCT products.sub_cat ORDER BY products.sub_cat ASC SEPARATOR ', ') AS subcategories FROM products LEFT JOIN categories ON products.product_category = categories.id GROUP BY product_category HAVING COUNT(DISTINCT products.sub_cat) > 0");
+        $results = $this->db->query("SELECT categories.id,categories.category_name AS product_category, GROUP_CONCAT(DISTINCT products.sub_cat ORDER BY products.sub_cat ASC SEPARATOR ', ') AS subcategories FROM products LEFT JOIN categories ON products.product_category = categories.id GROUP BY product_category HAVING COUNT(DISTINCT products.sub_cat) > 0");
         $result = json_decode(json_encode($results->result()), true);
         $data = [];
         foreach($result as $res){
             $sub = explode(",",$res['subcategories']);
-            $data[$res['product_category']] = $sub;
+            $data[$res['product_category']][$res['id']] = $sub;
         }
         return $data;
     }
