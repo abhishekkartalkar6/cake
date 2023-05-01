@@ -218,7 +218,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <?php 
     foreach($sub_categories as $sub_cat){
             ?>
-      <a class="dropdown-item" href="<?php echo base_url().'products/'.trim(atrtolower(str_replace(' ','-',$sub_cat))).'/'.$nav_bar['id'][$i]; ?>"><?php echo $sub_cat; ?></a>
+      <a class="dropdown-item" href="<?php echo base_url().'products/'.trim(strtolower(str_replace(' ','-',$sub_cat))).'/'.$nav_bar['id'][$i]; ?>"><?php echo $sub_cat; ?></a>
       <?php } ?>
     </div>
     </div>
