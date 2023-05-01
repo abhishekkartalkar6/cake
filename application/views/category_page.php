@@ -32,6 +32,9 @@
                   if(img.offsetTop < (window.innerHeight + scrollTop)) {
                     img.src = img.dataset.src;
                     img.classList.remove('lazy');
+                    if(img.dataset.src == ""){
+                      img.dataset.src = "<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg";
+                    }
                   }
               });
               if(lazyloadImages.length == 0) { 
