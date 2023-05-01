@@ -32,11 +32,13 @@ class Welcome extends CI_Controller {
 	public function all_cats(){
 		$this->load->model('Product_model');
 		$data['allCategories'] = $this->Product_model->get_categories();
+		$data['nav_bar'] = $this->get_navbar();
 		$this->load->view('category_page',$data);
 	}
 	public function all_products(){
 		$this->load->model('Product_model');
 		$data['allProducts'] = $this->Product_model->get_products();
+		$data['nav_bar'] = $this->get_navbar();
 		$this->load->view('products_page',$data);
 	}
 
