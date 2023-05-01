@@ -255,9 +255,12 @@ foreach($sp_arr as $sp_ar){
         $results = $this->db->query("SELECT categories.id,categories.category_name AS product_category, GROUP_CONCAT(DISTINCT products.sub_cat ORDER BY products.sub_cat ASC SEPARATOR ', ') AS subcategories FROM products LEFT JOIN categories ON products.product_category = categories.id GROUP BY product_category HAVING COUNT(DISTINCT products.sub_cat) > 0");
         $result = json_decode(json_encode($results->result()), true);
         $data = [];
+        $i=0;
         foreach($result as $res){
+            $data['id'][$i] = $res['id'];
             $sub = explode(",",$res['subcategories']);
-            $data[$res['product_category']][$res['id']] = $sub;
+            $data['categories'][$res['product_category']] = $sub;
+            $i++;
         }
         return $data;
     }
