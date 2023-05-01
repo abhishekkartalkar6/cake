@@ -15,7 +15,7 @@
     border-radius: 0 !important;
   }
   .card-body {
-    padding: 10 px !important;
+    padding: 10px !important;
   }
 </style>
 
@@ -25,7 +25,7 @@
     <?php 
         foreach($allProducts as $product){
           if((isset($params[3]) && $product->category_name == $params[3]) || !(isset($params[3])) ){
-          
+          print_r($product);die;
         $prices = explode(',',$product->prices);
         ?>
   
