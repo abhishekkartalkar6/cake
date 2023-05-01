@@ -16,10 +16,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <title>Mygiftsy</title>
       <style>
         @media (min-width: 992px) {
-          .courosel img{
-            height: 40x;
-            width: 100%;
-            height: auto;
+          .courosel{
+            height: 400px;
           }
         }
 
