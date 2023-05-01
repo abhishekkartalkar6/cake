@@ -22,6 +22,7 @@ class Welcome extends CI_Controller {
 		}
 		$data['fourProducts']=$d;
 		$data['banners'] = $this->Product_model->get_banner();
+		$data['nav_bar'] = $this->get_navbar();
 		// echo  "<pre>";
         // print_r($d);
         // die;
@@ -85,6 +86,13 @@ class Welcome extends CI_Controller {
 		$this->load->library('session');
 		$this->session->unset_userdata('name');
 		redirect('admin');
+	}
+
+	public function get_navbar() {
+		$this->load->model('Product_model');
+		$all_cat = $this->Product_model->get_navbar_arr();
+		return $all_cat;
+
 	}
 
 

@@ -84,7 +84,6 @@ foreach($sp_arr as $sp_ar){
 
         foreach($array1 as $key =>$val){
             if($val == "new"){
-                echo $key;
                 $data = array(
                 'product_key' => $this->input->post('product_id'),
                 'size' => $sizes[$key],
@@ -250,6 +249,17 @@ foreach($sp_arr as $sp_ar){
         foreach($data as $datas){
             $this->db->insert('size_price', $datas);
         }
+    }
+    public function get_navbar_arr() {
+        
+        $results = $this->db->query("SELECT product_category, GROUP_CONCAT(DISTINCT sub_cat ORDER BY sub_cat ASC SEPARATOR ',') AS subcategories FROM products GROUP BY product_category HAVING COUNT(DISTINCT sub_cat) > 0");
+        $result = json_decode(json_encode($results->result()), true);
+        $data = [];
+        foreach($result as $res){
+            $sub = explode(",",$res['subcategories']);
+            $data[$res['product_category']] = $sub;
+        }
+        return $data;
     }
      
 
