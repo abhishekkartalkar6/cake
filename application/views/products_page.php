@@ -24,7 +24,7 @@
     <div class="row">
     <?php 
         foreach($allProducts as $product){
-          if((isset($params[3]) && $product->category_name == $params[3]) || !(isset($params[3])) ){
+          if((isset($params[3]) && $product->category_name == $params[3]) || (empty($params[3])) ){
           print_r($product);die;
         $prices = explode(',',$product->prices);
         ?>
