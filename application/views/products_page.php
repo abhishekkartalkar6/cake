@@ -52,7 +52,8 @@
               <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
             </div>
             <div>
-            <button type="button" class="btn btn-primary"> Order Now</button>
+            <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php echo($product->product_name) ?> can you please confirm."><button type="button" class="btn btn-primary"> Order Now</button></a>
+            
             </div>
 
             <div class="d-flex justify-content-between mb-2">
