@@ -14,17 +14,39 @@
                 </footer>
             </div>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url();?>/assets/adminjs/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="<?php echo base_url();?>/assets/adminjs/datatables-simple-demo.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script><script src="https://pagecdn.io/lib/ckeditor/4.13.0/ckeditor.js" integrity="sha256-yoULaG5POtLMfQWKvJ1pCbUSX4eM29SBpDbjkZAK6qs=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css" /> 
+      <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.3.6/css/buttons.dataTables.min.css" /> 
+      <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+      <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.3.6/js/dataTables.buttons.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.html5.min.js"></script>
+      <script src="https://cdn.datatables.net/buttons/2.3.6/js/buttons.print.min.js"></script>
 
 
         <script>
+            $(document).ready(function() {
+        
+
+        var dataTable = $('#products').DataTable({  
+             "processing":true,  
+             "serverSide":true,  
+             "order":[],  
+             "ajax":{  
+                  url:"<?php echo base_url()."product_datatable" ?>",  
+                  type:"POST"  
+             },  
+             "columnDefs":[  
+                  {  
+                       "targets":[],  
+                       "orderable":false,  
+                  },  
+             ],  
+        });  
+      });
+
                     const addInputBtn = document.getElementById('addInputBtn');
 let fieldCount = 0;
 
@@ -39,13 +61,6 @@ function removeItem(div){
     div.remove();
 }
 
-
-CKEDITOR.plugins.addExternal( 'abbr', '/myplugins/abbr/', 'plugin.js' );
-
-// extraPlugins needs to be set too.
-CKEDITOR.replace( 'editor1', {
-        extraPlugins: 'abbr'
-} );
 
 
 

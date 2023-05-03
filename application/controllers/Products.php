@@ -426,6 +426,35 @@ class Products extends CI_Controller {
          }
      }
 
+     public function fetch_products(){
+
+        $fetch_data = $this->Product_model->make_datatables();  
+ 
+        $data = array();  
+        $cnt =1;
+        foreach($fetch_data as $row)  
+        {  
+            $sub_array = array();  
+            $sub_array[] = intval($_POST["start"])+$cnt; $cnt ++; 
+            $sub_array[] = $row->category_name; 
+             $sub_array[] = $row->product_description;   
+             $sub_array[] = $row->sizes;  
+             $sub_array[] = $row->prices;  
+             $sub_array[] = '<img src="'.$row->image_url.'" alt="images" width="70" height="50">';  
+             $sub_array[] = '<a href="edit_product/'.$row->product_id.'"><button class="btn btn-warning">Edit</button></a>&nbsp;<a href=""><button class="btn btn-danger">Delete</button></a>';
+             $data[] = $sub_array;  
+  
+            
+        }  
+        $output = array(  
+             "draw"                    =>     intval($_POST["draw"]),  
+             "recordsTotal"          =>      $this->Product_model->get_all_data(),  
+             "recordsFiltered"     =>     $this->Product_model->get_filtered_data(),  
+             "data"                    =>     $data  
+        ); 
+        echo json_encode($output);
+    }
+
     
 }
 	

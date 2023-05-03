@@ -2,7 +2,9 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Product_model extends CI_Model {
-
+    var $table = "products";  
+    var $select_column = array("product_id", "product_name", "product_category", "sub_cat", "product_description", "product_size", "product_status", "image_url");  
+    var $order_column = array("product_id", "product_name", "product_category", "sub_cat", "product_description", "product_size", "product_status", "image_url");  
     public function insert_product($image_url) {
         // Get the form data
         $product_name = $this->input->post('product_name');
@@ -266,5 +268,55 @@ foreach($sp_arr as $sp_ar){
     }
      
 
+    function make_query()  
+    {  
+    
+        $this->db->select('p.*, c.id, c.category_name, GROUP_CONCAT(sp.size SEPARATOR ",") AS sizes, GROUP_CONCAT(sp.price SEPARATOR ",") AS prices');
+$this->db->from('products p');
+$this->db->join('size_price sp', 'p.product_id = sp.product_key', 'left');
+$this->db->join('categories c', 'p.product_category = c.id', 'left');
+$this->db->group_by('p.product_id');
 
+        
+         if(isset($_POST["search"]["value"]))  
+         {  
+              $this->db->like("product_id", $_POST["search"]["value"]);
+              $this->db->or_like("product_name", $_POST["search"]["value"]);
+              $this->db->or_like("product_category", $_POST["search"]["value"]);
+              $this->db->or_like("sub_cat", $_POST["search"]["value"]);
+              $this->db->or_like("product_description", $_POST["search"]["value"]);
+              $this->db->or_like("product_size", $_POST["search"]["value"]);
+              $this->db->or_like("product_status", $_POST["search"]["value"]);
+              $this->db->or_like("image_url", $_POST["search"]["value"]);
+         }  
+         if(isset($_POST["order"]))  
+         { 
+          
+              $this->db->order_by($this->order_column[$_POST['order']['0']['column']], $_POST['order']['0']['dir']);  
+         }  
+         else  
+         {  
+              $this->db->order_by('product_id', 'ASC');  
+         }  
+    }  
+    function make_datatables(){  
+         $this->make_query($this->select_column);  
+         if($_POST["length"] != -1)  
+         {  
+              $this->db->limit($_POST['length'], $_POST['start']);  
+         }  
+         $query = $this->db->get();  
+         return $query->result();  
+    }  
+    function get_filtered_data(){  
+         $this->make_query();  
+         $query = $this->db->get();  
+         return $query->num_rows();  
+    }       
+    function get_all_data()  
+    {  
+         $this->db->select("*");  
+         $this->db->from('products');  
+         return $this->db->count_all_results();  
+    }  
 }

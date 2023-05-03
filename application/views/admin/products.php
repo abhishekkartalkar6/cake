@@ -79,7 +79,7 @@
                                 Products table
                             </div>
                             <div class="card-body">
-                                <table id="datatablesSimple">
+                                <table id="products" class = "table table-bordered table-stripedy">
                                     <thead>
                                         <tr>
                                         <th>Name</th>
@@ -91,25 +91,6 @@
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                               
-                                    <tbody>
-                                      
-                                            <?php foreach ($products as $product){ ?>
-                                            <tr>
-                                            <td><?php echo $product->product_name; ?></td>
-                                            <td><?php echo $product->category_name; ?></td>
-                                            <td><?php echo $product->product_description; ?></td>
-                                            <td><?php echo $product->sizes; ?></td>
-                                            <td><?php echo $product->prices; ?></td>
-                                            <td> <img src="<?php echo $product->image_url;?>" alt="images" width="70" height="50"></td>
-                                            <td><a href="<?php echo 'edit_product/'.$product->product_id;?>"><button class="btn btn-warning">Edit</button></a>&nbsp;<a href=""><button class="btn btn-danger">Delete</button></a></td>
-                                            </tr>
-                                          <?php  }  ?>
-                                           
-                                        
-                                     
-                                       
-                                    </tbody>
                                 </table>
                             </div>
                         </div>
