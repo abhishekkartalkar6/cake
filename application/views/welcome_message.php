@@ -1,4 +1,8 @@
-<?php require_once('header.php') ?>
+
+<?php 
+
+
+require_once('header.php') ?>
  
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
@@ -27,7 +31,7 @@
     foreach($categories as $category){
     ?>
       <div class="image-container">
-      <a href="<?php echo base_url().'products/'.$category->category_name.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1">
+      <a href="<?php echo base_url().'products/'.trim(strtolower(str_replace(' ','-',$category->category_name))).'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1">
       <p style="word-break: break-word" class="text-center cat_title" ><?php echo ucwords($category->category_name) ?></p>
       </a>
       </div>

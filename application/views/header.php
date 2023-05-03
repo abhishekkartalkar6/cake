@@ -16,8 +16,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <title>Mygiftsy</title>
       <style>
         @media (min-width: 992px) {
-          .courosel {
-            height: 550px;
+          .courosel{
+            height: 300px;
           }
         }
 
@@ -126,34 +126,34 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         }
 
         .search-box {
-  position: relative;
-  display: inline-block;
-}
+          position: relative;
+          display: inline-block;
+        }
 
-#suggestions {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  max-height: 200px;
-  overflow-y: auto;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-top: none;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  z-index: 1;
-}
+        #suggestions {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          max-height: 200px;
+          overflow-y: auto;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-top: none;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          z-index: 1;
+        }
 
-#suggestions li {
-  padding: 10px;
-  cursor: pointer;
-}
+        #suggestions li {
+          padding: 10px;
+          cursor: pointer;
+        }
 
-#suggestions li:hover {
-  background-color: #f4f4f4;
-}
+        #suggestions li:hover {
+          background-color: #f4f4f4;
+        }
 
        
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
@@ -177,3 +177,50 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         </ul>
       </div>
     </nav>
+
+    <style>
+      .steven-and-leah > * {
+        display: inline-block;
+      }
+      .steven-and-leah{
+        margin-top: 15px;
+        text-align:center;
+      }
+      /* .steven-and-leah > * a:hover {
+        color:red;
+      } */
+      .steven-and-leah > * #dbtn:hover {
+        background-color:#00CED1;
+      }
+      #dbtn{
+        padding:5px;
+      }
+      .dropdown:hover .dropdown-menu {
+        display: block;
+      }
+    </style>
+    
+    <div class="steven-and-leah" >
+    <?php 
+    /* echo "<pre>";
+    print_r($nav_bar);die; */
+    $i = 0;
+    foreach($nav_bar['categories'] as $main_category => $sub_categories){
+            ?>
+
+      <div class="dropdown ">
+        <a type="button" id="dbtn"  data-toggle="dropdown">
+        <?php echo ucwords($main_category);?>
+        </a>
+    <div class="dropdown-menu ">
+    <?php 
+    foreach($sub_categories as $sub_cat){
+            ?>
+      <a class="dropdown-item" href="<?php echo base_url().'products/'.trim(strtolower(str_replace(' ','-',$sub_cat))).'/'.$nav_bar['id'][$i]; ?>"><?php echo $sub_cat; ?></a>
+      <?php } ?>
+    </div>
+    </div>
+    <?php $i++; } ?>
+    
+    
+</div>

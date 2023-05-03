@@ -13,10 +13,10 @@
     background-color: #e4ff015c !important;
     border: 0 !important;
     border-radius: 0 !important;
-}
-.card-body {
-  padding: 10px !important;
-}
+  }
+  .card-body {
+    padding: 10px !important;
+  }
 </style>
 
     <section style="background-color: ;">
@@ -24,7 +24,10 @@
     <div class="row">
     <?php 
         foreach($allProducts as $product){
-          if((isset($params[3]) && $product->category_name == $params[3]) || !(isset($params[3])) ){
+          /* echo $product->category_name;
+          echo $params[2];
+          die; */
+          if((isset($params[2]) && strtolower($product->category_name) == $params[2]) || !(isset($params[2])) ){
           
         $prices = explode(',',$product->prices);
         ?>
