@@ -436,6 +436,7 @@ class Products extends CI_Controller {
         {  
             $sub_array = array();  
             $sub_array[] = intval($_POST["start"])+$cnt; $cnt ++; 
+            $sub_array[] = $row->product_name; 
             $sub_array[] = $row->category_name; 
              $sub_array[] = $row->product_description;   
              $sub_array[] = $row->sizes;  

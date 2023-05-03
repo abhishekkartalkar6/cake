@@ -82,6 +82,7 @@
                                 <table id="products" class = "table table-bordered table-stripedy">
                                     <thead>
                                         <tr>
+                                        <th>sr</th>
                                         <th>Name</th>
                                             <th>Category</th>
                                             <th>Desc</th>
