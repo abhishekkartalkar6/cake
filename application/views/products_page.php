@@ -19,7 +19,7 @@
   }
   @media screen and (max-width: 767px) {
     .card {
-      align: left;
+      /* align: left; */
     display: inline-block;
     width: 163px;
     height: 84px;
@@ -27,7 +27,7 @@
     background-color: #f9f9f9;
   }
   #productmain{
-    padding-left: 0;
+    /* padding-left: 0; */
   }
   .cardhead{
     margin:10px;
