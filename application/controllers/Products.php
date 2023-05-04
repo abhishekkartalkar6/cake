@@ -165,13 +165,16 @@ class Products extends CI_Controller {
         }
 	}
 
-    public function product_edit() {
+    public function product_edit() {    
 
         if($_FILES['image']['name'] != '' ){
             $existing_img = $this->Product_model->get_product_by_id($this->input->post('product_id'));
             $existing_img = $existing_img[0]->image_url;
             $existing_img = explode("/",$existing_img);
             $existing_img = end($existing_img);
+            if (file_exists('./assets/uploads/product_images/'.$existing_img)) {
+                unlink('./assets/uploads/product_images/'.$existing_img);
+             }
             unlink('./assets/uploads/product_images/'.$existing_img);
             // print_r($this->input->post('override_name_img'));echo "done";die;
         }
