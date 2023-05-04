@@ -460,6 +460,16 @@ class Products extends CI_Controller {
         echo json_encode($output);
     }
 
-    
+    public function get_navbar() {
+		$this->load->model('Product_model');
+		$all_cat = $this->Product_model->get_navbar_arr();
+		return $all_cat;
+
+	}
+    public function final_product($id){
+        $data['product'] = $this->Product_model->get_product_by_id($id);
+        $data['nav_bar'] =array();  
+        $this->load->view('product_landing',$data);
+    }
 }
 	

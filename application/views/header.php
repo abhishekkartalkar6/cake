@@ -155,6 +155,32 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
           background-color: #f4f4f4;
         }
 
+        .image-container_product_landing {
+          width: 150px;
+          margin-bottom: 10px;
+          box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+          border-radius: 12%;
+          
+        }
+        
+        .image-container_product_landing img {
+          border-radius: 12%;
+          width: 100%;
+          height: 100px;
+          padding-top: 5px;
+          padding-right: 5px;
+          padding-left: 5px;
+          
+        }
+        
+        .image-container_product_landing p {
+          /* white-space: nowrap;  */
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          
+        }
+
        
         /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
       </style>
@@ -205,6 +231,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     /* echo "<pre>";
     print_r($nav_bar);die; */
     $i = 0;
+    if($nav_bar){
     foreach($nav_bar['categories'] as $main_category => $sub_categories){
             ?>
 
@@ -220,7 +247,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <?php } ?>
     </div>
     </div>
-    <?php $i++; } ?>
+    <?php $i++; } }?>
     
     
 </div>

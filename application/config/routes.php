@@ -55,6 +55,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin'] = 'Welcome/admin';
 $route['dashboard'] = 'welcome/dashboard';
 $route['product'] = 'products/product';
+$route['final_product/(:any)'] = 'products/final_product/$1';
 $route['product_datatable'] = 'products/fetch_products';
 $route['add_cat'] = 'products/add_category';
 $route['edit_cat/(:any)'] = 'products/edit_cat/$1';

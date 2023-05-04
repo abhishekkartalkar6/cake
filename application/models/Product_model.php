@@ -204,13 +204,14 @@ foreach($sp_arr as $sp_ar){
         return $results->result();
     }
 
-    public function get_suggestions($search){
+
+     public function get_suggestions($search){
         $this->db->like('product_name', $search);
         $query = $this->db->get('products');
         $result = $query->result_array();
         $output = '<ul class="list-unstyled">';
         foreach($result as $row){
-           $output .= '<li>'.$row['product_name'].'</li>';
+           $output .= '<a href="'.base_url().'final_product/'.$row['product_id'].'"><li>'.$row['product_name'].'</li></a>';
         }
         $output .= '</ul>';
         return $output;
