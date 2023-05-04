@@ -172,10 +172,11 @@ class Products extends CI_Controller {
             $existing_img = $existing_img[0]->image_url;
             $existing_img = explode("/",$existing_img);
             $existing_img = end($existing_img);
-            if (file_exists('./assets/uploads/product_images/'.$existing_img)) {
-                unlink('./assets/uploads/product_images/'.$existing_img);
-             }
-            unlink('./assets/uploads/product_images/'.$existing_img);
+            if($existing_img){
+                if (file_exists('./assets/uploads/product_images/'.$existing_img)) {
+                    unlink('./assets/uploads/product_images/'.$existing_img);
+                }
+            }
             // print_r($this->input->post('override_name_img'));echo "done";die;
         }
 
