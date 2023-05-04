@@ -18,8 +18,7 @@
     padding: 10px !important;
   }
   @media screen and (max-width: 767px) {
-    .card {
-      /* align: left; */
+    /* .card {
     display: inline-block;
     width: 163px;
     height: 84px;
@@ -27,30 +26,30 @@
     background-color: #f9f9f9;
   }
   #productmain{
-    /* padding-left: 0; */
+    padding-left: 0;
   }
   .cardhead{
-    margin:10px;
-  }
+    padding-left:10px;
+  } */
         }
 </style>
 
     <section style="background-color: ;">
   <div class="container py-5">
     <div class="row">
-      <div id="productmain" class="col-md-12 col-lg-4 mb-4 mb-lg-0">
-    <?php 
+      <?php 
         foreach($allProducts as $product){
           /* echo $product->category_name;
           echo $params[2];
           die; */
           if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) ){
-          
-        $prices = explode(',',$product->prices);
-        ?>
+            
+            $prices = explode(',',$product->prices);
+            ?>
+            <div  class="col-6 col-lg-4 mb-4 ">
         
         <div class="card">
-        <div class="cardhead">
+        <!-- <div class="cardhead"> -->
           <!-- <div class="d-flex justify-content-between p-3">
             <p class="lead mb-0"><?php echo ucwords($product->product_name) ?></p>
             <div
@@ -88,9 +87,9 @@
             </div>
           </div>
         </div>
-        </div>
-        <?php } } ?>
+        <!-- </div> -->
       </div>
+        <?php } } ?>
     </div>
   </div>
   <script>

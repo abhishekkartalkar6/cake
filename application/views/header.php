@@ -174,7 +174,6 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         }
         
         .image-container_product_landing p {
-          /* white-space: nowrap;  */
           text-align: center;
           overflow: hidden;
           text-overflow: ellipsis; 
