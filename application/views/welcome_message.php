@@ -43,8 +43,8 @@ require_once('header.php') ?>
     if(isset($fourProducts)){
       foreach($fourProducts as $name => $products){?>
     <hr/>
-    <h3 class="title home-page-product-row-titile"><?php echo ucwords($name) ?></h3>
-    <hr/>
+    <div><h3 class="title home-page-product-row-titile"><?php echo ucwords($name) ?><a href="<?php echo base_url().'products/'.trim(strtolower(str_replace(' ','-',$name))).'/' ?>" class="btn btn-primary" style="float:right; position:relative; margin-right:10px;font-size:15px;">View All</a></h3>
+    </div><hr/>
     <div class="product-containered">
       <?php 
         foreach($products as $product){
