@@ -4,7 +4,7 @@
 ?>
 <style>
   img{
-    /* display: none; */
+    
     width: 330px;
     height: 232px;
   }
@@ -17,23 +17,40 @@
   .card-body {
     padding: 10px !important;
   }
+  @media screen and (max-width: 767px) {
+    .card {
+      align: left;
+    display: inline-block;
+    width: 163px;
+    height: 84px;
+    margin: -6px;
+    background-color: #f9f9f9;
+  }
+  #productmain{
+    padding-left: 0;
+  }
+  .cardhead{
+    margin:10px;
+  }
+        }
 </style>
 
     <section style="background-color: ;">
   <div class="container py-5">
     <div class="row">
+      <div id="productmain" class="col-md-12 col-lg-4 mb-4 mb-lg-0">
     <?php 
         foreach($allProducts as $product){
           /* echo $product->category_name;
           echo $params[2];
           die; */
-          if((isset($params[2]) && strtolower($product->category_name) == $params[2]) || !(isset($params[2])) ){
+          if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) ){
           
         $prices = explode(',',$product->prices);
         ?>
-  
-      <div class="col-md-12 col-lg-4 mb-4 mb-lg-0">
+        
         <div class="card">
+        <div class="cardhead">
           <!-- <div class="d-flex justify-content-between p-3">
             <p class="lead mb-0"><?php echo ucwords($product->product_name) ?></p>
             <div
@@ -71,8 +88,9 @@
             </div>
           </div>
         </div>
+        </div>
+        <?php } } ?>
       </div>
-      <?php } } ?>
     </div>
   </div>
   <script>
