@@ -18,20 +18,15 @@
     padding: 10px !important;
   }
   @media screen and (max-width: 767px) {
-    /* .card {
-    display: inline-block;
-    width: 163px;
-    height: 84px;
-    margin: -6px;
-    background-color: #f9f9f9;
+        img{
+        
+        width: 330px;
+        height: 150px !important;
+      }
+      /* .col-lg-4{
+        padding: 0 !important;
+      } */
   }
-  #productmain{
-    padding-left: 0;
-  }
-  .cardhead{
-    padding-left:10px;
-  } */
-        }
 </style>
 
     <section style="background-color: ;">
@@ -42,11 +37,11 @@
           /* echo $product->category_name;
           echo $params[2];
           die; */
-          if((isset($params[2]) && strtolower($product->category_name) == $params[2]) || !(isset($params[2])) ){
+          if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) ){
             
             $prices = explode(',',$product->prices);
             ?>
-            <div  class="col-6 col-lg-4 mb-4 ">
+            <div  class="col-6 col-lg-4 mb-4 pl-0 pr-0">
         
         <div class="card">
         <!-- <div class="cardhead"> -->
