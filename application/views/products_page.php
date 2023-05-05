@@ -48,10 +48,12 @@
     <div class="row">
       <?php 
         foreach($allProducts as $product){
+          /* echo "<pre>";
+          print_r($product);die; */
           /* echo $product->category_name;
           echo $params[2];
           die; */
-          if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) ){
+          if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) || ( strtolower($product->sub_cat) == $params[3]) ){
             
             $prices = explode(',',$product->prices);
             ?>
