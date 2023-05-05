@@ -48,8 +48,10 @@
     <div class="row">
       <?php 
         foreach($allProducts as $product){
-          /* echo "<pre>";
-          print_r($product);die; */
+          if(isset($_GET['debug']) && $_GET['debug'] == 1){
+          echo "<pre>";
+          print_r($product);die;
+          }
           /* echo $product->category_name;
           echo $params[2];
           die; */
