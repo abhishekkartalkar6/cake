@@ -31,7 +31,7 @@
         border-radius: 0 !important;
       }
       .card-body {
-        padding: 5px !important;
+        padding: 0px !important;
       }
   }
 </style>
