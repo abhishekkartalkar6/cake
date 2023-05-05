@@ -23,9 +23,16 @@
         width: 330px;
         height: 150px !important;
       }
-      /* .col-lg-4{
-        padding: 0 !important;
-      } */
+      .card {
+        margin-left : 5px;
+        margin-right : 5px;
+        background-color: #e4ff015c !important;
+        border: 0 !important;
+        border-radius: 0 !important;
+      }
+      .card-body {
+        padding: 5px !important;
+      }
   }
 </style>
 
