@@ -50,7 +50,7 @@
         foreach($allProducts as $product){
           if(isset($_GET['debug']) && $_GET['debug'] == 1){
           echo "<pre>";
-          print_r($product);die;
+          print_r($product);
           }
           /* echo $product->category_name;
           echo $params[2];
