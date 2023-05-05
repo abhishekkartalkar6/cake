@@ -97,6 +97,18 @@ class Welcome extends CI_Controller {
 
 	}
 
+	public function get_cat_sub_cat($sub_cat = '',$cat_key = 0) {
+		$this->load->model('Product_model');
+		$data['product_by_cat_subcat'] = $this->Product_model->get_cat_subcat_product($cat_key,$sub_cat);
+		$data['nav_bar'] = $this->get_navbar();
+		$this->load->view('products_page',$data);
+	}
+	public function get_category($cat_key = 0) {
+		$this->load->model('Product_model');
+		$data['product_by_cat'] = $this->Product_model->get_catwise_product($cat_key);
+		$data['nav_bar'] = $this->get_navbar();
+		$this->load->view('products_page',$data);
+	}
 
 
 	

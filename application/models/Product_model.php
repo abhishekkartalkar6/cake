@@ -320,4 +320,17 @@ $this->db->group_by('p.product_id');
          $this->db->from('products');  
          return $this->db->count_all_results();  
     }  
+
+    function get_cat_subcat_product($cat_key, $sub_key)  
+    {  
+        $results = $this->db->query("SELECT * FROM products WHERE product_category = '$cat_key' AND sub_cat = '$sub_key'");
+        return $results->result();
+
+    } 
+    function get_catwise_product($cat_key)  
+    {  
+        $results = $this->db->query("SELECT * FROM products WHERE product_category = '$cat_key' ");
+        return $results->result();
+
+    } 
 }
