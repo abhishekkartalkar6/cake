@@ -29,8 +29,8 @@ require_once('header.php') ?>
     <div class="containered">
     <?php
     foreach($categories as $category){
-      echo "<pre>";
-        print_r($category);die;
+      /* echo "<pre>";
+        print_r($category);die; */
     ?>
       <div class="image-container">
       <a href="<?php echo base_url().'products/'.$category->id.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1">
