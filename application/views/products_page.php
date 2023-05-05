@@ -28,7 +28,7 @@
         img{
         
         width: 330px;
-        height: 150px !important;
+        height: 170px !important;
       }
       .card {
         margin-left : 5px;
