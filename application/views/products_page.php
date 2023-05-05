@@ -4,7 +4,6 @@
 ?>
 <style>
   img{
-    
     width: 330px;
     height: 232px;
   }
@@ -17,6 +16,14 @@
   .card-body {
     padding: 10px !important;
   }
+  .product_title {
+    white-space: nowrap; 
+    width: auto; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding : 5px; 
+          
+        }
   @media screen and (max-width: 767px) {
         img{
         
@@ -49,8 +56,9 @@
             $prices = explode(',',$product->prices);
             ?>
             <div  class="col-6 col-lg-4 mb-4 pl-0 pr-0">
-        
-        <div class="card">
+              
+              <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php echo($product->product_name) ?> can you please confirm.">
+              <div class="card">
         <!-- <div class="cardhead"> -->
           <!-- <div class="d-flex justify-content-between p-3">
             <p class="lead mb-0"><?php echo ucwords($product->product_name) ?></p>
@@ -68,14 +76,15 @@
               <p class="small text-danger"><s>₹ <?php echo min($prices)?></s></p>
             </div> -->
 
-            <div class="d-flex justify-content-between mb-3">
-              <h5 class="mb-0"><?php echo ucwords($product->product_name) ?></h5>
+            <!-- <div class="d-flex justify-content-between mb-3"> -->
+            <div class="text-center">
+              <h5 class="product_title" style="word-break: break-all"><?php echo ucwords($product->product_name) ?></h5>
               <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
             </div>
-            <div>
+            <!-- <div>
             <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php echo($product->product_name) ?> can you please confirm."><button type="button" class="btn btn-primary"> Order Now</button></a>
             
-            </div>
+            </div> -->
 
             <div class="d-flex justify-content-between mb-2">
               <!-- <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p> -->
@@ -89,6 +98,7 @@
             </div>
           </div>
         </div>
+      </a>
         <!-- </div> -->
       </div>
         <?php } } ?>
