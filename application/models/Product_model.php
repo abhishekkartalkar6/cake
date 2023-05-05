@@ -323,6 +323,7 @@ $this->db->group_by('p.product_id');
 
     function get_cat_subcat_product($cat_key, $sub_key)  
     {  
+        $sub_key = str_replace('%20',' ',$sub_key);
         $results = $this->db->query("SELECT p.*,c.id,c.category_name, GROUP_CONCAT(sp.size SEPARATOR ',') AS sizes,GROUP_CONCAT(sp.price SEPARATOR ',') AS prices FROM products p LEFT JOIN size_price sp ON p.product_id = sp.product_key LEFT JOIN categories c ON p.product_category = c.id WHERE product_category = '$cat_key' AND sub_cat = '$sub_key'GROUP BY p.product_id");
         return $results->result();
 
