@@ -18,8 +18,12 @@ class Welcome extends CI_Controller {
 		$data['allCategories'] = $this->Product_model->get_categories();
 		$d= array();
 		foreach($data['four_Categories'] as $cat){
-		$d[$cat->category_name] = $this->Product_model->get_four_products_by_id($cat->id);
+		$d[$cat->category_name."/".$cat->id] = $this->Product_model->get_four_products_by_id($cat->id);
 		}
+		echo '<pre>';
+		print_r($d);
+		echo '</pre>';
+		die;
 		$data['fourProducts']=$d;
 		$data['banners'] = $this->Product_model->get_banner();
 		$data['nav_bar'] = $this->get_navbar();
