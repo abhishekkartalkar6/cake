@@ -262,7 +262,7 @@ foreach($sp_arr as $sp_ar){
         foreach($result as $res){
             $data['id'][$i] = $res['id'];
             $sub = explode(",",$res['subcategories']);
-            $data['categories'][$res['product_category']] = $sub;
+            $data['categories'."/".$res['id']][$res['product_category']] = $sub;
             $i++;
         }
         return $data;
