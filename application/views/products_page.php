@@ -47,6 +47,13 @@
   <div class="container py-5">
     <div class="row">
       <?php 
+      if(isset($product_by_cat_subcat)){
+        $allProducts = $product_by_cat_subcat;
+      }elseif(isset($product_by_cat)){
+        $allProducts = $product_by_cat;
+      }
+
+      if($allProducts){
         foreach($allProducts as $product){
           if(isset($_GET['debug']) && $_GET['debug'] == 1){
           echo "<pre>";
@@ -55,7 +62,7 @@
           /* echo $product->category_name;
           echo $params[2];
           die; */
-          if((isset($params[2]) && strtolower($product->category_name) == $params[2]) || !(isset($params[2])) || ( strtolower($product->sub_cat) == $params[2]) ){
+          // if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) || ( strtolower($product->sub_cat) == $params[3]) ){
             
             $prices = explode(',',$product->prices);
             ?>
@@ -105,7 +112,8 @@
       </a>
         <!-- </div> -->
       </div>
-        <?php } } ?>
+        <?php } }
+      // } ?>
     </div>
   </div>
   <script>

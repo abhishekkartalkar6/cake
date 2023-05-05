@@ -232,17 +232,26 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     $i = 0;
     if($nav_bar){
     foreach($nav_bar['categories'] as $main_category => $sub_categories){
+
+      $main_category = explode('/',$main_category);
+        $cat_name = $main_category[0];
+        $cat_id = $main_category[1];
             ?>
 
       <div class="dropdown ">
         <a type="button" id="dbtn"  data-toggle="dropdown">
-        <?php echo ucwords($main_category);?>
+        <?php echo ucwords($cat_name);?>
         </a>
     <div class="dropdown-menu ">
     <?php 
     foreach($sub_categories as $sub_cat){
+      /* echo "<pre>";
+    print_r($sub_cat);die;
+      $sub_cat = explode('/',$sub_cat);
+        $cat_name = $sub_cat[0];
+        $cat_id = $sub_cat[1]; */
             ?>
-      <a class="dropdown-item" href="<?php echo base_url().'products/'.trim(strtolower(str_replace(' ','-',$sub_cat))); ?>"><?php echo $sub_cat; ?></a>
+      <a class="dropdown-item" href="<?php echo base_url().'products/'.$sub_cat.'/'.$cat_id ?>"><?php echo $sub_cat; ?></a>
       <?php } ?>
     </div>
     </div>
