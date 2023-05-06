@@ -209,7 +209,6 @@ html {
  
 <div class="col-md-5">
   <img src="<?php echo $product[0]->image_url; ?>" alt="" style= "">
-  <h3><?php echo $product[0]->product_name;?></h3>
 </div>
 <?php 
 $size_arr = explode(",",$product[0]->sizes);
@@ -217,8 +216,8 @@ $size_arr = explode(",",$product[0]->sizes);
 ?>
 <a href=""></a>
 <div class="col-md-6">
-
-  <h4><?php echo $product[0]->product_description;?></h4>
+<h3><?php echo $product[0]->product_name;?></h3>
+ 
   <br>
 <div class="containered">
       <?php 
@@ -252,7 +251,8 @@ $size_arr = explode(",",$product[0]->sizes);
         </div>
       <?php } ?>
       </div>
-
+      <br>
+      <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
       </div> 
     </div>
   </div>
