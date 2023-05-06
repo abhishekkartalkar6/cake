@@ -41,10 +41,19 @@
         padding: 0px !important;
       }
   }
+  .card:hover{
+          color: blue;
+          /* border :red 2px solid; */
+          box-shadow:  0px 15px 10px -10px green;
+        }
+        .container {
+            max-width: 1334px;
+        }
+        
 </style>
 
     <section style="background-color: ;">
-  <div class="container py-5">
+  <div class="container py-2">
     <div class="row">
       <?php 
       if(isset($product_by_cat_subcat)){
@@ -66,7 +75,7 @@
             
             $prices = explode(',',$product->prices);
             ?>
-            <div  class="col-6 col-lg-4 mb-4 pl-0 pr-0">
+            <div  class="col-6 col-lg-4 pl-0 pr-0">
               
               <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php echo($product->product_name) ?> can you please confirm.">
               <div class="card">

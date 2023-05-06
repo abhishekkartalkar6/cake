@@ -51,7 +51,7 @@ require_once('header.php') ?>
         $cat_id = $name[1];
         ?>
     <hr/>
-    <div><h3 class="title home-page-product-row-titile"><?php echo ucwords($cat_name) ?><a href="<?php echo base_url().'products/'.$cat_id; ?>" class="btn btn-primary" style="float:right; position:relative; margin-right:10px;font-size:15px;">View All</a></h3>
+    <div><h3 class="title home-page-product-row-titile"><?php echo ucwords($cat_name) ?><a href="<?php echo base_url().'products/'.$cat_id; ?>" class="btn btn-primary" style="float:right; position:relative;margin-right: 67px;font-size:15px;">View All</a></h3>
     </div><hr/>
     <div class="product-containered">
       <?php 

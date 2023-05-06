@@ -8,7 +8,7 @@
         foreach($allCategories as $category){
         ?>
       <div class="product-image-container">
-      <a href="<?php echo base_url().'products/'.$category->category_name.'/' ?>"><img class="lazy" data-src="<?php echo $category->category_image?>" alt="Image 1" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg">
+      <a href="<?php echo base_url().'products/'.$category->id?>"><img class="lazy" data-src="<?php echo $category->category_image?>" alt="Image 1" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg">
       <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($category->category_name) ?></p>
       </a>
       </div>
