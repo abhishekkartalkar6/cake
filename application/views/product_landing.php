@@ -218,7 +218,7 @@ $size_arr = explode(",",$product[0]->sizes);
 <a href=""></a>
 <div class="col-md-6">
 
-  <h3><?php echo $product[0]->product_description;?></h3>
+  <h4><?php echo $product[0]->product_description;?></h4>
   <br>
 <div class="containered">
       <?php 
