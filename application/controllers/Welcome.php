@@ -109,6 +109,13 @@ class Welcome extends CI_Controller {
 		$data['nav_bar'] = $this->get_navbar();
 		$this->load->view('products_page',$data);
 	}
+	public function all_cakes() {
+		// echo "hello";die;
+		$this->load->model('Product_model');
+		$data['all_cakes'] = $this->Product_model->get_all_cakes();
+		$data['nav_bar'] = $this->get_navbar();
+		$this->load->view('products_page',$data);
+	}
 
 
 	
