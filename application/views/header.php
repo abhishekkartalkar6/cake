@@ -256,7 +256,10 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         <strong><?php echo ucwords($cat_name);?></strong>
         </a>
     <div class="dropdown-menu ">
-    <?php 
+      <?php 
+      if(strtolower($cat_name) == "cakes"){
+        echo '<a disable class="dropdown-item">Cakes By Flavors</a>';
+      }
     foreach($sub_categories as $sub_cat){
       /* echo "<pre>";
     print_r($sub_cat);die;
