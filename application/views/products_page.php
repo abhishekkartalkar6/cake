@@ -61,11 +61,8 @@
         $title = "All ".ucwords($allProducts[0]->category_name)." Products";
       }elseif(isset($all_cakes)){
         $allProducts = $all_cakes;
-        $title = "All ".ucwords($allProducts[0]->category_name)." Products";
+        $title = "All Cakes";
       }
-      /* echo "<pre>";
-          print_r($title);
-die; */
 ?>
 
 <section style="background-color: ;">
