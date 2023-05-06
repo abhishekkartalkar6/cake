@@ -136,42 +136,42 @@
     </div>
   </div>
   <script>
-      document.addEventListener("DOMContentLoaded", function() {
+      // document.addEventListener("DOMContentLoaded", function() {
         
-        var lazyloadImages = document.querySelectorAll("img.lazy"); 
-        // console.log(lazyloadImages);return false;
+      //   var lazyloadImages = document.querySelectorAll("img.lazy"); 
+      //   // console.log(lazyloadImages);return false;
 
-        var lazyloadThrottleTimeout;
+      //   var lazyloadThrottleTimeout;
         
-        function lazyload () {
-          if(lazyloadThrottleTimeout) {
-            clearTimeout(lazyloadThrottleTimeout);
-          }    
+      //   function lazyload () {
+      //     if(lazyloadThrottleTimeout) {
+      //       clearTimeout(lazyloadThrottleTimeout);
+      //     }    
           
-          lazyloadThrottleTimeout = setTimeout(function() {
-              var scrollTop = window.pageYOffset;
-              lazyloadImages.forEach(function(img) {
-                // console.log(img.dataset);
-                  if(img.offsetTop < (window.innerHeight + scrollTop)) {
-                    img.src = img.dataset.src;
-                    img.classList.remove('lazy');
-                    if(img.dataset.src == ""){
-                      img.dataset.src = "<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg";
-                    }
-                  }
-              });
-              if(lazyloadImages.length == 0) { 
-                document.removeEventListener("scroll", lazyload);
-                window.removeEventListener("resize", lazyload);
-                window.removeEventListener("orientationChange", lazyload);
-              }
-          }, 20);
-        }
-        lazyload();
-        document.addEventListener("scroll", lazyload);
-        window.addEventListener("resize", lazyload);
-        window.addEventListener("orientationChange", lazyload);
-      });
+      //     lazyloadThrottleTimeout = setTimeout(function() {
+      //         var scrollTop = window.pageYOffset;
+      //         lazyloadImages.forEach(function(img) {
+      //           // console.log(img.dataset);
+      //             if(img.offsetTop < (window.innerHeight + scrollTop)) {
+      //               img.src = img.dataset.src;
+      //               img.classList.remove('lazy');
+      //               if(img.dataset.src == ""){
+      //                 img.dataset.src = "<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg";
+      //               }
+      //             }
+      //         });
+      //         if(lazyloadImages.length == 0) { 
+      //           document.removeEventListener("scroll", lazyload);
+      //           window.removeEventListener("resize", lazyload);
+      //           window.removeEventListener("orientationChange", lazyload);
+      //         }
+      //     }, 20);
+      //   }
+      //   lazyload();
+      //   document.addEventListener("scroll", lazyload);
+      //   window.addEventListener("resize", lazyload);
+      //   window.addEventListener("orientationChange", lazyload);
+      // });
 
     
     </script>
