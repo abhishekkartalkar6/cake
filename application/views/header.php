@@ -196,7 +196,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="<?php echo base_url()?>">MyGiftsy</a>
+      <a class="navbar-brand" href="<?php echo base_url()?>"><strong>MyGiftsy</strong></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -207,8 +207,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
   <input type="text" placeholder="Search" id="search-input">
   <ul id="suggestions"></ul>
 </div>
-          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories">All Categories</a></li>
-          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products">All Products</a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories"><strong>All Categories</strong></a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products"><strong>All Products</strong></a></li>
         </ul>
       </div>
     </nav>
@@ -250,7 +250,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
       <div class="dropdown ">
         <a type="button" id="dbtn"  data-toggle="dropdown">
-        <?php echo ucwords($cat_name);?>
+        <strong><?php echo ucwords($cat_name);?></strong>
         </a>
     <div class="dropdown-menu ">
     <?php 
