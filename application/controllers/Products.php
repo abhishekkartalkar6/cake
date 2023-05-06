@@ -228,6 +228,7 @@ class Products extends CI_Controller {
     public function edit_product($id) {
         $data['single_product'] = $this->Product_model->get_product_by_id($id);
         $data['categories'] = $this->Product_model->get_categories();
+        $data['sub_cat'] = $this->Product_model->get_all_sub_cat();
         $this->load->view('admin/product_edit',$data);
     }
 
@@ -442,7 +443,8 @@ class Products extends CI_Controller {
             $sub_array[] = intval($_POST["start"])+$cnt; $cnt ++; 
             $sub_array[] = $row->product_name; 
             $sub_array[] = $row->category_name; 
-             $sub_array[] = $row->product_description;   
+            $sub_array[] = $row->category_name; 
+             $sub_array[] = $row->sub_cat;   
              $sub_array[] = $row->sizes;  
              $sub_array[] = $row->prices;  
              $sub_array[] = '<img src="'.$row->image_url.'" alt="images" width="70" height="50">';  

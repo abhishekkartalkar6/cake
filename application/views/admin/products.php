@@ -85,6 +85,7 @@
                                         <th>sr</th>
                                         <th>Name</th>
                                             <th>Category</th>
+                                            <th>Sub-cat</th>
                                             <th>Desc</th>
                                             <th>Size</th>
                                             <th>Price</th>

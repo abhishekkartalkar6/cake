@@ -50,26 +50,16 @@
 </div>
   <div class="form-row row">
   <div class="form-group col-md-6">
-  
-                     <div id="price">
-                        <?php
-                        if($single_product[0]->sizes){
-                        $size_prices = explode(",",$single_product[0]->sizes);
-                        foreach($size_prices as  $size_price){ 
-                            $arr = explode("-",$size_price);
-                            ?>
-                            <div class="form-row row border p-2"><span><button onclick="removeItem(this.parentNode.parentNode); return false;"><i class="fa fa-close"></i></button></span><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Size</label><input type="text" value = "<?php echo $arr[0]; ?>" class="form-control" name="size[]" id="" required></div>
-                            <div class="form-group col-md-6">
-                                <label class="text-primary bold" for="productDescription">Price</label>
-                                <input type="text" value = "<?php echo $arr[1]; ?>" class="form-control" name="price[]" id="" required>
-                                <input type="hidden" value = "<?php echo $arr[2]; ?>"class="form-control" name="id[]" id="" required></div>
-                        </div>
-                       <?php }
-                        }
-                        ?>
-                     
-                    </div>
-                    <button id="addInputBtn" class="form-control btn btn-warning" >Add Sizes And Price</button>
+  <label class="text-primary bold" for="productStatus">Sub cat</label>
+                <select class="form-control" id="productStatus" name ="sub_cat">
+                    <?php foreach($sub_cat as $s_cat){ ?>
+                        <option value="<?php echo $single_product[0]->sub_cat; ?>"><?php echo $single_product[0]->sub_cat; ?></option>
+                        <option value="<?php echo $s_cat->sub_cat; ?>"><?php echo $s_cat->sub_cat; ?></option>
+                   <?php } ?>
+                    
+                </select>
+                <span class="text-danger"><?php echo form_error('product_status'); ?></span>
+                   
         </div>
 
 
@@ -79,6 +69,31 @@
             <input type="file" class="form-control-file" id="productImage" name="image" >
         </div>
   </div>
+  <br>
+  <div class="form-row row">
+  <div class="form-group col-md-6">
+  
+  <div id="price">
+     <?php
+     if($single_product[0]->sizes){
+     $size_prices = explode(",",$single_product[0]->sizes);
+     foreach($size_prices as  $size_price){ 
+         $arr = explode("-",$size_price);
+         ?>
+         <div class="form-row row border p-2"><span><button onclick="removeItem(this.parentNode.parentNode); return false;"><i class="fa fa-close"></i></button></span><div class="form-group col-md-6"><label class="text-primary bold" for="productDescription">Size</label><input type="text" value = "<?php echo $arr[0]; ?>" class="form-control" name="size[]" id="" required></div>
+         <div class="form-group col-md-6">
+             <label class="text-primary bold" for="productDescription">Price</label>
+             <input type="text" value = "<?php echo $arr[1]; ?>" class="form-control" name="price[]" id="" required>
+             <input type="hidden" value = "<?php echo $arr[2]; ?>"class="form-control" name="id[]" id="" required></div>
+     </div>
+    <?php }
+     }
+     ?>
+  
+ </div>
+ <button id="addInputBtn" class="form-control btn btn-warning" >Add Sizes And Price</button>
+</div>
+    </div>
   <div class="form-row row">
     <div class="form-group col-md-11">
         </div>

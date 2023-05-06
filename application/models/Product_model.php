@@ -45,6 +45,7 @@ class Product_model extends CI_Model {
         $product_category = $this->input->post('product_category');
         $product_description = $this->input->post('product_description');
         $product_status = $this->input->post('product_status');
+        $sub_cat = $this->input->post('sub_cat');
         $sizes = $this->input->post('size');
         $price = $this->input->post('price');
         $size_price_ids = $this->input->post('id');
@@ -53,6 +54,7 @@ class Product_model extends CI_Model {
         $data = array(
             'product_name' => $product_name,
             'product_category' => $product_category,
+            'sub_cat' => $sub_cat,
             'product_description' => $product_description,
             'product_status' => $product_status,
             'image_url' => $image_url
@@ -331,6 +333,12 @@ $this->db->group_by('p.product_id');
     function get_catwise_product($cat_key)  
     {  
         $results = $this->db->query("SELECT p.*,c.id,c.category_name, GROUP_CONCAT(sp.size SEPARATOR ',') AS sizes,GROUP_CONCAT(sp.price SEPARATOR ',') AS prices FROM products p LEFT JOIN size_price sp ON p.product_id = sp.product_key LEFT JOIN categories c ON p.product_category = c.id  WHERE p.product_category = '$cat_key' GROUP BY p.product_id");
+        return $results->result();
+
+    } 
+    function get_all_sub_cat()  
+    {  
+        $results = $this->db->query("SELECT DISTINCT sub_cat FROM `products`");
         return $results->result();
 
     } 
