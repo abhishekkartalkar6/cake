@@ -128,6 +128,7 @@
   </div>
   <script>
       document.addEventListener("DOMContentLoaded", function() {
+        
         var lazyloadImages = document.querySelectorAll("img.lazy"); 
         // console.log(lazyloadImages);return false;
 
@@ -157,7 +158,7 @@
               }
           }, 20);
         }
-        
+        lazyload();
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);

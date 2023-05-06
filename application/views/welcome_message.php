@@ -74,6 +74,7 @@ require_once('header.php') ?>
     </div>
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+        
         var lazyloadImages = document.querySelectorAll("img.lazy");    
         var lazyloadThrottleTimeout;
         
@@ -97,10 +98,12 @@ require_once('header.php') ?>
                 document.removeEventListener("scroll", lazyload);
                 window.removeEventListener("resize", lazyload);
                 window.removeEventListener("orientationChange", lazyload);
+              }else{
+                // alert("hello");
               }
           }, 20);
         }
-        
+        lazyload();
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);

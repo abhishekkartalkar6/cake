@@ -44,7 +44,7 @@
               }
           }, 20);
         }
-        
+        lazyload();
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);
