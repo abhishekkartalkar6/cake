@@ -83,8 +83,10 @@
               
               <a href="<?php echo base_url(); ?>final_product/<?php echo $product->product_id; ?>">
               <div class="card">
-          <img class="lazy card-img-top" data-src="<?php echo $product->image_url?>"
-             alt="Image" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/>
+          <!-- <img class="lazy card-img-top" data-src="<?php //echo $product->image_url?>"
+             alt="Image" src="<?php //echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/> -->
+          <img class="lazy card-img-top" src="<?php echo $product->image_url?>"
+             alt="Image" />
           <div class="card-body">
 
             <div class="text-center">
