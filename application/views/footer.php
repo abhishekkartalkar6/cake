@@ -108,7 +108,7 @@
                 window.removeEventListener("resize", lazyload);
                 window.removeEventListener("orientationChange", lazyload);
               }
-          });
+          }, 20);
         }
         lazyload();
         document.addEventListener("scroll", lazyload);
