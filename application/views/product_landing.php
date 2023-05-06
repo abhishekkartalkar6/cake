@@ -236,7 +236,7 @@ $size_arr = explode(",",$product[0]->sizes);
        
         </div>
         <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo  "₹".$size_pric[1]; ?></b></p>
-        <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello mygiftsy I want to order <?php if(isset($_SERVER['SCRIPT_URI'])){echo $_SERVER['SCRIPT_URI']; } ?> of size  <?php echo $size_pric[0]; ?>can you please confirm.">
+        <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello mygiftsy I want to order <?php if(isset($_SERVER['SCRIPT_URI'])){echo $_SERVER['SCRIPT_URI']; } ?> of size  <?php echo $size_pric[0]; ?> can you please confirm.">
         <button class="button">
             <span>Add to cart</span>
             <div class="cart">
