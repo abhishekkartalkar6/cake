@@ -344,7 +344,7 @@ $this->db->group_by('p.product_id');
     } 
     function get_all_cakes()  
     {  
-        $results = $this->db->query("SELECT p.*,c.id,c.category_name, GROUP_CONCAT(sp.size SEPARATOR ',') AS sizes,GROUP_CONCAT(sp.price SEPARATOR ',') AS prices FROM products p LEFT JOIN size_price sp ON p.product_id = sp.product_key LEFT JOIN categories c ON p.product_category = c.id  WHERE p.product_category = 14 GROUP BY p.product_id");
+        $results = $this->db->query("SELECT p.*,c.id,c.category_name, GROUP_CONCAT(sp.size SEPARATOR ',') AS sizes,GROUP_CONCAT(sp.price SEPARATOR ',') AS prices FROM products p LEFT JOIN size_price sp ON p.product_id = sp.product_key LEFT JOIN categories c ON p.product_category = c.id  WHERE p.product_category = 1 GROUP BY p.product_id");
         return $results->result();
 
     } 
