@@ -258,7 +258,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <div class="dropdown-menu ">
       <?php 
       if(strtolower($cat_name) == "cakes"){
-        echo '<a disable class="dropdown-item">Cakes By Flavors</a>';
+        echo '<a class="dropdown-item" style="color:blue">Cakes By Flavors</a>';
       }
     foreach($sub_categories as $sub_cat){
       /* echo "<pre>";
