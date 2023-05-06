@@ -225,7 +225,10 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         color:red;
       } */
       .steven-and-leah > * #dbtn:hover {
-        background-color:#00CED1;
+        background-color:#fff;
+        color:#002f5b;
+        /* border-bottom:2px solid blue; */
+        box-shadow: 0px 15px 10px -5px blue; 
       }
       #dbtn{
         padding:5px;
