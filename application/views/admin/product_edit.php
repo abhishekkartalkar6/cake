@@ -49,15 +49,23 @@
 
 </div>
   <div class="form-row row">
-  <div class="form-group col-md-6">
+  <div class="form-group col-md-6" id= "drop">
   <label class="text-primary bold" for="productStatus">Sub cat</label>
-                <select class="form-control" id="productStatus" name ="sub_cat">
+                <select class="form-control" id="sub_cat" name ="sub_cat">
+                    <option value="<?php echo $single_product[0]->sub_cat; ?>"><?php echo $single_product[0]->sub_cat; ?></option>
+                    <option value="other">Other</option>
                     <?php foreach($sub_cat as $s_cat){ ?>
-                        <option value="<?php echo $single_product[0]->sub_cat; ?>"><?php echo $single_product[0]->sub_cat; ?></option>
                         <option value="<?php echo $s_cat->sub_cat; ?>"><?php echo $s_cat->sub_cat; ?></option>
                    <?php } ?>
                     
                 </select>
+                <span class="text-danger"><?php echo form_error('product_status'); ?></span>
+                   
+        </div>
+
+        <div class="form-group col-md-6" id="inputss">
+  <label class="text-primary bold" for="productStatus">Sub cat</label>
+                <input type="sub" class= "form-control" name="sub_cat" id="">
                 <span class="text-danger"><?php echo form_error('product_status'); ?></span>
                    
         </div>

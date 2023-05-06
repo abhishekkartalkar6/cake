@@ -68,6 +68,18 @@ function removeItem(div){
 
 
 
+    $(document).ready(function() {
+        $('#inputss').hide();
+  $('#sub_cat').change(function() {
+    if ($(this).val() == 'other') {
+      $('#inputss').show();
+      $('#drop').hide();
+    } else {
+      $('#drop').hide();
+    }
+  });
+});
+
                 </script>
     </body>
 </html>
