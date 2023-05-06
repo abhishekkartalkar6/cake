@@ -190,9 +190,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         .image-container:hover, .product-image-container:hover{
           box-shadow:  0px 15px 10px -10px green;
         }
-       
-        /* In this updated code, the @media query applies to screens with a maximum width of 767px (typically mobile devices). When this condition is met, the width of the image-container class is changed to 25% minus 10 pixels of margin, effectively fitting 4 divs on each row. This way, the 8 divs are displayed in two rows on mobile view. */
-      </style>
+       </style>
   </head>
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -238,7 +236,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       }
     </style>
     
-    <div class="steven-and-leah" >
+    <div class="steven-and-leah" style="margin-bottom:10px" >
     <?php 
     /* echo "<pre>";
     print_r($nav_bar);die; */
@@ -252,7 +250,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
             ?>
 
       <div class="dropdown ">
-        <a type="button" id="dbtn"  data-toggle="dropdown">
+        <a type="button" id="dbtn"  >
         <strong><?php echo ucwords($cat_name);?></strong>
         </a>
     <div class="dropdown-menu ">
@@ -263,9 +261,11 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       $sub_cat = explode('/',$sub_cat);
         $cat_name = $sub_cat[0];
         $cat_id = $sub_cat[1]; */
+        if($sub_cat !==""){
             ?>
-      <a class="dropdown-item" href="<?php echo base_url().'products/'.$sub_cat.'/'.$cat_id ?>"><?php echo $sub_cat; ?></a>
-      <?php } ?>
+      <a class="dropdown-item" href="<?php echo base_url().'products/'.$sub_cat.'/'.$cat_id ?>"><?php echo $sub_cat;?></a>
+      <?php }
+    } ?>
     </div>
     </div>
     <?php $i++; } }?>
