@@ -46,7 +46,6 @@
     <section style="background-color: ;">
   <div class="container py-5">
     <div class="row">
-<<<<<<< Updated upstream
       <?php 
       if(isset($product_by_cat_subcat)){
         $allProducts = $product_by_cat_subcat;
@@ -55,13 +54,6 @@
       }
 
       if($allProducts){
-=======
-      <?php echo '<pre>';
-      print_r($product_by_cat);
-      print_r($nav_bar);
-      echo '</pre>';
-      die;
->>>>>>> Stashed changes
         foreach($allProducts as $product){
           if(isset($_GET['debug']) && $_GET['debug'] == 1){
           echo "<pre>";
