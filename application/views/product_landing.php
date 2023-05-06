@@ -20,7 +20,7 @@
 </style>
 
     <section style="background-color: ;">
-  <div class="p-5  py-5">
+  <div class="text-center">
     <div class="row">
  
 <div class="col-md-5">
