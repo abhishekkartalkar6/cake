@@ -5,7 +5,7 @@
 <style>
   img{
     width: 330px;
-    height: 232px;
+    height: 260px;
   }
   .card {
     margin : 10px;
