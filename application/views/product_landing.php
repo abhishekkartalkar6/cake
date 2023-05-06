@@ -219,6 +219,8 @@ $size_arr = explode(",",$product[0]->sizes);
 <h3><?php echo $product[0]->product_name;?></h3>
  
   <br>
+  <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
+  <br>
 <div class="containered">
       <?php 
       foreach($size_arr as $arr){
@@ -226,6 +228,7 @@ $size_arr = explode(",",$product[0]->sizes);
       
       ?>
       <div  >
+      
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
@@ -252,7 +255,7 @@ $size_arr = explode(",",$product[0]->sizes);
       <?php } ?>
       </div>
       <br>
-      <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
+      
       </div> 
     </div>
   </div>
