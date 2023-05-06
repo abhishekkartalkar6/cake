@@ -75,3 +75,4 @@ $route['csv'] = 'products/product_csv';
 $route['add_csv'] = 'products/do_upload';
 $route["products/(:any)/(:num)"]="welcome/get_cat_sub_cat/$1/$2";
 $route["products/(:any)"]="welcome/get_category/$1";
+$route["all_cakes"]="welcome/all_cakes";

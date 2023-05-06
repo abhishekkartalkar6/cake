@@ -51,17 +51,26 @@
         }
         
 </style>
-
-    <section style="background-color: ;">
-  <div class="container py-2">
-    <div class="row">
-      <?php 
+<?php 
+      $title = "All Products";
       if(isset($product_by_cat_subcat)){
         $allProducts = $product_by_cat_subcat;
+        $title = "All ".ucwords($allProducts[0]->sub_cat)." Products";
       }elseif(isset($product_by_cat)){
         $allProducts = $product_by_cat;
+        $title = "All ".ucwords($allProducts[0]->category_name)." Products";
+      }elseif(isset($all_cakes)){
+        $allProducts = $all_cakes;
+        $title = "All Cakes";
       }
+?>
 
+<section style="background-color: ;">
+  <h5 class="text-center" style="color:blue;text-decoration:"><?php echo $title ?></h5>
+  <div class="container py-2">
+    <div class="row">
+      
+<?php
       if($allProducts){
         foreach($allProducts as $product){
           if(isset($_GET['debug']) && $_GET['debug'] == 1){
