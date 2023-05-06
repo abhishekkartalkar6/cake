@@ -222,6 +222,12 @@ $size_arr = explode(",",$product[0]->sizes);
   <br>
 <div class="containered">
       <?php 
+      if($_GET['debug']==1){
+        echo '<pre>';
+        print_r($_SERVER);
+        echo '</pre>';
+        die;
+      }
       foreach($size_arr as $arr){
         $size_pric =  explode("-",$arr);
       
@@ -236,6 +242,7 @@ $size_arr = explode(",",$product[0]->sizes);
        
         </div>
         <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo  "₹".$size_pric[1]; ?></b></p>
+        <!-- <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello mygiftsy I want to order <?php echo $_SERVER['REQUEST_URI']; ?> of size  <b><?php echo $size_pric[0]; ?></b> can you please confirm.">ff</a> -->
         <button class="button">
             <span>Add to cart</span>
             <div class="cart">
