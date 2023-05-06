@@ -34,7 +34,7 @@
   <div class="form-row row">
             <div class="form-group col-md-6">
                 <label class="text-primary bold" for="productDescription">Product Description</label>
-                <textarea class="form-control" id="productDescription" rows="1" name ="product_description"><?php echo $single_product[0]->product_description; ?></textarea>
+                <textarea class="form-control" id="product_description" rows="1" name ="product_description"><?php echo $single_product[0]->product_description; ?></textarea>
                 <span class="text-danger"><?php echo form_error('product_description'); ?></span>
             </div>
             <div class="form-group col-md-6">
