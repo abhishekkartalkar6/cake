@@ -61,24 +61,24 @@
     $('#row_to_add').html(string);
 
       
-  // $('#search-input').keyup(function(){
-  //   var search = $(this).val();
-  //   if(search != ''){
-  //     $.ajax({
-  //       url: "<?php echo base_url(); ?>suggetion",
-  //       method: "POST",
-  //       data: {search:search},
-  //       success:function(response){
-  //         // console.log(response);
-  //         $('#suggestions').html(response);
+  $('#search-input').keyup(function(){
+    var search = $(this).val();
+    if(search != ''){
+      $.ajax({
+        url: "<?php echo base_url(); ?>suggetion",
+        method: "POST",
+        data: {search:search},
+        success:function(response){
+          // console.log(response);
+          $('#suggestions').html(response);
 
-  //       }
-  //     });
-  //   }
-  //   else {
-  //     $('#suggestions').empty();
-  //   }
-  // });
+        }
+      });
+    }
+    else {
+      $('#suggestions').empty();
+    }
+  });
 });
 
 

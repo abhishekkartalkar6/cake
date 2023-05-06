@@ -77,47 +77,22 @@
           echo "<pre>";
           print_r($product);
           }
-          /* echo $product->category_name;
-          echo $params[2];
-          die; */
-          // if((isset($params[3]) && strtolower($product->category_name) == $params[3]) || !(isset($params[3])) || ( strtolower($product->sub_cat) == $params[3]) ){
-            
             $prices = explode(',',$product->prices);
             ?>
             <div  class="col-6 col-lg-4 pl-0 pr-0 sort_by_filter">
               
-              <!-- <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php //echo($product->product_name) ?> can you please confirm."> -->
               <a href="<?php echo base_url(); ?>final_product/<?php echo $product->product_id; ?>">
               <div class="card">
-        <!-- <div class="cardhead"> -->
-          <!-- <div class="d-flex justify-content-between p-3">
-            <p class="lead mb-0"><?php //echo ucwords($product->product_name) ?></p>
-            <div
-              class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
-              style="width: 35px; height: 35px;">
-              <p class="text-white mb-0 small">x4</p>
-            </div>
-          </div> -->
           <img class="lazy card-img-top" data-src="<?php echo $product->image_url?>"
              alt="Image" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/>
           <div class="card-body">
-            <!-- <div class="d-flex justify-content-between">
-              <p class="small"><a href="#!" class="text-muted">Laptops</a></p>
-              <p class="small text-danger"><s>₹ <?php //echo min($prices)?></s></p>
-            </div> -->
 
-            <!-- <div class="d-flex justify-content-between mb-3"> -->
             <div class="text-center">
               <h6 class="product_title" style="word-break: break-all"><?php echo ucwords($product->product_name) ?></h6>
               <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
             </div>
-            <!-- <div>
-            <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php //echo($product->product_name) ?> can you please confirm."><button type="button" class="btn btn-primary"> Order Now</button></a>
-            
-            </div> -->
 
             <div class="d-flex justify-content-between mb-2">
-              <!-- <p class="text-muted mb-0">Available: <span class="fw-bold">6</span></p> -->
               <div class="ms-auto text-warning">
                 <i class="fa fa-star"></i>
                 <i class="fa fa-star"></i>
@@ -129,49 +104,48 @@
           </div>
         </div>
       </a>
-        <!-- </div> -->
       </div>
         <?php } }
       // } ?>
     </div>
   </div>
   <script>
-      // document.addEventListener("DOMContentLoaded", function() {
+      document.addEventListener("DOMContentLoaded", function() {
         
-      //   var lazyloadImages = document.querySelectorAll("img.lazy"); 
-      //   // console.log(lazyloadImages);return false;
+        var lazyloadImages = document.querySelectorAll("img.lazy"); 
+        // console.log(lazyloadImages);return false;
 
-      //   var lazyloadThrottleTimeout;
+        var lazyloadThrottleTimeout;
         
-      //   function lazyload () {
-      //     if(lazyloadThrottleTimeout) {
-      //       clearTimeout(lazyloadThrottleTimeout);
-      //     }    
+        function lazyload () {
+          if(lazyloadThrottleTimeout) {
+            clearTimeout(lazyloadThrottleTimeout);
+          }    
           
-      //     lazyloadThrottleTimeout = setTimeout(function() {
-      //         var scrollTop = window.pageYOffset;
-      //         lazyloadImages.forEach(function(img) {
-      //           // console.log(img.dataset);
-      //             if(img.offsetTop < (window.innerHeight + scrollTop)) {
-      //               img.src = img.dataset.src;
-      //               img.classList.remove('lazy');
-      //               if(img.dataset.src == ""){
-      //                 img.dataset.src = "<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg";
-      //               }
-      //             }
-      //         });
-      //         if(lazyloadImages.length == 0) { 
-      //           document.removeEventListener("scroll", lazyload);
-      //           window.removeEventListener("resize", lazyload);
-      //           window.removeEventListener("orientationChange", lazyload);
-      //         }
-      //     }, 20);
-      //   }
-      //   lazyload();
-      //   document.addEventListener("scroll", lazyload);
-      //   window.addEventListener("resize", lazyload);
-      //   window.addEventListener("orientationChange", lazyload);
-      // });
+          lazyloadThrottleTimeout = setTimeout(function() {
+              var scrollTop = window.pageYOffset;
+              lazyloadImages.forEach(function(img) {
+                // console.log(img.dataset);
+                  if(img.offsetTop < (window.innerHeight + scrollTop)) {
+                    img.src = img.dataset.src;
+                    img.classList.remove('lazy');
+                    if(img.dataset.src == ""){
+                      img.dataset.src = "<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg";
+                    }
+                  }
+              });
+              if(lazyloadImages.length == 0) { 
+                document.removeEventListener("scroll", lazyload);
+                window.removeEventListener("resize", lazyload);
+                window.removeEventListener("orientationChange", lazyload);
+              }
+          }, 20);
+        }
+        lazyload();
+        document.addEventListener("scroll", lazyload);
+        window.addEventListener("resize", lazyload);
+        window.addEventListener("orientationChange", lazyload);
+      });
 
     
     </script>
