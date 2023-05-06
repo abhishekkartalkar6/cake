@@ -77,7 +77,8 @@
             ?>
             <div  class="col-6 col-lg-4 pl-0 pr-0">
               
-              <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php echo($product->product_name) ?> can you please confirm.">
+              <!-- <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello Hello mygiftsy I want to order <?php //echo($product->product_name) ?> can you please confirm."> -->
+              <a href="<?php echo base_url(); ?>final_product/<?php echo $product->product_id; ?>">
               <div class="card">
         <!-- <div class="cardhead"> -->
           <!-- <div class="d-flex justify-content-between p-3">
