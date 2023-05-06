@@ -42,24 +42,43 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
       $(document).ready(function(){
-  $('#search-input').keyup(function(){
-    var search = $(this).val();
-    if(search != ''){
-      $.ajax({
-        url: "<?php echo base_url(); ?>suggetion",
-        method: "POST",
-        data: {search:search},
-        success:function(response){
-          console.log(response);
-          $('#suggestions').html(response);
-
-        }
+        var sort_arr = [];
+        $('.sort_by_filter').each(function(){
+        var price = $(this).find('h5').text().split(' ');
+        sort_arr.push({'key': price[1],'data':$(this)[0].outerHTML});
       });
-    }
-    else {
-      $('#suggestions').empty();
-    }
-  });
+      sort_arr.sort(function(a, b) {
+      return a.key - b.key; // sort by age in ascending order
+    });
+    var string ='';
+    $.each(sort_arr, function(index, value) {
+      console.log(value['data']);
+      string +=  value['data'];
+      
+    //  console.log(index+value['data']);
+      // console.log( value['data']);
+    });
+    $('#row_to_add').html(string);
+
+      
+  // $('#search-input').keyup(function(){
+  //   var search = $(this).val();
+  //   if(search != ''){
+  //     $.ajax({
+  //       url: "<?php echo base_url(); ?>suggetion",
+  //       method: "POST",
+  //       data: {search:search},
+  //       success:function(response){
+  //         // console.log(response);
+  //         $('#suggestions').html(response);
+
+  //       }
+  //     });
+  //   }
+  //   else {
+  //     $('#suggestions').empty();
+  //   }
+  // });
 });
 
 
