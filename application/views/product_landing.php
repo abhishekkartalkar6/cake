@@ -226,7 +226,7 @@ $size_arr = explode(",",$product[0]->sizes);
         $size_pric =  explode("-",$arr);
       
       ?>
-      <div style="border : 2px solid ; padding : 4px; border-radius : 6px">
+      <div  >
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
