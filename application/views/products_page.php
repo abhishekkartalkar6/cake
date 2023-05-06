@@ -41,6 +41,11 @@
         padding: 0px !important;
       }
   }
+  .card:hover{
+          color: blue;
+          /* border :red 2px solid; */
+          box-shadow:  0px 15px 10px -10px green;
+        }
 </style>
 
     <section style="background-color: ;">
