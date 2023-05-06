@@ -256,6 +256,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         <strong><?php echo ucwords($cat_name);?></strong>
         </a>
     <div class="dropdown-menu ">
+    <a class="dropdown-item" href="<?php echo base_url().'products/'.$cat_id ?>"><?php echo "All ".$cat_name;?></a>
       <?php 
       if(strtolower($cat_name) == "cakes"){
         echo '<a class="dropdown-item" style="color:orange">Cakes By Flavors</a><a class="dropdown-item" href="'.base_url().'all_cakes">All Cakes</a>';
