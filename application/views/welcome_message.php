@@ -63,8 +63,8 @@ require_once('header.php') ?>
         ?>
       <div class="product-image-container">
       <a href="<?php echo base_url().'products' ?>"><img class="lazy" data-src="<?php echo $product->image_url?>" alt="Image 1" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg">
-      <p style="word-break: break-all" class="text-center product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
-      <p><strong>Starting from ₹ <?php echo min($prices)?></strong></p>
+      <p style="word-break: break-all;padding-left: 5px; margin-bottom: 0px;" class="text-left product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
+      <p style="padding-left: 5px; margin-bottom: 2px;" class="text-left"><strong>Starting from ₹ <?php echo min($prices)?></strong></p>
       </a>
       </div>
       <?php }

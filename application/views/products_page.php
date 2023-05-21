@@ -21,7 +21,8 @@
     width: auto; 
     overflow: hidden;
     text-overflow: ellipsis;
-    padding : 5px; 
+    padding-top : 2px;
+    padding-left: 5px 
           
         }
   @media screen and (max-width: 767px) {
@@ -66,7 +67,7 @@
 ?>
 
 <section style="background-color: ;">
-  <h5 class="text-center" style="color:blue;text-decoration:"><?php echo $title ?></h5>
+  <h5 style="color:blue;text-decoration:none;padding-left: 15px;"><?php echo $title ?></h5>
   <div class="container py-2">
     <div class="row  " id="row_to_add">
       
@@ -87,9 +88,9 @@
              alt="Image" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/>
           <div class="card-body">
 
-            <div class="text-center">
+            <div >
               <h6 class="product_title" style="word-break: break-all"><?php echo ucwords($product->product_name) ?></h6>
-              <h5 class="text-dark mb-0">₹ <?php echo min($prices)?></h5>
+              <h6 class="product_title">₹ <?php echo min($prices)?></h6>
             </div>
 
             <div class="d-flex justify-content-between mb-2">

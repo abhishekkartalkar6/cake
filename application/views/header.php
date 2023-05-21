@@ -212,6 +212,13 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         </ul>
       </div>
     </nav>
+    <?php //print_r($params);die;
+    if($params[1]!==""){
+    ?>
+    <div style="margin-left: 15px" class="breadcrumb1">
+      <p><a href="<?php echo base_url()?>">Home</a></p>
+    </div>
+    <?php } ?>
 
     <style>
       .steven-and-leah > * {
@@ -219,7 +226,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       }
       .steven-and-leah{
         margin-top: 15px;
-        text-align:center;
+        margin-left: 15px;
+        /* text-align:center; */
       }
       /* .steven-and-leah > * a:hover {
         color:red;
@@ -251,12 +259,12 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         $cat_id = $main_category[1];
             ?>
 
-      <div class="dropdown ">
+      <div class="dropdown dropdown-toggle" >
         <a type="button" id="dbtn"  >
-        <strong><?php echo ucwords($cat_name);?></strong>
+        <p><?php echo ucwords($cat_name);?></p>
         </a>
     <div class="dropdown-menu ">
-    <a class="dropdown-item" href="<?php echo base_url().'products/'.$cat_id ?>"><?php echo "All ".$cat_name;?></a>
+    <a class="dropdown-item" href="<?php echo base_url().'products/'.$cat_id ?>"><?php //echo "All ".$cat_name;?></a>
       <?php 
       if(strtolower($cat_name) == "cakes"){
         echo '<a class="dropdown-item" style="color:orange">Cakes By Flavors</a><a class="dropdown-item" href="'.base_url().'all_cakes">All Cakes</a>';
