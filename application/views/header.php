@@ -218,7 +218,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <div style="margin-left: 15px" class="breadcrumb1">
       <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
       <?php
-        if($params[2]!==""){
+        if(isset($params[2]) && $params[2]!==""){
       ?>
       <a href="<?php echo base_url()?>"><?php echo $params[1]; ?></a> > <?php echo $params[1]; ?>
       <?php }else{ ?>
