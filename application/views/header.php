@@ -270,9 +270,11 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
             ?>
 
       <div class="dropdown dropdown-toggle" >
+        <?php if(isset($cat_name)){ ?>
         <a type="button" id="dbtn"  >
         <p><?php echo ucwords($cat_name);?></p>
         </a>
+        <?php } ?>
     <div class="dropdown-menu ">
     <a class="dropdown-item" href="<?php echo base_url().'products/'.$cat_id ?>"><?php //echo "All ".$cat_name;?></a>
       <?php 
