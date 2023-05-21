@@ -213,16 +213,17 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       </div>
     </nav>
     <?php //print_r($params);die;
+    // ucwords(str_replace('_',' ',$params[2]))
     if($params[1]!==""){
     ?>
     <div style="margin-left: 15px" class="breadcrumb1">
       <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
       <?php
-        if(isset($params[2]) && $params[2]!==""){
+        if(isset($params[2])){
       ?>
-      <a href="<?php echo base_url()?>"><?php echo $params[1]; ?></a> > <?php echo $params[1]; ?>
+      <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php echo ucwords(str_replace('_',' ',$params[2])); ?>
       <?php }else{ ?>
-        <?php echo $params[1]; ?>
+        <?php echo ucwords(str_replace('_',' ',$params[1])); ?>
         <?php } ?>
     </p>
     </div>
