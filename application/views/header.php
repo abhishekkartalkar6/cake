@@ -221,8 +221,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <?php
         if(isset($params[2])){
       ?>
-      <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php echo 
-      if(strpos('_',$params[2])){ucwords(str_replace('_',' ',$params[2]));}else{ech ucwords(str_replace('%20',' ',$params[2]));} ?>
+      <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php 
+      if(strpos($params[2],'_')){echo ucwords(str_replace('_',' ',$params[2]));}else{echo ucwords(str_replace('%20',' ',$params[2]));} ?>
       <?php }else{ ?>
         <?php echo ucwords(str_replace('_',' ',$params[1])); ?>
         <?php } ?>
