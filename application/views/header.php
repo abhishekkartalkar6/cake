@@ -270,7 +270,10 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
             ?>
 
       <div class="dropdown dropdown-toggle" >
-        <?php if(isset($cat_name)){ ?>
+        <?php if(isset($cat_name)){ 
+          echo "<pre>";
+          print_r($main_category  );die;
+          ?>
         <a type="button" id="dbtn"  >
         <p><?php echo ucwords($cat_name);?></p>
         </a>
