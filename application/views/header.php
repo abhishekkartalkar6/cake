@@ -269,15 +269,15 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         $cat_id = $main_category[1];
             ?>
 
-      <div class="dropdown dropdown-toggle" >
         <?php if($cat_name !==""){ 
           // echo "<pre>";
           // print_r($main_category  );die;
           ?>
+      <div class="dropdown dropdown-toggle" >
         <a type="button" id="dbtn"  >
         <p><?php echo ucwords($cat_name);?></p>
         </a>
-        <?php } ?>
+        <?php //} ?>
     <div class="dropdown-menu ">
     <a class="dropdown-item" href="<?php echo base_url().'products/'.$cat_id ?>"><?php //echo "All ".$cat_name;?></a>
       <?php 
@@ -297,7 +297,9 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     } ?>
     </div>
     </div>
-    <?php $i++; } }?>
+    <?php $i++; } 
+    }
+  }?>
     
     
 </div>
