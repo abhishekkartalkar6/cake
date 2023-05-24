@@ -200,35 +200,6 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       </button>
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-        <div class="search-box">
-  <input type="text" placeholder="Search" id="search-input">
-  <ul id="suggestions"></ul>
-</div>
-          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories"><strong>All Categories</strong></a></li>
-          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products"><strong>All Products</strong></a></li> -->
-          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>all_cakes"><strong>All Cakes</strong></a></li> -->
-          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products"><strong>Birthday Cakes</strong></a></li> -->
-        </ul>
-      </div>
-    </nav>
-    <?php //print_r($params);die;
-    // ucwords(str_replace('_',' ',$params[2]))
-    if($params[1]!==""){
-    ?>
-    <div style="margin-left: 15px" class="breadcrumb1">
-      <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
-      <?php
-        if(isset($params[2])){
-      ?>
-      <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php 
-      if(strpos($params[2],'_')){echo ucwords(str_replace('_',' ',$params[2]));}else{echo ucwords(str_replace('%20',' ',$params[2]));} ?>
-      <?php }else{ ?>
-        <?php echo ucwords(str_replace('_',' ',$params[1])); ?>
-        <?php } ?>
-    </p>
-    </div>
-    <?php } ?>
 
     <style>
       .steven-and-leah > * {
@@ -300,6 +271,35 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <?php $i++; } 
     }
   }?>
+        <ul class="navbar-nav mr-auto">
+        <div class="search-box">
+  <input type="text" placeholder="Search" id="search-input">
+  <ul id="suggestions"></ul>
+</div>
+          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>categories"><strong>All Categories</strong></a></li>
+          <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products"><strong>All Products</strong></a></li> -->
+          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>all_cakes"><strong>All Cakes</strong></a></li> -->
+          <!-- <li style="padding-left: 8px;"><a href="<?php echo base_url()?>products"><strong>Birthday Cakes</strong></a></li> -->
+        </ul>
+      </div>
+    </nav>
     
+    <?php //print_r($params);die;
+    // ucwords(str_replace('_',' ',$params[2]))
+    if($params[1]!==""){
+    ?>
+    <div style="margin-left: 15px" class="breadcrumb1">
+      <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
+      <?php
+        if(isset($params[2])){
+      ?>
+      <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php 
+      if(strpos($params[2],'_')){echo ucwords(str_replace('_',' ',$params[2]));}else{echo ucwords(str_replace('%20',' ',$params[2]));} ?>
+      <?php }else{ ?>
+        <?php echo ucwords(str_replace('_',' ',$params[1])); ?>
+        <?php } ?>
+    </p>
+    </div>
+    <?php } ?>
     
 </div>
