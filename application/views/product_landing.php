@@ -3,186 +3,8 @@
 // print_r($allProducts);die;
 ?>
 <style>
-  .button {
-    --background: #362a89;
-    --text: #fff;
-    --cart: #fff;
-    --tick: var(--background);
-    position: relative;
-    border: none;
-    background: none;
-    padding: 8px 28px;
-    border-radius: 8px;
-    -webkit-appearance: none;
-    -webkit-tap-highlight-color: transparent;
-    -webkit-mask-image: -webkit-radial-gradient(white, black);
-    overflow: hidden;
-    cursor: pointer;
-    text-align: center;
-    min-width: 100%;
-    color: var(--text);
-    background: var(--background);
-    transform: scale(var(--scale, 1));
-    transition: transform 0.4s cubic-bezier(0.36, 1.01, 0.32, 1.27);
-}
 
-.button:active {
-    --scale: 0.95;
-}
 
-.button span {
-    font-size: 100%;
-    font-weight: 500;
-    display: block;
-    position: relative;
-    padding-left: 24px;
-    margin-left: -8px;
-    line-height: 26px;
-    transform: translateY(var(--span-y, 0));
-    transition: transform 0.7s ease;
-}
-
-.button span:before,
-.button span:after {
-    content: '';
-    width: var(--w, 2px);
-    height: var(--h, 14px);
-    border-radius: 1px;
-    position: absolute;
-    left: var(--l, 8px);
-    top: var(--t, 6px);
-    background: currentColor;
-    transform: scale(0.75) rotate(var(--icon-r, 0deg)) translateY(var(--icon-y, 0));
-    transition: transform 0.65s ease 0.05s;
-}
-
-.button span:after {
-    --w: 14px;
-    --h: 2px;
-    --l: 2px;
-    --t: 12px;
-}
-
-.button .cart {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin: -13px 0 0 -18px;
-    transform-origin: 12px 23px;
-    transform: translateX(-120px) rotate(-18deg);
-}
-
-.button .cart:before,
-.button .cart:after {
-    content: '';
-    position: absolute;
-}
-
-.button .cart:before {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    box-shadow: inset 0 0 0 2px var(--cart);
-    bottom: 0;
-    left: 9px;
-    filter: drop-shadow(11px 0 0 var(--cart));
-}
-
-.button .cart:after {
-    width: 70%;
-    height: 9px;
-    background: var(--cart);
-    left: 9px;
-    bottom: 7px;
-    transform-origin: 50% 70%;
-    transform: perspective(4px) rotateX(-6deg) scaleY(var(--fill, 0));
-    transition: transform 1.2s ease var(--fill-d);
-}
-
-.button .cart svg {
-    z-index: 1;
-    width: 10%;
-    height: 26px;
-    display: block;
-    position: relative;
-    fill: none;
-    stroke: var(--cart);
-    stroke-width: 2px;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-}
-
-.button .cart svg polyline:last-child {
-    stroke: var(--tick);
-    stroke-dasharray: 10px;
-    stroke-dashoffset: var(--offset, 10px);
-    transition: stroke-dashoffset 0.4s ease var(--offset-d);
-}
-
-.button.loading {
-    --scale: 0.95;
-    --span-y: -32px;
-    --icon-r: 180deg;
-    --fill: 1;
-    --fill-d: 0.8s;
-    --offset: 0;
-    --offset-d: 1.73s;
-}
-
-.button.loading .cart {
-    animation: cart 3.4s linear forwards 0.2s;
-}
-
-@keyframes cart {
-    12.5% {
-        transform: translateX(-60px) rotate(-18deg);
-    }
-
-    25%,
-    45%,
-    55%,
-    75% {
-        transform: none;
-    }
-
-    50% {
-        transform: scale(0.9);
-    }
-
-    44%,
-    56% {
-        transform-origin: 12px 23px;
-    }
-
-    45%,
-    55% {
-        transform-origin: 50% 50%;
-    }
-
-    87.5% {
-        transform: translateX(70px) rotate(-18deg);
-    }
-
-    100% {
-        transform: translateX(140px) rotate(-18deg);
-    }
-}
-.text-responsive {
-  white-space: nowrap;  /* Prevent text from wrapping */ /* Hide overflowing text */
-  text-overflow: ellipsis;  /* Show an ellipsis (...) for truncated text */
-}
-
-@media (max-width: 767px) {  /* Target mobile devices */
-  .text-responsive { /* Allow text to wrap on smaller screens */
-    overflow: initial;   /* Reset the overflow property */
-    text-overflow: initial; /* Reset the text-overflow property */
-  }
-}
-
-html {
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-}
 
 
 
@@ -213,6 +35,16 @@ html {
     padding: 10px !important;
   }
 
+
+  .btn {
+  background-color: #ffffff; /* White button background */
+  color: #000000; /* Black text color */
+  border: 2px solid #000000;
+}
+.set-active{
+    background-color: #D70040;
+    color: #ffffff;
+  }
 </style>
 
     <section style="background-color: ;">
@@ -227,46 +59,23 @@ $size_arr = explode(",",$product[0]->sizes);
 
 ?>
 <a href=""></a>
-<div class="col-md-6 text-left" >
+<div class="col-md-6 text-left">
 <h3><?php echo $product[0]->product_name;?></h3>
  
   <br>
   <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
   <br>
-<div class="containered">
-<div  class="row p-3">
+<h2>₹<strong>55</strong></h2>
+  <h5>Choose Weight:</h5>
+  <div class="container">
       <?php 
+      $cnt = 0;
       foreach($size_arr as $arr){
         $size_pric =  explode("-",$arr);
-      
+        // echo $size_pric[1];
       ?>
-      
-      <div class = "col-lg-2 col-6 p-3"> 
-      <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
-        <div class="image-container_product_landing text-center pb-2">
-        
-        <a href=""><img class="img-thumbnail" width = "100%" src="<?php echo $product[0]->image_url;?>" alt="Image 1">
-        
-        </a>
-       
-        </div>
-        <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo  "₹".$size_pric[1]; ?></b></p>
-        <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello mygiftsy I want to order <?php if(isset($_SERVER['SCRIPT_URI'])){echo $_SERVER['SCRIPT_URI']; } ?> of size  <?php echo $size_pric[0]; ?> can you please confirm.">
-        <button class="button text-responsive">
-            <span class="text-responsive">Add</span>
-            <div class="cart">
-                <svg viewBox="0 0 36 26">
-                    <polyline
-                        points="1 2.5 6 2.5 10 18.5 25.5 18.5 28.5 7.5 7.5 7.5"
-                    ></polyline>
-                    <polyline points="15 13.5 17 15.5 22 10.5"></polyline>
-                </svg>
-            </div>
-        </button>
-        </a>
-        </div>
-      <?php } ?>
-      </div>
+        <button class="btn  pricing <?php echo ($cnt == 0)? 'set-active':''?>" style=" margin : 10px;"><?php echo $size_pric[0]; ?></button>
+     <?php $cnt ++; } ?>
       </div>
       <br>
       
@@ -310,15 +119,8 @@ $size_arr = explode(",",$product[0]->sizes);
         window.addEventListener("orientationChange", lazyload);
       });
 
-      document.querySelectorAll(".button").forEach((button) =>
-    button.addEventListener("click", (e) => {
-        if (!button.classList.contains("loading")) {
-            button.classList.add("loading");
-            setTimeout(() => button.classList.remove("loading"), 3700);
-        }
-        // e.preventDefault();
-    })
-);
+
+
     </script>
 </section>
     <?php require_once('footer.php') ?>
