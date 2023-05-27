@@ -19,7 +19,7 @@
     overflow: hidden;
     cursor: pointer;
     text-align: center;
-    min-width: 144px;
+    min-width: 100%;
     color: var(--text);
     background: var(--background);
     transform: scale(var(--scale, 1));
@@ -31,7 +31,7 @@
 }
 
 .button span {
-    font-size: 14px;
+    font-size: 100%;
     font-weight: 500;
     display: block;
     position: relative;
@@ -89,7 +89,7 @@
 }
 
 .button .cart:after {
-    width: 16px;
+    width: 100%;
     height: 9px;
     background: var(--cart);
     left: 9px;
@@ -101,7 +101,7 @@
 
 .button .cart svg {
     z-index: 1;
-    width: 36px;
+    width: 10%;
     height: 26px;
     display: block;
     position: relative;
@@ -222,17 +222,18 @@ $size_arr = explode(",",$product[0]->sizes);
   <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
   <br>
 <div class="containered">
+<div  class="row">
       <?php 
       foreach($size_arr as $arr){
         $size_pric =  explode("-",$arr);
       
       ?>
-      <div  >
       
+      <div class = "col-2"> 
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
-        <a href=""><img class="img-thumbnail" width = "100" src="<?php echo $product[0]->image_url;?>" alt="Image 1">
+        <a href=""><img class="img-thumbnail" width = "100%" src="<?php echo $product[0]->image_url;?>" alt="Image 1">
         
         </a>
        
@@ -253,6 +254,7 @@ $size_arr = explode(",",$product[0]->sizes);
         </a>
         </div>
       <?php } ?>
+      </div>
       </div>
       <br>
       
