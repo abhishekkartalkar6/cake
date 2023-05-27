@@ -1,86 +1,90 @@
-<footer class="bg-dark text-light py-4" style="margin-top:10px;">
+<?php require_once('header.php') ;
+// echo "<pre>";
+// print_r($allProducts);die;
+?>
+<style>
+
+
+
+
+
+  img{
+    /* display: none; */
+    width: 80%;
+    height: 400px;
+  }
+  @media screen and (max-width: 767px) {
+        img{
+        
+        width: 100%;
+        height: 350px !important;
+      }
+      .img-thumbnail{
+        width: 100%;
+        height: 150px !important;
+      }
+    
+  }
+  .card {
+    margin : 10px;
+    background-color: #e4ff015c !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+  }
+  .card-body {
+    padding: 10px !important;
+  }
+
+
+  .btn {
+  background-color: #ffffff; /* White button background */
+  color: #000000; /* Black text color */
+  border: 2px solid #000000;
+}
+.set-active{
+    background-color: #D70040;
+    color: #ffffff;
+  }
+</style>
+
+    <section style="background-color: ;">
+  <div class="text-center">
+    <div class="row">
+ 
+<div class="col-md-5">
+  <img src="<?php echo $product[0]->image_url; ?>" alt="" style= "">
+</div>
+<?php 
+$size_arr = explode(",",$product[0]->sizes);
+
+?>
+<a href=""></a>
+<div class="col-md-6 text-left">
+<h3><?php echo $product[0]->product_name;?></h3>
+ 
+  <br>
+  <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
+  <br>
+<h2>₹<strong><span id= "final_price"></span></strong></h2>
+  <h5>Choose Weight:</h5>
   <div class="container">
-    <div class="row">
-      <div class="col-md-4">
-        <h5>About Us</h5>
-        <p>We are a small online bakery that sells delicious and high-quality baked goods, made with love and care.</p>
+      <?php 
+      $cnt = 0;
+      foreach($size_arr as $arr){
+        $size_pric =  explode("-",$arr);
+        // echo $size_pric[1];
+      ?>
+      <input type="hidden" class= "input-field" value = "<?php echo $size_pric[1]; ?>">
+        <button class="btn  pricing <?php echo ($cnt == 0)? 'set-active':''?>" style=" margin : 10px;"><?php echo $size_pric[0]; ?></button>
+     <?php $cnt ++; } ?>
       </div>
-      <div class="col-md-4">
-        <h5>Links</h5>
-        <ul class="list-unstyled">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Products</a></li>
-          <li><a href="#">About Us</a></li>
-          <li><a href="#">Contact Us</a></li>
-        </ul>
-      </div>
-      <div class="col-md-4">
-        <h5>Contact Us</h5>
-        <ul class="list-unstyled">
-          <li><i class="fas fa-map-marker-alt"></i> 123 Main St, Nagpur</li>
-          <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-          <li><i class="fas fa-envelope"></i> <a href="mailto:info@bakery.com">info@MyGiftsy.com</a></li>
-        </ul>
-      </div>
-    </div>
-    <hr class="my-4">
-    <div class="row">
-      <div class="col-md-6">
-        <p>&copy; 2023 MyGiftsy. All rights reserved.</p>
-      </div>
-      <div class="col-md-6 text-right">
-        <ul class="list-inline">
-          <li class="list-inline-item"><a href="#">Privacy Policy</a></li>
-          <li class="list-inline-item"><a href="#">Terms of Use</a></li>
-        </ul>
-      </div>
+      <br>
+      
+      </div> 
     </div>
   </div>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script>
-      $(document).ready(function(){
-        var sort_arr = [];
-        $('.sort_by_filter').each(function(){
-        var price = $(this).find('h5').text().split(' ');
-        sort_arr.push({'key': price[1],'data':$(this)[0].outerHTML});
-      });
-      sort_arr.sort(function(a, b) {
-      return a.key - b.key; // sort by age in ascending order
-    });
-    var string ='';
-    $.each(sort_arr, function(index, value) {
-      console.log(value['data']);
-      string +=  value['data'];
-      
-    //  console.log(index+value['data']);
-      // console.log( value['data']);
-    });
-    $('#row_to_add').html(string);
-
-      
-  $('#search-input').keyup(function(){
-    var search = $(this).val();
-    if(search != ''){
-      $.ajax({
-        url: "<?php echo base_url(); ?>suggetion",
-        method: "POST",
-        data: {search:search},
-        success:function(response){
-          // console.log(response);
-          $('#suggestions').html(response);
-
-        }
-      });
-    }
-    else {
-      $('#suggestions').empty();
-    }
-  });
-  
-        
+  <script>
+      document.addEventListener("DOMContentLoaded", function() {
         var lazyloadImages = document.querySelectorAll("img.lazy"); 
         // console.log(lazyloadImages);return false;
 
@@ -110,25 +114,14 @@
               }
           }, 20);
         }
-        lazyload();
+        
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);
-
-        $('.pricing').click(function() {
-      $('.pricing').removeClass('set-active');
-      $(this).addClass('set-active');
-      var inputField = $(this).prev('.input-field');
-    var value = inputField.val();
-    $("#final_price").html(value);
-    });
-    $(".set-active").click();
-      
-});
+      });
 
 
 
     </script>
-</footer>
-  </body>
-</html>
+</section>
+    <?php require_once('footer.php') ?>
