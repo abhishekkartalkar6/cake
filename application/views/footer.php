@@ -118,7 +118,11 @@
         $('.pricing').click(function() {
       $('.pricing').removeClass('set-active');
       $(this).addClass('set-active');
+      var inputField = $(this).prev('.input-field');
+    var value = inputField.val();
+    $("#final_price").html(value);
     });
+    $(".set-active").click();
       
 });
 
