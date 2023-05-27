@@ -240,7 +240,7 @@ $size_arr = explode(",",$product[0]->sizes);
       
       ?>
       
-      <div class = "col-lg-2 col-md-4 col-sm-6"> 
+      <div class = "col-lg-2 col-6"> 
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
