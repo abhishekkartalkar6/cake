@@ -156,7 +156,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
         }
 
         .image-container_product_landing {
-          width: 150px;
+          width: 100%;
           margin-bottom: 10px;
           box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
           border-radius: 12%;
