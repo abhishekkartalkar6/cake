@@ -227,7 +227,7 @@ $size_arr = explode(",",$product[0]->sizes);
 
 ?>
 <a href=""></a>
-<div class="col-md-6">
+<div class="col-md-6 text-left" >
 <h3><?php echo $product[0]->product_name;?></h3>
  
   <br>
