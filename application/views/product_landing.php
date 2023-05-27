@@ -89,12 +89,12 @@
 }
 
 .button .cart:after {
-    width: 100%;
+    width: 70%;
     height: 9px;
     background: var(--cart);
     left: 9px;
     bottom: 7px;
-    transform-origin: 50% 100%;
+    transform-origin: 50% 70%;
     transform: perspective(4px) rotateX(-6deg) scaleY(var(--fill, 0));
     transition: transform 1.2s ease var(--fill-d);
 }
@@ -167,6 +167,17 @@
         transform: translateX(140px) rotate(-18deg);
     }
 }
+.text-responsive {
+  white-space: nowrap;  /* Prevent text from wrapping */ /* Hide overflowing text */
+  text-overflow: ellipsis;  /* Show an ellipsis (...) for truncated text */
+}
+
+@media (max-width: 767px) {  /* Target mobile devices */
+  .text-responsive { /* Allow text to wrap on smaller screens */
+    overflow: initial;   /* Reset the overflow property */
+    text-overflow: initial; /* Reset the text-overflow property */
+  }
+}
 
 html {
     box-sizing: border-box;
@@ -229,7 +240,7 @@ $size_arr = explode(",",$product[0]->sizes);
       
       ?>
       
-      <div class = "col-2"> 
+      <div class = "col-lg-2 col-md-4 col-sm-6"> 
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
@@ -240,8 +251,8 @@ $size_arr = explode(",",$product[0]->sizes);
         </div>
         <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo  "₹".$size_pric[1]; ?></b></p>
         <a href="https://api.whatsapp.com/send?phone=7057423626&text=Hello mygiftsy I want to order <?php if(isset($_SERVER['SCRIPT_URI'])){echo $_SERVER['SCRIPT_URI']; } ?> of size  <?php echo $size_pric[0]; ?> can you please confirm.">
-        <button class="button">
-            <span>Add to cart</span>
+        <button class="button text-responsive">
+            <span class="text-responsive">Add</span>
             <div class="cart">
                 <svg viewBox="0 0 36 26">
                     <polyline
