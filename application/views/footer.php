@@ -114,6 +114,11 @@
         document.addEventListener("scroll", lazyload);
         window.addEventListener("resize", lazyload);
         window.addEventListener("orientationChange", lazyload);
+
+        $('.pricing').click(function() {
+      $('.pricing').removeClass('set-active');
+      $(this).addClass('set-active');
+    });
       
 });
 
