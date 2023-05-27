@@ -212,6 +212,7 @@ html {
   .card-body {
     padding: 10px !important;
   }
+
 </style>
 
     <section style="background-color: ;">
@@ -233,14 +234,14 @@ $size_arr = explode(",",$product[0]->sizes);
   <h6 class = "text-left"><?php echo $product[0]->product_description;?></h6>
   <br>
 <div class="containered">
-<div  class="row">
+<div  class="row p-3">
       <?php 
       foreach($size_arr as $arr){
         $size_pric =  explode("-",$arr);
       
       ?>
       
-      <div class = "col-lg-2 col-6"> 
+      <div class = "col-lg-2 col-6 p-3"> 
       <p style="word-break: break-word" class="text-center cat_title" ><b><?php echo $size_pric[0]; ?></b></p>
         <div class="image-container_product_landing text-center pb-2">
         
