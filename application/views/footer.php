@@ -1,5 +1,4 @@
 <footer class="bg-dark text-light py-4" style="margin-top:10px;">
-
   <div class="container">
     <div class="row">
       <div class="col-md-4">
