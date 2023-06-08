@@ -15,6 +15,72 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 
     <title>Mygiftsy</title>
       <style>
+        /* Custom styles for the sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 70%; /* Adjust this value to set the desired width */
+      height: 100vh;
+      background-color: #f8f9fa;
+      z-index: 9999;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    /* Custom styles for the toggle button */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* Custom styles for the close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* Custom styles for the main content area */
+    .main-content {
+      margin-left: 70px; /* Adjust this value to match the width of the sidebar */
+    }
+
+    /* Media query for mobile view */
+    @media (max-width: 767px) {
+      .toggle-button {
+        display: block;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+    
         @media (min-width: 992px) {
           .courosel{
             height: 300px;
@@ -195,11 +261,11 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
   <body>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="<?php echo base_url()?>"><strong>MyGiftsy</strong></a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" id="toggleButton" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="">
       <ul class="navbar-nav mr-auto">
         <div class="search-box">
       <input type="text" placeholder="Search" id="search-input">
@@ -303,4 +369,15 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     </div>
     <?php } ?>
     
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <!-- Sidebar content -->
+  <ul>
+    category Will shown here
+    <li><a href="#">Link 1</a></li>
+    <li><a href="#">Link 2</a></li>
+    <!-- Add more sidebar links here -->
+  </ul>
 </div>

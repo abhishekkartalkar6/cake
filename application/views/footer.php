@@ -43,6 +43,16 @@
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-2JMFYGRFW5"></script>
     <script>
       $(document).ready(function(){
+        // Function to toggle sidebar
+    function toggleSidebar() {
+      const sidebar = document.getElementById('sidebar');
+      sidebar.classList.toggle('open');
+    }
+
+    // Attach click event to the toggle button
+    const toggleButton = document.getElementById('toggleButton');
+    toggleButton.addEventListener('click', toggleSidebar);
+    
         var sort_arr = [];
         $('.sort_by_filter').each(function(){
         var price = $(this).find('h5').text().split(' ');
