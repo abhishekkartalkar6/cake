@@ -1,0 +1,291 @@
+.category-container {
+  display: flex;
+  justify-content: center;
+}
+
+.category {
+  position: relative;
+  margin: 0 10px;
+}
+
+.subcategories {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  background-color: #f9f9f9;
+  padding: 10px;
+  width: 200px;
+}
+
+.category:hover .subcategories {
+  display: block;
+}
+
+
+
+        /* Custom styles for the sidebar */
+    .sidebar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 70%; /* Adjust this value to set the desired width */
+      height: 100vh;
+      background-color: #f8f9fa;
+      z-index: 9999;
+      transform: translateX(-100%);
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .sidebar.open {
+      transform: translateX(0);
+    }
+
+    /* Custom styles for the toggle button */
+    .toggle-button {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* Custom styles for the close button */
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background-color: #000;
+      color: #fff;
+      border-radius: 50%;
+      text-align: center;
+      line-height: 30px;
+      cursor: pointer;
+      z-index: 9999;
+    }
+
+    /* Custom styles for the main content area */
+    .main-content {
+      margin-left: 70px; /* Adjust this value to match the width of the sidebar */
+    }
+
+    /* Media query for mobile view */
+    @media (max-width: 767px) {
+      .toggle-button {
+        display: block;
+      }
+      .main-content {
+        margin-left: 0;
+      }
+    }
+    
+        @media (min-width: 992px) {
+          .courosel{
+            height: 300px;
+          }
+        }
+
+        /* For mobile devices */
+        @media (max-width: 991px) {
+          .courosel {
+            height: 200px;
+          }
+        }
+        .containered {
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+        }
+
+        .image-container {
+          width: calc(12.5% - 10px);
+          margin-bottom: 10px;
+          box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+          border-radius: 12%;
+          
+        }
+        
+        .image-container img {
+          border-radius: 12%;
+          width: 100%;
+          height: 100px;
+          padding-top: 5px;
+          padding-right: 5px;
+          padding-left: 5px;
+          
+        }
+        
+        .image-container p {
+          /* white-space: nowrap;  */
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          
+        }
+
+        @media screen and (max-width: 767px) {
+          .cat_title{
+            font-size:14px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .image-container {
+            width: calc(25% - 10px);
+          }
+        }
+        
+        /* Product Images */
+        .product-main {
+          margin-top:10px;
+          /* border:1px solid; */
+        }
+        .product-main h3 {
+          margin-left:10px;
+        }
+        .product-containered {
+          margin-top:20px;
+          margin-left: 5px;
+          margin-right: 5px;
+          display: flex;
+          flex-wrap: wrap;
+          justify-content: space-evenly;
+        }
+
+        .product-image-container {
+          width: calc(20% - 10px);
+          margin-bottom: 10px;
+          box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+          /* border-radius: 12%; */
+          
+        }
+        
+        .product-image-container img {
+          /* border-radius: 12%; */
+          width: 100%;
+          height: 150px;
+          padding-top: 5px;
+          padding-right: 5px;
+          padding-left: 5px;
+          
+        }
+        
+        .product-image-container p {
+          white-space: nowrap; 
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          
+        }
+        
+
+        @media screen and (max-width: 767px) {
+          .product-cat_title{
+            font-size:14px;
+          }
+        }
+        @media screen and (max-width: 767px) {
+          .product-image-container {
+            width: calc(50% - 10px);
+          }
+        }
+
+        .search-box {
+          position: relative;
+          display: inline-block;
+        }
+
+        #suggestions {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          max-height: 200px;
+          overflow-y: auto;
+          background-color: #fff;
+          border: 1px solid #ccc;
+          border-top: none;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+          z-index: 1;
+        }
+
+        #suggestions li {
+          padding: 10px;
+          cursor: pointer;
+        }
+
+        #suggestions li:hover {
+          background-color: #f4f4f4;
+        }
+
+        .image-container_product_landing {
+          width: 100%;
+          margin-bottom: 10px;
+          box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+          border-radius: 12%;
+          
+        }
+        
+        .image-container_product_landing img {
+          border-radius: 12%;
+          width: 100%;
+          height: 100px;
+          padding-top: 5px;
+          padding-right: 5px;
+          padding-left: 5px;
+          
+        }
+        
+        .image-container_product_landing p {
+          text-align: center;
+          overflow: hidden;
+          text-overflow: ellipsis; 
+          
+        }
+        a{
+          color: black;
+          text-decoration:none;
+        }
+        a:hover{
+          color: blue;
+          text-decoration:none;
+        }
+        .image-container:hover, .product-image-container:hover{
+          box-shadow:  0px 15px 10px -10px green;
+        }
+        .steven-and-leah > * {
+          display: inline-block;
+        }
+        .steven-and-leah{
+          margin-top: 15px;
+          margin-left: 15px;
+          /* text-align:center; */
+        }
+        /* .steven-and-leah > * a:hover {
+          color:red;
+        } */
+        .steven-and-leah > * #dbtn:hover {
+          background-color:#fff;
+          color:#002f5b;
+          /* border-bottom:2px solid blue; */
+          box-shadow: 0px 15px 10px -5px blue; 
+        }
+        #dbtn{
+          padding:5px;
+        }
+        .dropdown:hover .dropdown-menu {
+          display: block;
+        }
