@@ -104,6 +104,10 @@ class Welcome extends CI_Controller {
 		$this->load->view('products_page',$data);
 	}
 	public function get_category($cat_key = 0) {
+		$cat_key = explode('-',$cat_key);
+		$cat_key = end($cat_key);
+
+		// echo $cat_key;die;
 		$this->load->model('Product_model');
 		$data['product_by_cat'] = $this->Product_model->get_catwise_product($cat_key);
 		$data['nav_bar'] = $this->get_navbar();
