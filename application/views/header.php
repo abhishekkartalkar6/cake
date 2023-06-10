@@ -359,9 +359,12 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
       <?php
         if(isset($params[2])){
+          $second_param = explode('-',$params[2]);
+          $second_param = array_pop($second_param);
+          $second_param = $second_param[0];
       ?>
       <a href="<?php echo base_url().$params[1]?>"><?php echo ucwords(str_replace('_',' ',$params[1])); ?></a> > <?php 
-      if(strpos($params[2],'_')){echo ucwords(str_replace('_',' ',$params[2]));}else{echo ucwords(str_replace('%20',' ',$params[2]));} ?>
+      if(strpos($second_param,'_')){echo ucwords(str_replace('_',' ',$second_param));}else{echo ucwords(str_replace('%20',' ',$second_param));} ?>
       <?php }else{ ?>
         <?php echo ucwords(str_replace('_',' ',$params[1])); ?>
         <?php } ?>
