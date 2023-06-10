@@ -358,8 +358,8 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     <div style="margin-left: 15px" class="breadcrumb1">
       <p><a href="<?php echo base_url()?>">Home</a><span> ></span>
       <?php
-        if(isset($params[3])){
-          $second_param = explode('-',$params[3]);
+        if(isset($params[2])){
+          $second_param = explode('-',$params[2]);
           // $second_param = array_pop($second_param);
           // print_r($second_param);die;
           $second_param = $second_param[0];
