@@ -34,7 +34,7 @@ require_once('header.php') ?>
       //   print_r($category);die;
     ?>
       <div class="image-container">
-      <a href="<?php echo base_url().'products/'.strtolower($category->category_name).'-'.$category->id.'/' ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1">
+      <a href="<?php echo base_url().'products/'.strtolower($category->category_name).'-'.$category->id ?>"><img class="img-thumbnail" src="<?php echo $category->category_image?>" alt="Image 1">
       <p style="word-break: break-word" class="text-center cat_title" ><?php echo ucwords($category->category_name) ?></p>
       </a>
       </div>
@@ -52,7 +52,7 @@ require_once('header.php') ?>
         $cat_id = $name[1];
         ?>
     <hr/>
-    <div><h3 class="title home-page-product-row-titile"><?php echo ucwords($cat_name) ?><a href="<?php echo base_url().'products/'.$cat_id; ?>" class="btn btn-primary" style="float:right; position:relative;margin-right: 67px;font-size:15px;">View All</a></h3>
+    <div><h3 class="title home-page-product-row-titile"><?php echo ucwords($cat_name) ?><a href="<?php echo base_url().'products/'.strtolower($cat_name).'-'.$cat_id; ?>" class="btn btn-primary" style="float:right; position:relative;margin-right: 67px;font-size:15px;">View All</a></h3>
     </div><hr/>
     <div class="product-containered">
       <?php 
@@ -63,7 +63,7 @@ require_once('header.php') ?>
         $prices = explode(',',$product->price);
         ?>
       <div class="product-image-container">
-      <a href="<?php echo base_url().'products' ?>"><img class="lazy" data-src="<?php echo $product->image_url?>" alt="Image 1" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg">
+      <a href="<?php echo base_url(); ?>final_product/<?php echo strtolower($product->product_name).'-'. $product->product_id; ?>"><img class="lazy" data-src="<?php echo $product->image_url?>" alt="Image 1" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg">
       <p style="word-break: break-all;padding-left: 5px; margin-bottom: 0px;" class="text-left product-cat_title" ><?php echo ucwords($product->product_name) ?></p>
       <p style="padding-left: 5px; margin-bottom: 2px;" class="text-left"><strong>Starting from ₹ <?php echo min($prices)?></strong></p>
       </a>
