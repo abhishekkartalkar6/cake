@@ -65,6 +65,7 @@ $route['edit_product/(:any)'] = 'products/edit_product/$1';
 $route['suggetion'] = 'products/suggestion';
 $route['categories'] = 'welcome/all_cats';
 $route['products'] = 'welcome/all_products';
+$route['abhi/(:any)'] = 'products/abhi/$1';
 // $route['products/(:any)'] = 'welcome/all_products';
 // $route['products/$1/(:any)'] = 'welcome/all_products';
 $route['banner'] = 'products/banner';

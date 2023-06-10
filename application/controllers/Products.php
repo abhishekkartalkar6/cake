@@ -232,6 +232,24 @@ class Products extends CI_Controller {
         $this->load->view('admin/product_edit',$data);
     }
 
+    public function all_nested_cat($id) {
+        $parents = $this->Product_model->get_parent_cat($id);
+        $string = "<ul>\n";
+        foreach($parents as $parent){
+            $string .= "<li>\n".$parent->category_name;
+            $string .= $this->all_nested_cat($parent->id);
+            $string .= "</li>";
+            
+        }
+        $string .= "</ul>\n";
+        return $string;
+    }
+
+
+  public function abhi($id) {
+     $aa =$this->all_nested_cat($id);
+     echo $aa;
+    }
     public function suggestion(){
         $search = $this->input->post('search');
         $suggestions = $this->Product_model->get_suggestions($search);

@@ -114,11 +114,13 @@ foreach($sp_arr as $sp_ar){
     public function add_category($image_url) {
         // Get the form data
         $category = $this->input->post('category');
+        $parent_cat = $this->input->post('parent_cat');
         
         // Prepare the data for insertion
         $data = array(
             'category_name' => $category,
-            'category_image' => $image_url
+            'category_image' => $image_url,
+            'parent_id' => $parent_cat 
         );
 
         // Insert the data into the database
@@ -158,6 +160,15 @@ foreach($sp_arr as $sp_ar){
         $this->db->select('*');
         $this->db->from('categories');
         $this->db->where('id',$id);
+        $results = $this->db->get();
+        return $results->result();
+    }
+
+    public function get_parent_cat($id) {
+        // Get the form data
+        $this->db->select('*');
+        $this->db->from('categories');
+        $this->db->where('parent_id',$id);
         $results = $this->db->get();
         return $results->result();
     }

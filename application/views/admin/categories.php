@@ -5,16 +5,26 @@
                         <!-- <ol class="breadcrumb mb-4">
                             <li class="breadcrumb-item active">Categories</li>
                         </ol> -->
-                        
+                   
                         <form action="<?php echo site_url('add_cat') ?>" method="post" enctype="multipart/form-data">
                         <div class="row">
-                        <div class="col-md-4">
                             
+                        <div class="col-md-4">
+                        <label for="category">parent Category</label>
+                        <select class="form-control" id="parent_cat" name ="parent_cat">
+                    <option value="0">Select Category</option>
+                    <?php foreach($data as $category){ ?>
+                        <option value="<?php echo  $category->id; ?>"><?php echo  $category->category_name; ?></option>
+                        
+                    <?php } ?>
+                </select>
+                <br>
                         <!-- The form -->
                             <div class="form-group">
                                 <label for="category">Category Name:</label>
                                 <input class="form-control" id="category" name="category">
                             </div>
+                          
                             
                         </div>
                         <div class="col-md-4">

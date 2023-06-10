@@ -374,6 +374,10 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <!-- Sidebar content -->
+  <div class="search-box">
+      <input type="text" placeholder="Search" id="search-input">
+      <ul id="suggestions"></ul>
+    </div>
   <ul>
     category Will shown here
     <li><a href="#">Link 1</a></li>
