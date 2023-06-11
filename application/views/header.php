@@ -41,22 +41,135 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
     </nav>
     <div class= "">
   <br>
+
 <div class="category-container">
   <div class="category">
-    <h6>Main Category 1</h6>
-    <ul class="subcategories">
-      <li>Subcategory 1.1</li>
-      <li>Subcategory 1.2</li>
-      <li>Subcategory 1.3</li>
-    </ul>
+    <h6 class="text-warning">CAKES</h6>
+    <div class="subcategories">
+      <div class="container cat_back">
+       <u class="text-primary"><h6>CHOCOLATE CAKE</h6></u> 
+        <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+        <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container">
+      <u class="text-primary"><h6>PINEAPPLE CAKE</h6></u> 
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+      </div>
+      <div class="container cat_back">
+      <u class="text-primary"><h6>OTHER CAKE</h6></u> 
+      <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container">
+      <u class="text-primary"><h6>PISTA OTHER CAKE</h6></u> 
+      <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container ">
+      <u class="text-primary"><h6>PISTA CAKE</h6></u> 
+      <h6>Coming soon text/h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      
+    </div>
+    
   </div>
+  <!-- dddddddddddddddd -->
   <div class="category">
-    <h6>Main Category 2</h6>
-    <ul class="subcategories">
-      <li>Subcategory 2.1</li>
-      <li>Subcategory 2.2</li>
-      <li>Subcategory 2.3</li>
-    </ul>
+  <h6 class="text-warning">FLOWERS</h6>
+  <div class="subcategories">
+      <div class="container cat_back">
+       <u class="text-primary"><h6>ROSE FLOWER</h6></u> 
+        <h6>Coming soon text/h6>
+        <h6>Coming soon some other</h6>
+        <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container">
+      <u class="text-primary"><h6>LOTUS FLOWER</h6></u> 
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+      </div>
+      <div class="container cat_back">
+      <u class="text-primary"><h6>TEST FLOWER</h6></u> 
+      <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container">
+      <u class="text-primary"><h6>PISTA OTHER CAKE</h6></u> 
+      <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      <div class="container cat_back">
+      <u class="text-primary"><h6>PISTA CAKE</h6></u> 
+      <h6>Coming soon text/h6>
+        <h6>Coming soon some other</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+      
+    </div>
+  </div>
+
+  <div class="category">
+  <h6 class="text-warning">GIFTS</h6>
+  <div class="subcategories">
+      <div class="container cat_back">
+       <u class="text-primary"><h6>ROSE FLOWER</h6></u> 
+        <h6>Coming soon text</h6>
+        <h6>Coming soon some other</h6>
+        <h6>Coming soon</h6>
+         <h6>Coming soon</h6>
+      </div>
+
+     
+      
+    </div>
   </div>
 </div>
 
