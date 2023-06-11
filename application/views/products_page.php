@@ -77,12 +77,13 @@
           if(isset($_GET['debug']) && $_GET['debug'] == 1){
           echo "<pre>";
           print_r($product);
+          die;
           }
             $prices = explode(',',$product->prices);
             ?>
             <div  class="col-6 col-lg-4 pl-0 pr-0 sort_by_filter">
               
-              <a href="<?php echo base_url(); ?>final_product/<?php echo $product->product_id; ?>">
+              <a href="<?php echo base_url(); ?>final_product/<?php echo strtolower($product->product_name).'-'. $product->product_id; ?>">
               <div class="card">
           <img class="lazy card-img-top" data-src="<?php echo $product->image_url?>"
              alt="Image" src="<?php echo base_url(); ?>assets/uploads/default_images/lazyload.jpg"/>

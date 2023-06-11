@@ -487,6 +487,10 @@ class Products extends CI_Controller {
 
 	}
     public function final_product($id){
+        $id = explode('-',$id);
+		$id = end($id);
+        // echo $id;die;
+
         $data['product'] = $this->Product_model->get_product_by_id($id);
         $data['nav_bar'] =array();  
         $this->load->view('product_landing',$data);
