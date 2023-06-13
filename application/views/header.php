@@ -47,13 +47,17 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <div class="category">
     <h6 class="text-warning"><?php echo $nav['category_name']; ?></h6>
     <div class="subcategories">
-    <?php foreach($nav['children'] as $sub_nav){ ?>
+    <?php if(!empty($nav['children'])){
+
+     foreach($nav['children'] as $sub_nav){ ?>
         <div class="container cat_back">
         <u class="text-primary"><h6><?php echo $sub_nav['category_name']; ?></h6></u> 
           <?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
           <h6><?php echo $sub_sub_nav['category_name']; ?></h6>
           <?php } ?>
-        </div> <?php } ?>
+        </div> <?php } } else{
+          ?> <h6 class = "p-5">category Comming soon</h6> <?php 
+          }?>
     </div>
     
   </div>
