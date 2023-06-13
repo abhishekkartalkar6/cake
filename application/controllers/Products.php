@@ -233,22 +233,26 @@ class Products extends CI_Controller {
     }
 
     public function all_nested_cat($id) {
+        $result = array();
         $parents = $this->Product_model->get_parent_cat($id);
-        $string = "<ul>\n";
         foreach($parents as $parent){
-            $string .= "<li>\n".$parent->category_name;
-            $string .= $this->all_nested_cat($parent->id);
-            $string .= "</li>";
-            
+            $nestedCat = array(
+                'category_name' => $parent->category_name,
+                'children' => $this->all_nested_cat($parent->id)
+            );
+            $result[] = $nestedCat;
         }
-        $string .= "</ul>\n";
-        return $string;
+        return $result;
     }
+    
 
 
   public function abhi($id) {
      $aa =$this->all_nested_cat($id);
-     echo $aa;
+     echo '<pre>';
+     print_r($aa);
+     echo '<pre>';
+     die;
     }
     public function suggestion(){
         $search = $this->input->post('search');

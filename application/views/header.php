@@ -43,134 +43,22 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
   <br>
 
 <div class="category-container">
-  <div class="category">
-    <h6 class="text-warning">CAKES</h6>
+    <?php foreach($nav_bar as $nav){ ?>
+      <div class="category">
+    <h6 class="text-warning"><?php echo $nav['category_name']; ?></h6>
     <div class="subcategories">
-      <div class="container cat_back">
-       <u class="text-primary"><h6>CHOCOLATE CAKE</h6></u> 
-        <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-        <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container">
-      <u class="text-primary"><h6>PINEAPPLE CAKE</h6></u> 
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-      </div>
-      <div class="container cat_back">
-      <u class="text-primary"><h6>OTHER CAKE</h6></u> 
-      <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container">
-      <u class="text-primary"><h6>PISTA OTHER CAKE</h6></u> 
-      <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container ">
-      <u class="text-primary"><h6>PISTA CAKE</h6></u> 
-      <h6>Coming soon text/h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      
+    <?php foreach($nav['children'] as $sub_nav){ ?>
+        <div class="container cat_back">
+        <u class="text-primary"><h6><?php echo $sub_nav['category_name']; ?></h6></u> 
+          <?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
+          <h6><?php echo $sub_sub_nav['category_name']; ?></h6>
+          <?php } ?>
+        </div> <?php } ?>
     </div>
     
   </div>
-  <!-- dddddddddddddddd -->
-  <div class="category">
-  <h6 class="text-warning">FLOWERS</h6>
-  <div class="subcategories">
-      <div class="container cat_back">
-       <u class="text-primary"><h6>ROSE FLOWER</h6></u> 
-        <h6>Coming soon text/h6>
-        <h6>Coming soon some other</h6>
-        <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container">
-      <u class="text-primary"><h6>LOTUS FLOWER</h6></u> 
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-      </div>
-      <div class="container cat_back">
-      <u class="text-primary"><h6>TEST FLOWER</h6></u> 
-      <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container">
-      <u class="text-primary"><h6>PISTA OTHER CAKE</h6></u> 
-      <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      <div class="container cat_back">
-      <u class="text-primary"><h6>PISTA CAKE</h6></u> 
-      <h6>Coming soon text/h6>
-        <h6>Coming soon some other</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-      
-    </div>
-  </div>
-
-  <div class="category">
-  <h6 class="text-warning">GIFTS</h6>
-  <div class="subcategories">
-      <div class="container cat_back">
-       <u class="text-primary"><h6>ROSE FLOWER</h6></u> 
-        <h6>Coming soon text</h6>
-        <h6>Coming soon some other</h6>
-        <h6>Coming soon</h6>
-         <h6>Coming soon</h6>
-      </div>
-
-     
-      
-    </div>
-  </div>
+  <?php  } ?>
+ 
 </div>
 
 

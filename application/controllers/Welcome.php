@@ -22,12 +22,27 @@ class Welcome extends CI_Controller {
 		}
 		$data['fourProducts']=$d;
 		$data['banners'] = $this->Product_model->get_banner();
-		$data['nav_bar'] = $this->get_navbar();
+		$data['nav_bar'] = $this->all_nested_cat(0);
 		// echo  "<pre>";
         // print_r($d);
         // die;
 		$this->load->view('welcome_message',$data);
 	}
+
+
+    public function all_nested_cat($id) {
+        $result = array();
+        $parents = $this->Product_model->get_parent_cat($id);
+        foreach($parents as $parent){
+            $nestedCat = array(
+                'category_name' => $parent->category_name,
+                'children' => $this->all_nested_cat($parent->id)
+            );
+            $result[] = $nestedCat;
+        }
+        return $result;
+    }
+    
 
 	public function all_cats(){
 		$this->load->model('Product_model');
