@@ -45,7 +45,7 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
 <div class="category-container">
     <?php foreach($nav_bar as $nav){ ?>
       <div class="category">
-    <h6 class="text-warning"><?php if(isset($nav['category_name'])){ echo $nav['category_name']}; ?></h6>
+    <h6 class="text-warning"><?php if(isset($nav['category_name'])){ echo $nav['category_name'];} ?></h6>
     <div class="subcategories">
     <?php if(!empty($nav['children'])){
 
