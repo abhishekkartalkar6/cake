@@ -99,9 +99,26 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <ul id="suggestions"></ul>
     </div>
   <ul>
-    category Will shown here
+    <!-- category Will shown here
     <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li>
+    <li><a href="#">Link 2</a></li> -->
     <!-- Add more sidebar links here -->
+
+    <?php foreach($nav_bar as $nav){ ?>
+
+<li><a href="#"><?php echo $nav['category_name'];  ?></a>
+<?php if(!empty($nav['children'])){
+  foreach($nav['children'] as $sub_nav){ ?>
+<ul>
+  <li><?php echo $sub_sub_nav['category_name']; ?>
+<ul>
+<?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
+          <h6><?php echo $sub_sub_nav['category_name']; ?></h6>
+          <?php } ?>
+</ul></li>
+</ul><?php } } else{
+          ?> <h6 class = "p-5">category Comming soon</h6> <?php 
+          }?></li>
+      <?php } ?>
   </ul>
 </div>
