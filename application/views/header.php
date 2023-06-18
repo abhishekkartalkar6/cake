@@ -98,27 +98,50 @@ $params = explode('/',$_SERVER['REQUEST_URI']);
       <input type="text" placeholder="Search" id="search-input">
       <ul id="suggestions"></ul>
     </div>
-  <ul>
-    <!-- category Will shown here
-    <li><a href="#">Link 1</a></li>
-    <li><a href="#">Link 2</a></li> -->
-    <!-- Add more sidebar links here -->
-
+  <!-- <ul class="all_main_cats">
     <?php foreach($nav_bar as $nav){ ?>
-
-<li><a href="#"><?php echo $nav['category_name'];  ?></a>
-<?php if(!empty($nav['children'])){
-  foreach($nav['children'] as $sub_nav){ ?>
-<ul>
-  <li><?php echo $sub_sub_nav['category_name']; ?>
-<ul>
-<?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
-          <h6><?php echo $sub_sub_nav['category_name']; ?></h6>
+    <li><?php echo $nav['category_name'];  ?>
+    <?php if(!empty($nav['children'])){
+      foreach($nav['children'] as $sub_nav){ ?>
+        <ul class="all_sub_cats">
+              <li><?php echo $sub_sub_nav['category_name']; ?>
+            <ul class="all_child_cats">
+                <?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
+                          <h6><?php echo $sub_sub_nav['category_name']; ?></h6>
+                          <?php } ?>
+            </ul></li>
+        </ul><?php } } else{
+              ?> <h6 class = "p-5">category Comming soon</h6> <?php 
+              }?></li>
           <?php } ?>
-</ul></li>
-</ul><?php } } else{
-          ?> <h6 class = "p-5">category Comming soon</h6> <?php 
-          }?></li>
-      <?php } ?>
-  </ul>
+  </ul> -->
+
+<div class="nav_bar_mob">
+  <?php $val = 1; foreach($nav_bar as $nav){ ?>
+  <ul class="cd-accordion margin-top-lg margin-bottom-lg">
+  <li class="cd-accordion__item cd-accordion__item--has-children">
+    <input class="cd-accordion__input" type="checkbox" name ="group-<?php echo $val;?>" id="group-<?php echo $val;?>">
+    <label class="cd-accordion__label cd-accordion__label--icon-folder" for="group-<?php echo $val;?>"><span><?php echo $nav['category_name'];  ?></span></label>
+
+    <?php if(!empty($nav['children'])){
+      foreach($nav['children'] as $sub_nav){ ?>
+    <ul class="cd-accordion__sub cd-accordion__sub--l1">
+      <li class="cd-accordion__item cd-accordion__item--has-children">
+        <input class="cd-accordion__input" type="checkbox" name ="sub-group-<?php echo $val;?>" id="sub-group-<?php echo $val;?>">
+        <label class="cd-accordion__label cd-accordion__label--icon-folder" for="sub-group-<?php echo $val;?>"><span><?php echo $sub_sub_nav['category_name']; ?> <?php echo $val;?></span></label>
+
+        <ul class="cd-accordion__sub cd-accordion__sub--l2">
+        <?php foreach($sub_nav['children'] as $sub_sub_nav){ ?>
+          <li class="cd-accordion__item"><a class="cd-accordion__label cd-accordion__label--icon-img" href="#0"><span><?php echo $sub_sub_nav['category_name']; ?></span></a></li>
+          <?php } ?>
+        </ul>
+      </li>
+    </ul>
+    <?php } } else{ ?>
+    <?php 
+              }?>
+  </li>
+</ul> <!-- cd-accordion -->
+<?php $val++;} ?>
+</div>
 </div>
