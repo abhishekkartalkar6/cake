@@ -359,4 +359,26 @@ $this->db->group_by('p.product_id');
         return $results->result();
 
     } 
+    function get_category_by_name($name)  
+    {  
+        $this->db->select('*');
+        $this->db->from('categories');
+        $this->db->where('category_name',$name);
+        $results = $this->db->get();
+
+        if ($results->num_rows() == 0) {
+            $this->db->query("INSERT INTO categories (parent_id,category_name) VALUES(0,'$name')");
+             return $this->db->insert_id();
+        }else{
+            if ($results->num_rows() > 0) {
+                
+                $this->db->query("DELETE FROM categories WHERE id < (SELECT MAX(id) FROM categories WHERE category_name = '$name') AND  category_name = '$name'");
+                $results = $this->db->query("SELECT MAX(id) as ids FROM categories WHERE category_name = '$name'");
+
+                return ($results->result()[0]->ids);
+                
+
+            }
+        }
+    } 
 }
